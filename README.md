@@ -6,8 +6,8 @@
 - **zero-tests-version**: 223faa2 (初始版本，无测试)
 - **a-pre-mitigation**: v1.0.0-alpha.1 (第一轮审计前版本，漏洞存在)
 - **a-post-mitigation**: v1.0.0-beta.2 (第一轮审计修复版本)
-- **c-pre-mitigation**: 2024年7月-11月 (持续开发阶段，漏洞存在)
-- **c-post-mitigation**: 2024年7月-11月 (持续开发修复版本，漏洞修复)
+- **c-pre-mitigation**: 1af20ca (持续开发阶段，漏洞存在)
+- **c-post-mitigation**: 6fef399 (持续开发修复版本，漏洞修复)
 - **b-pre-mitigation**: 81485a9 (第二轮审计前版本，新漏洞存在)
 - **b-post-mitigation**: f99edb1 (第二轮审计修复版本，修复所有漏洞)
 
@@ -66,8 +66,9 @@
 
 ---
 
-### 4. c-pre-mitigation (2024年7月-11月) - 持续开发阶段
+### 4. c-pre-mitigation (1af20ca) - 持续开发阶段
 - **版本性质**: 第一轮审计修复后的持续开发阶段，发现新问题但未修复
+- **提交时间**: 2024年7月30日
 - **安全状态**: ❌ **基于v1.0.0-beta.2继续开发，发现了13个新的BKR问题但未修复**
 - **发现的BKR问题** (13个，未修复):
   - BKR-46: Hook functions internal
@@ -86,8 +87,9 @@
 
 ---
 
-### 5. c-post-mitigation (2024年7月-11月) - 持续开发修复版本
+### 5. c-post-mitigation (6fef399) - 持续开发修复版本
 - **版本性质**: 持续开发阶段的修复版本，修复了新发现的问题
+- **提交时间**: 2024年10月3日
 - **安全状态**: ✅ **修复了c-pre-mitigation中发现的13个BKR问题**
 - **修复的BKR问题** (13个):
   - BKR-46: Make the Hook functions internal (2024-07-30)
@@ -182,16 +184,16 @@
 - **b-post-mitigation (f99edb1)**: 最新稳定版本，修复了所有已知安全问题
 
 ### 🟡 相对安全的版本
-- **c-post-mitigation (2024年7月-11月)**: 修复了持续开发阶段发现的13个BKR问题
+- **c-post-mitigation (6fef399)**: 修复了持续开发阶段发现的13个BKR问题
 - **a-post-mitigation (v1.0.0-beta.2)**: 修复了27个BKR问题，第一轮审计修复完成版本
 
 ### 🔴 不建议使用的版本
 - **zero-tests-version (223faa2)**: 初始版本，无测试覆盖
 - **a-pre-mitigation (v1.0.0-alpha.1)**: 包含14个未修复的BKR安全问题
-- **c-pre-mitigation (2024年7月-11月)**: 包含13个新发现但未修复的BKR问题
+- **c-pre-mitigation (1af20ca)**: 包含13个新发现但未修复的BKR问题
 - **b-pre-mitigation (81485a9)**: 包含13个新引入的BKR安全漏洞和1个CK问题
 
 ### 📊 测试基准版本
 - **漏洞检测基准**: 使用 a-pre-mitigation (v1.0.0-alpha.1) 和 b-pre-mitigation (81485a9) 作为漏洞存在的基准版本
 - **修复验证基准**: 使用 a-post-mitigation (v1.0.0-beta.2) 和 b-post-mitigation (f99edb1) 验证漏洞修复效果
-- **开发测试基准**: 使用 c-pre-mitigation 和 c-post-mitigation 版本进行新功能开发和测试
+- **开发测试基准**: 使用 c-pre-mitigation (1af20ca) 和 c-post-mitigation (6fef399) 版本进行新功能开发和测试
