@@ -2,6 +2,9 @@
 1. 搜索所有可能的安全编号，BKR，CK，F，找到有编号的安全修复。
 2. 搜索安全相关关键词，找到无编号安全修复。
 
+## bakerfi-contracts 项目地址
+1. https://github.com/baker-fi/bakerfi-contracts
+
 ## bakerfi-contracts 提交版本切割
 1. 文件夹名zero-tests-version，223faa2提交，最早期版本（2023 Q3，2023-07-02），初始化版本。
 2. 文件夹名a-pre-mitigation，v1.0.0-alpha.6提交，审计前版本（2024 Q2，2024-04-08），所有漏洞都存在
