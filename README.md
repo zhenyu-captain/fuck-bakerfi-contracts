@@ -111,7 +111,7 @@
 ### 6. b-pre-mitigation (81485a9) - 2024年11月
 - **版本性质**: 第二轮审计前版本 - **新漏洞引入阶段**
 - **安全状态**: 
-  - ✅ **继承了所有之前的修复** (BKR-13 到 BKR-144)
+  - ✅ **继承了所有之前的修复** (BKR-13 到 BKR-145)
   - ❌ **新引入了15个漏洞**:
     - BKR-157: Vault with support for N Strategies (2024-11-20)
     - BKR-159: Morpho Supply Strategy (2024-12-04)
