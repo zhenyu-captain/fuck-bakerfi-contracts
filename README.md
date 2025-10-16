@@ -6,8 +6,10 @@
 - **zero-tests-version**: 223faa2 (初始版本，无测试)
 - **a-pre-mitigation**: v1.0.0-alpha.1 (第一轮审计前版本，漏洞存在)
 - **a-post-mitigation**: v1.0.0-beta.2 (第一轮审计修复版本)
-- **b-pre-mitigation**: 81485a9 (第二轮审计前版本)
-- **b-post-mitigation**: f99edb1 (第二轮审计修复版本)
+- **c-pre-mitigation**: 2024年7月-11月 (持续开发阶段，漏洞存在)
+- **c-post-mitigation**: 2024年7月-11月 (持续开发修复版本，漏洞修复)
+- **b-pre-mitigation**: 81485a9 (第二轮审计前版本，新漏洞存在)
+- **b-post-mitigation**: f99edb1 (第二轮审计修复版本，修复所有漏洞)
 
 ### 1. zero-tests-version (223faa2) - 2023年7月
 - **版本性质**: 初始版本
@@ -64,28 +66,87 @@
 
 ---
 
-### 4. b-pre-mitigation (81485a9) - 2024年11月
+### 4. c-pre-mitigation (2024年7月-11月) - 持续开发阶段
+- **版本性质**: 第一轮审计修复后的持续开发阶段，发现新问题但未修复
+- **安全状态**: ❌ **基于v1.0.0-beta.2继续开发，发现了12个新的BKR问题但未修复**
+- **发现的BKR问题** (12个，未修复):
+  - BKR-46: Hook functions internal
+  - BKR-81: Validate contracts on Base Scan
+  - BKR-83: Using prices for swap slippage instead of onchain quoters
+  - BKR-88: Change oracles
+  - BKR-89: Vault ERC4626 Standard
+  - BKR-99: Pause/Pause by Multiple EOA
+  - BKR-106: Leverage Strategy with Morpho Blue
+  - BKR-111: Debt token could be a generic Token and not only WETH
+  - BKR-116: Fixed Round issues on Withdraw
+  - BKR-122: Support For Multiple Strategy per chain + Lido AAVE v3 Markets
+  - BKR-143: Ethereum deployment
+  - BKR-144: Morpho Blue Strategy on Base
+
+---
+
+### 5. c-post-mitigation (2024年7月-11月) - 持续开发修复版本
+- **版本性质**: 持续开发阶段的修复版本，修复了新发现的问题
+- **安全状态**: ✅ **修复了c-pre-mitigation中发现的12个BKR问题**
+- **修复的BKR问题** (12个):
+  - BKR-46: Make the Hook functions internal (2024-07-30)
+  - BKR-81: Validate contracts on Base Scan (2024-07-23)
+  - BKR-83: Using prices for swap slippage instead of onchain quoters (2024-07-22)
+  - BKR-88: Change oracles (2024-07-30)
+  - BKR-89: Vault ERC4626 Standard (2024-07-30)
+  - BKR-99: Pause/Pause by Multiple EOA (2024-10-09)
+  - BKR-106: Leverage Strategy with Morpho Blue (2024-09-04)
+  - BKR-111: Debt token could be a generic Token and not only WETH (2024-09-03)
+  - BKR-116: Fixed Round issues on Withdraw (2024-08-13)
+  - BKR-122: Support For Multiple Strategy per chain + Lido AAVE v3 Markets (2024-09-23)
+  - BKR-143: Ethereum deployment (2024-10-14)
+  - BKR-144: Morpho Blue Strategy on Base (2024-10-21)
+
+---
+
+### 6. b-pre-mitigation (81485a9) - 2024年11月
 - **版本性质**: 第二轮审计前版本 - **新漏洞引入阶段**
 - **安全状态**: 
-  - ✅ **继承了第一轮的所有修复** (BKR-13 到 BKR-71)
-  - ❌ **新引入了4个漏洞**:
-    - BKR-46: Hook functions internal
-    - BKR-81: Validate contracts on Base Scan  
-    - BKR-83: Using prices for swap slippage instead of onchain quoters
+  - ✅ **继承了所有之前的修复** (BKR-13 到 BKR-144)
+  - ❌ **新引入了15个漏洞**:
+    - BKR-157: Vault with support for N Strategies (2024-11-20)
+    - BKR-159: Morpho Supply Strategy (2024-12-04)
+    - BKR-169: Multiple strategies (2025-01-27)
+    - BKR-178: swapper multiple implementations (2024-11-26)
+    - BKR-179: vault router support for aerodrome swaps (2024-11-27)
+    - BKR-195: _deployedAmount not updated on StrategySupplyBase.undeploy, preventing performance fees from being collected - F6 (2025-01-09)
+    - BKR-197: decimals conversions There are multiple issues with the decimal conversions between the vault and the strategy - F13 (2025-01-16)
+    - BKR-199: Malicious actors can exploit user-approved allowances on VaultRouter to drain their ERC20 tokens - F18 (2025-01-14)
+    - BKR-200: Users may encounter losses on assets deposited through StrategySupplyERC4626 - F1 (2025-01-14)
+    - BKR-206: VaultBase is not ERC4626 compliant - F3 (2025-01-14)
+    - BKR-207: Even when the Vault contract is paused, the rebalance function is not paused - F12 (2025-01-07)
+    - BKR-208: The interaction between the router and the ERC4626 vault lacks slippage control - F14 (2025-01-15)
     - CK-209/F11: _handleSweepTokens function lacks ability to withdraw native ETH
 
 ---
 
-### 5. b-post-mitigation (f99edb1) - 2025年2月
+### 7. b-post-mitigation (f99edb1) - 2025年2月
 - **版本性质**: 第二轮审计后版本 - **最终修复阶段**
 - **安全状态**: 修复了所有已知漏洞，当前最安全版本
 - **修复状态**:
-  - ✅ **保持第一轮所有修复** (BKR-13 到 BKR-71)
+  - ✅ **保持所有之前的修复** (BKR-13 到 BKR-208)
   - ✅ **修复第二轮新漏洞**:
-    - BKR-46: Hook functions internal
-    - BKR-81: Validate contracts on Base Scan
-    - BKR-83: Using prices for swap slippage instead of onchain quoters
+    - BKR-157: Vault with support for N Strategies
+    - BKR-159: Morpho Supply Strategy
+    - BKR-169: Multiple strategies
+    - BKR-178: swapper multiple implementations
+    - BKR-179: vault router support for aerodrome swaps
+    - BKR-195: _deployedAmount not updated on StrategySupplyBase.undeploy, preventing performance fees from being collected - F6
+    - BKR-197: decimals conversions There are multiple issues with the decimal conversions between the vault and the strategy - F13
+    - BKR-199: Malicious actors can exploit user-approved allowances on VaultRouter to drain their ERC20 tokens - F18
+    - BKR-200: Users may encounter losses on assets deposited through StrategySupplyERC4626 - F1
+    - BKR-206: VaultBase is not ERC4626 compliant - F3
+    - BKR-207: Even when the Vault contract is paused, the rebalance function is not paused - F12
+    - BKR-208: The interaction between the router and the ERC4626 vault lacks slippage control - F14
     - CK-209/F11: _handleSweepTokens function lacks ability to withdraw native ETH
+  - ✅ **新增最终修复**:
+    - BKR-255: Remove ERC20 approve zero (2025-02-05)
+    - BKR-256: harvest before change perf (2025-02-05)
 
 ## 漏洞详细信息
 
@@ -101,11 +162,17 @@
 
 ## 安全编号统计
 
-| 编号类型 | 总数 | 第一轮 | 第二轮 | 外部审计 |
-|---------|------|--------|--------|----------|
-| BKR     | 33   | 30     | 3      | 0        |
-| CK      | 1    | 0      | 1      | 1        |
-| F       | 1    | 0      | 1      | 1        |
+| 编号类型 | 总数 | 第一轮审计 | 持续开发 | 第二轮审计 | 最终修复 | 外部审计 |
+|---------|------|-----------|----------|-----------|----------|----------|
+| BKR     | 54   | 27        | 12       | 13        | 2        | 0        |
+| CK      | 1    | 0         | 0        | 1         | 0        | 1        |
+| F       | 1    | 0         | 0        | 1         | 0        | 1        |
+
+### 详细分布说明：
+- **第一轮审计 (2023年10月-2024年6月)**: 27个BKR问题 (BKR-13到BKR-71)
+- **持续开发 (2024年7月-11月)**: 12个BKR问题 (BKR-46, BKR-81, BKR-83, BKR-88, BKR-89, BKR-99, BKR-106, BKR-111, BKR-116, BKR-122, BKR-143, BKR-144)
+- **第二轮审计 (2024年11月-2025年1月)**: 13个BKR问题 (BKR-157, BKR-159, BKR-169, BKR-178, BKR-179, BKR-195, BKR-197, BKR-199, BKR-200, BKR-206, BKR-207, BKR-208) + 1个CK问题
+- **最终修复 (2025年2月)**: 2个BKR问题 (BKR-255, BKR-256)
 
 ## 版本安全建议
 
@@ -113,13 +180,16 @@
 - **b-post-mitigation (f99edb1)**: 最新稳定版本，修复了所有已知安全问题
 
 ### 🟡 相对安全的版本
+- **c-post-mitigation (2024年7月-11月)**: 修复了持续开发阶段发现的12个BKR问题
 - **a-post-mitigation (v1.0.0-beta.2)**: 修复了27个BKR问题，第一轮审计修复完成版本
 
 ### 🔴 不建议使用的版本
 - **zero-tests-version (223faa2)**: 初始版本，无测试覆盖
 - **a-pre-mitigation (v1.0.0-alpha.1)**: 包含14个未修复的BKR安全问题
-- **b-pre-mitigation (81485a9)**: 包含新引入的安全漏洞
+- **c-pre-mitigation (2024年7月-11月)**: 包含12个新发现但未修复的BKR问题
+- **b-pre-mitigation (81485a9)**: 包含13个新引入的BKR安全漏洞和1个CK问题
 
 ### 📊 测试基准版本
 - **漏洞检测基准**: 使用 a-pre-mitigation (v1.0.0-alpha.1) 和 b-pre-mitigation (81485a9) 作为漏洞存在的基准版本
 - **修复验证基准**: 使用 a-post-mitigation (v1.0.0-beta.2) 和 b-post-mitigation (f99edb1) 验证漏洞修复效果
+- **开发测试基准**: 使用 c-pre-mitigation 和 c-post-mitigation 版本进行新功能开发和测试
