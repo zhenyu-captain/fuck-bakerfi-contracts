@@ -115,7 +115,7 @@
 - **版本性质**: 第二轮审计前版本 - **新漏洞引入阶段**
 - **安全状态**: 
   - ✅ **继承了所有之前的修复** (BKR-13 到 BKR-145)
-  - ❌ **新引入了15个漏洞**:
+  - ❌ **新引入了14个漏洞** (BKR-200单独分类):
     - BKR-157: Vault with support for N Strategies (2024-11-20)
     - BKR-159: Morpho Supply Strategy (2024-12-04)
     - BKR-169: Multiple strategies (2025-01-27)
@@ -124,11 +124,30 @@
     - BKR-195: _deployedAmount not updated on StrategySupplyBase.undeploy, preventing performance fees from being collected - F6 (2025-01-09)
     - BKR-197: decimals conversions There are multiple issues with the decimal conversions between the vault and the strategy - F13 (2025-01-16)
     - BKR-199: Malicious actors can exploit user-approved allowances on VaultRouter to drain their ERC20 tokens - F18 (2025-01-14)
-    - BKR-200: Users may encounter losses on assets deposited through StrategySupplyERC4626 - F1 (2025-01-14)
     - BKR-206: VaultBase is not ERC4626 compliant - F3 (2025-01-14)
     - BKR-207: Even when the Vault contract is paused, the rebalance function is not paused - F12 (2025-01-07)
     - BKR-208: The interaction between the router and the ERC4626 vault lacks slippage control - F14 (2025-01-15)
+    - BKR-255: Remove ERC20 approve zero (2025-02-05)
+    - BKR-256: harvest before change perf (2025-02-05)
     - CK-209/F11: _handleSweepTokens function lacks ability to withdraw native ETH
+
+---
+
+### 6.5. BKR-200 特殊时间线 - 2024年12月-2025年1月
+- **版本性质**: **特殊功能引入和修复阶段** - **ERC4626策略功能开发**
+- **安全状态**: 
+  - **功能引入阶段 (dfcf463)**: 2024年12月4日 - 首次创建StrategySupplyERC4626.sol，但存在漏洞
+  - **漏洞修复阶段 (ce9d853)**: 2025年1月14日 - 修复ERC4626标准理解错误
+- **特殊说明**: 
+  - BKR-200不属于传统的"审计前/审计后"分类
+  - 它是新功能开发过程中发现并修复的漏洞
+  - 在81485a9版本中，StrategySupplyERC4626.sol文件不存在
+  - 在dfcf463版本中，文件被创建但存在ERC4626标准使用错误
+  - 在ce9d853版本中，漏洞被修复
+- **漏洞详情**:
+  - **漏洞根因**: ERC4626标准理解错误，直接使用shares数量而不是实际资产数量
+  - **修复方式**: 添加`convertToAssets()`调用确保资产数量计算正确
+  - **影响**: 用户存入和提取的资产数量计算错误，可能导致损失
 
 ---
 
@@ -146,16 +165,32 @@
     - BKR-195: _deployedAmount not updated on StrategySupplyBase.undeploy, preventing performance fees from being collected - F6
     - BKR-197: decimals conversions There are multiple issues with the decimal conversions between the vault and the strategy - F13
     - BKR-199: Malicious actors can exploit user-approved allowances on VaultRouter to drain their ERC20 tokens - F18
-    - BKR-200: Users may encounter losses on assets deposited through StrategySupplyERC4626 - F1
     - BKR-206: VaultBase is not ERC4626 compliant - F3
     - BKR-207: Even when the Vault contract is paused, the rebalance function is not paused - F12
     - BKR-208: The interaction between the router and the ERC4626 vault lacks slippage control - F14
-    - CK-209/F11: _handleSweepTokens function lacks ability to withdraw native ETH
-  - ✅ **新增最终修复**:
     - BKR-255: Remove ERC20 approve zero (2025-02-05)
     - BKR-256: harvest before change perf (2025-02-05)
+    - CK-209/F11: _handleSweepTokens function lacks ability to withdraw native ETH
+  - ✅ **修复特殊时间线漏洞**:
+    - BKR-200: Users may encounter losses on assets deposited through StrategySupplyERC4626 - F1 (已在6.5节单独处理)
+  - ✅ **新增最终修复**:
+    - (暂无)
 
 ## 漏洞详细信息
+
+### BKR-200 漏洞详情
+- **漏洞名称**: Users may encounter losses on assets deposited through StrategySupplyERC4626 - F1
+- **发现来源**: 模糊测试 (F1)
+- **漏洞存在版本**: dfcf463 (2024-12-04) - 功能引入但存在漏洞
+- **漏洞修复版本**: ce9d853 (2025-01-14)
+- **特殊说明**: 
+  - 在81485a9版本中，StrategySupplyERC4626.sol文件不存在
+  - 在dfcf463版本中，文件被创建但存在ERC4626标准理解错误
+  - 在ce9d853版本中，漏洞被修复
+- **修复内容**: 
+  - 添加`convertToAssets()`调用确保资产数量计算正确
+  - 修复ERC4626标准使用错误，避免用户资产损失
+  - 详细分析报告: `/home/mi/fuck-bakerfi-contracts/BKR/BKR-200.md`
 
 ### CK-209/F11 漏洞详情
 - **漏洞名称**: The _handleSweepTokens function lacks the ability to withdraw native ETH
@@ -169,17 +204,18 @@
 
 ## 安全编号统计
 
-| 编号类型 | 总数 | 第一轮审计 | 持续开发 | 第二轮审计 | 最终修复 | 外部审计 |
-|---------|------|-----------|----------|-----------|----------|----------|
-| BKR     | 55   | 27        | 13       | 13        | 2        | 0        |
-| CK      | 1    | 0         | 0        | 1         | 0        | 1        |
-| F       | 1    | 0         | 0        | 1         | 0        | 1        |
+| 编号类型 | 总数 | 第一轮审计 | 持续开发 | 第二轮审计 | 特殊时间线 | 最终修复 | 外部审计 |
+|---------|------|-----------|----------|-----------|------------|----------|----------|
+| BKR     | 55   | 27        | 13       | 14        | 1          | 0        | 0        |
+| CK      | 1    | 0         | 0        | 1         | 0          | 0        | 1        |
+| F       | 1    | 0         | 0        | 1         | 0          | 0        | 1        |
 
 ### 详细分布说明：
 - **第一轮审计 (2023年10月-2024年6月)**: 27个BKR问题 (BKR-13到BKR-71)
 - **持续开发 (2024年7月-11月)**: 13个BKR问题 (BKR-46, BKR-81, BKR-83, BKR-88, BKR-89, BKR-99, BKR-106, BKR-111, BKR-116, BKR-122, BKR-143, BKR-144, BKR-145)
-- **第二轮审计 (2024年11月-2025年1月)**: 13个BKR问题 (BKR-157, BKR-159, BKR-169, BKR-178, BKR-179, BKR-195, BKR-197, BKR-199, BKR-200, BKR-206, BKR-207, BKR-208) + 1个CK问题
-- **最终修复 (2025年2月)**: 2个BKR问题 (BKR-255, BKR-256)
+- **第二轮审计 (2024年11月-2025年2月)**: 14个BKR问题 (BKR-157, BKR-159, BKR-169, BKR-178, BKR-179, BKR-195, BKR-197, BKR-199, BKR-206, BKR-207, BKR-208, BKR-255, BKR-256) + 1个CK问题
+- **特殊时间线 (2024年12月-2025年1月)**: 1个BKR问题 (BKR-200: ERC4626策略功能开发过程中的漏洞)
+- **最终修复 (2025年2月)**: 0个BKR问题
 
 ## 版本安全建议
 
