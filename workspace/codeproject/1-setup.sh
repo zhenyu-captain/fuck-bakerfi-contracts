@@ -365,12 +365,17 @@ else
     if [ -n "$SLITHER_INSTALLED" ] || [ -n "$SOLC_SELECT_INSTALLED" ]; then
         echo "  检测到不同版本的工具，重新安装..."
         # 先卸载可能存在的旧版本
-        pip uninstall -y slither-analyzer mythril solc-select > /dev/null 2>&1 || true
+        pip uninstall -y slither-analyzer mythril solc-select web3 hexbytes > /dev/null 2>&1 || true
     else
         echo "  安装 Slither 和 solc-select..."
     fi
     
+    # 先卸载所有相关包，然后重新安装兼容版本
+    echo "  清理旧版本依赖..."
+    pip uninstall -y slither-analyzer mythril web3 hexbytes eth-abi eth-account eth-hash eth-typing eth-utils trie eth-rlp > /dev/null 2>&1 || true
+    
     # 重新安装 Slither 及其依赖（一次性安装避免冲突）
+    echo "  安装 Slither 及兼容依赖..."
     pip install --quiet slither-analyzer==${SLITHER_VERSION} > /dev/null 2>&1
     
     # 安装 solc-select 用于管理 Solidity 编译器版本
@@ -385,6 +390,14 @@ else
     SOLC_SELECT_ACTUAL=$(pip show solc-select 2>/dev/null | grep Version | cut -d' ' -f2 || echo "${SOLC_SELECT_VERSION}")
     echo -e "${GREEN}✓ Slither ${SLITHER_ACTUAL} 安装完成${NC}"
     echo -e "${GREEN}✓ solc-select ${SOLC_SELECT_ACTUAL} 安装完成${NC}"
+    
+    # 验证 Slither 是否能正常运行（测试版本命令）
+    echo "  验证 Slither 功能..."
+    if slither --version > /dev/null 2>&1; then
+        echo -e "  ${GREEN}✓ Slither 功能正常${NC}"
+    else
+        echo -e "  ${YELLOW}⚠ Slither 可能仍有依赖问题，但已安装${NC}"
+    fi
 fi
 echo ""
 
