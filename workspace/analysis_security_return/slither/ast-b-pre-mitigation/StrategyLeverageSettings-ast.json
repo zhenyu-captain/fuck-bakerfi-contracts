@@ -1,0 +1,2799 @@
+{
+  "absolutePath": "contracts/core/strategies/StrategyLeverageSettings.sol",
+  "exportedSymbols": {
+    "GovernableOwnable": [
+      22262
+    ],
+    "MAX_LOOPS": [
+      22148
+    ],
+    "PERCENTAGE_PRECISION": [
+      22152
+    ],
+    "StrategyLeverageSettings": [
+      34484
+    ],
+    "StrategySettings": [
+      34893
+    ]
+  },
+  "id": 34485,
+  "license": "BUSL-1.1",
+  "nodeType": "SourceUnit",
+  "nodes": [
+    {
+      "id": 34238,
+      "literals": [
+        "solidity",
+        "^",
+        "0.8",
+        ".24"
+      ],
+      "nodeType": "PragmaDirective",
+      "src": "37:24:132"
+    },
+    {
+      "absolutePath": "contracts/core/GovernableOwnable.sol",
+      "file": "../GovernableOwnable.sol",
+      "id": 34240,
+      "nameLocation": "-1:-1:-1",
+      "nodeType": "ImportDirective",
+      "scope": 34485,
+      "sourceUnit": 22263,
+      "src": "63:61:132",
+      "symbolAliases": [
+        {
+          "foreign": {
+            "id": 34239,
+            "name": "GovernableOwnable",
+            "nodeType": "Identifier",
+            "overloadedDeclarations": [],
+            "referencedDeclaration": 22262,
+            "src": "72:17:132",
+            "typeDescriptions": {}
+          },
+          "nameLocation": "-1:-1:-1"
+        }
+      ],
+      "unitAlias": ""
+    },
+    {
+      "absolutePath": "contracts/core/Constants.sol",
+      "file": "../Constants.sol",
+      "id": 34243,
+      "nameLocation": "-1:-1:-1",
+      "nodeType": "ImportDirective",
+      "scope": 34485,
+      "sourceUnit": 22159,
+      "src": "125:67:132",
+      "symbolAliases": [
+        {
+          "foreign": {
+            "id": 34241,
+            "name": "PERCENTAGE_PRECISION",
+            "nodeType": "Identifier",
+            "overloadedDeclarations": [],
+            "referencedDeclaration": 22152,
+            "src": "134:20:132",
+            "typeDescriptions": {}
+          },
+          "nameLocation": "-1:-1:-1"
+        },
+        {
+          "foreign": {
+            "id": 34242,
+            "name": "MAX_LOOPS",
+            "nodeType": "Identifier",
+            "overloadedDeclarations": [],
+            "referencedDeclaration": 22148,
+            "src": "156:9:132",
+            "typeDescriptions": {}
+          },
+          "nameLocation": "-1:-1:-1"
+        }
+      ],
+      "unitAlias": ""
+    },
+    {
+      "absolutePath": "contracts/core/strategies/StrategySettings.sol",
+      "file": "./StrategySettings.sol",
+      "id": 34245,
+      "nameLocation": "-1:-1:-1",
+      "nodeType": "ImportDirective",
+      "scope": 34485,
+      "sourceUnit": 34894,
+      "src": "193:58:132",
+      "symbolAliases": [
+        {
+          "foreign": {
+            "id": 34244,
+            "name": "StrategySettings",
+            "nodeType": "Identifier",
+            "overloadedDeclarations": [],
+            "referencedDeclaration": 34893,
+            "src": "202:16:132",
+            "typeDescriptions": {}
+          },
+          "nameLocation": "-1:-1:-1"
+        }
+      ],
+      "unitAlias": ""
+    },
+    {
+      "abstract": false,
+      "baseContracts": [
+        {
+          "baseName": {
+            "id": 34246,
+            "name": "StrategySettings",
+            "nameLocations": [
+              "290:16:132"
+            ],
+            "nodeType": "IdentifierPath",
+            "referencedDeclaration": 34893,
+            "src": "290:16:132"
+          },
+          "id": 34247,
+          "nodeType": "InheritanceSpecifier",
+          "src": "290:16:132"
+        }
+      ],
+      "canonicalName": "StrategyLeverageSettings",
+      "contractDependencies": [],
+      "contractKind": "contract",
+      "fullyImplemented": true,
+      "id": 34484,
+      "linearizedBaseContracts": [
+        34484,
+        34893,
+        37776,
+        22262,
+        2665,
+        5002,
+        3088
+      ],
+      "name": "StrategyLeverageSettings",
+      "nameLocation": "262:24:132",
+      "nodeType": "ContractDefinition",
+      "nodes": [
+        {
+          "errorSelector": "3b755ca2",
+          "id": 34249,
+          "name": "InvalidMaxLoanToValue",
+          "nameLocation": "317:21:132",
+          "nodeType": "ErrorDefinition",
+          "parameters": {
+            "id": 34248,
+            "nodeType": "ParameterList",
+            "parameters": [],
+            "src": "338:2:132"
+          },
+          "src": "311:30:132"
+        },
+        {
+          "errorSelector": "2ffe3c2f",
+          "id": 34251,
+          "name": "InvalidLoopCount",
+          "nameLocation": "350:16:132",
+          "nodeType": "ErrorDefinition",
+          "parameters": {
+            "id": 34250,
+            "nodeType": "ParameterList",
+            "parameters": [],
+            "src": "366:2:132"
+          },
+          "src": "344:25:132"
+        },
+        {
+          "anonymous": false,
+          "documentation": {
+            "id": 34252,
+            "nodeType": "StructuredDocumentation",
+            "src": "373:241:132",
+            "text": " @dev Emitted when the maximum allowed loan-to-value ratio is changed.\n This event provides information about the updated maximum loan-to-value ratio.\n @param value The new maximum allowed loan-to-value ratio."
+          },
+          "eventSelector": "0e54922494ee00fae308aea0ebd64d27da978320217b536d889823332271ed30",
+          "id": 34256,
+          "name": "MaxLoanToValueChanged",
+          "nameLocation": "623:21:132",
+          "nodeType": "EventDefinition",
+          "parameters": {
+            "id": 34255,
+            "nodeType": "ParameterList",
+            "parameters": [
+              {
+                "constant": false,
+                "id": 34254,
+                "indexed": true,
+                "mutability": "mutable",
+                "name": "value",
+                "nameLocation": "661:5:132",
+                "nodeType": "VariableDeclaration",
+                "scope": 34256,
+                "src": "645:21:132",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 34253,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "645:7:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "src": "644:23:132"
+          },
+          "src": "617:51:132"
+        },
+        {
+          "anonymous": false,
+          "documentation": {
+            "id": 34257,
+            "nodeType": "StructuredDocumentation",
+            "src": "672:217:132",
+            "text": " @dev Emitted when the general loan-to-value ratio is changed.\n This event provides information about the updated loan-to-value ratio.\n @param value The new general loan-to-value ratio."
+          },
+          "eventSelector": "5129e5a639a8aab0c7417fa5ea8f5555436f12301866aeae67b789e31ff6ee83",
+          "id": 34261,
+          "name": "LoanToValueChanged",
+          "nameLocation": "898:18:132",
+          "nodeType": "EventDefinition",
+          "parameters": {
+            "id": 34260,
+            "nodeType": "ParameterList",
+            "parameters": [
+              {
+                "constant": false,
+                "id": 34259,
+                "indexed": true,
+                "mutability": "mutable",
+                "name": "value",
+                "nameLocation": "933:5:132",
+                "nodeType": "VariableDeclaration",
+                "scope": 34261,
+                "src": "917:21:132",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 34258,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "917:7:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "src": "916:23:132"
+          },
+          "src": "892:48:132"
+        },
+        {
+          "anonymous": false,
+          "documentation": {
+            "id": 34262,
+            "nodeType": "StructuredDocumentation",
+            "src": "944:212:132",
+            "text": " @dev Emitted when the number of loops for a specific process is changed.\n This event provides information about the updated number of loops.\n @param value The new number of loops."
+          },
+          "eventSelector": "ce0a7d191c872adf950a44afa7939230f4ed67bd8122e6138ebd5a8a1efe3dbb",
+          "id": 34266,
+          "name": "NrLoopsChanged",
+          "nameLocation": "1165:14:132",
+          "nodeType": "EventDefinition",
+          "parameters": {
+            "id": 34265,
+            "nodeType": "ParameterList",
+            "parameters": [
+              {
+                "constant": false,
+                "id": 34264,
+                "indexed": true,
+                "mutability": "mutable",
+                "name": "value",
+                "nameLocation": "1196:5:132",
+                "nodeType": "VariableDeclaration",
+                "scope": 34266,
+                "src": "1180:21:132",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 34263,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1180:7:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "src": "1179:23:132"
+          },
+          "src": "1159:44:132"
+        },
+        {
+          "anonymous": false,
+          "eventSelector": "2464163639a2c8e8ce439351474cccf4e5d5f6226b11d8984dfdf615420672db",
+          "id": 34270,
+          "name": "MaxSlippageChanged",
+          "nameLocation": "1213:18:132",
+          "nodeType": "EventDefinition",
+          "parameters": {
+            "id": 34269,
+            "nodeType": "ParameterList",
+            "parameters": [
+              {
+                "constant": false,
+                "id": 34268,
+                "indexed": true,
+                "mutability": "mutable",
+                "name": "value",
+                "nameLocation": "1248:5:132",
+                "nodeType": "VariableDeclaration",
+                "scope": 34270,
+                "src": "1232:21:132",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 34267,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1232:7:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "src": "1231:23:132"
+          },
+          "src": "1207:48:132"
+        },
+        {
+          "constant": false,
+          "documentation": {
+            "id": 34271,
+            "nodeType": "StructuredDocumentation",
+            "src": "1259:159:132",
+            "text": " @dev The loan-to-value ratio for managing loans.\n This private state variable holds the loan-to-value ratio, represented as an integer."
+          },
+          "id": 34273,
+          "mutability": "mutable",
+          "name": "_loanToValue",
+          "nameLocation": "1437:12:132",
+          "nodeType": "VariableDeclaration",
+          "scope": 34484,
+          "src": "1421:28:132",
+          "stateVariable": true,
+          "storageLocation": "default",
+          "typeDescriptions": {
+            "typeIdentifier": "t_uint256",
+            "typeString": "uint256"
+          },
+          "typeName": {
+            "id": 34272,
+            "name": "uint256",
+            "nodeType": "ElementaryTypeName",
+            "src": "1421:7:132",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            }
+          },
+          "visibility": "private"
+        },
+        {
+          "constant": false,
+          "documentation": {
+            "id": 34274,
+            "nodeType": "StructuredDocumentation",
+            "src": "1461:172:132",
+            "text": " @dev The maximum allowed loan-to-value ratio.\n This private state variable holds the maximum allowed loan-to-value ratio, represented as an integer."
+          },
+          "id": 34276,
+          "mutability": "mutable",
+          "name": "_maxLoanToValue",
+          "nameLocation": "1652:15:132",
+          "nodeType": "VariableDeclaration",
+          "scope": 34484,
+          "src": "1636:31:132",
+          "stateVariable": true,
+          "storageLocation": "default",
+          "typeDescriptions": {
+            "typeIdentifier": "t_uint256",
+            "typeString": "uint256"
+          },
+          "typeName": {
+            "id": 34275,
+            "name": "uint256",
+            "nodeType": "ElementaryTypeName",
+            "src": "1636:7:132",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            }
+          },
+          "visibility": "private"
+        },
+        {
+          "constant": false,
+          "documentation": {
+            "id": 34277,
+            "nodeType": "StructuredDocumentation",
+            "src": "1679:187:132",
+            "text": " @dev The number of loops for a specific process.\n This private state variable holds the number of loops for a specific process, represented as an unsigned integer."
+          },
+          "id": 34279,
+          "mutability": "mutable",
+          "name": "_nrLoops",
+          "nameLocation": "1883:8:132",
+          "nodeType": "VariableDeclaration",
+          "scope": 34484,
+          "src": "1869:22:132",
+          "stateVariable": true,
+          "storageLocation": "default",
+          "typeDescriptions": {
+            "typeIdentifier": "t_uint8",
+            "typeString": "uint8"
+          },
+          "typeName": {
+            "id": 34278,
+            "name": "uint8",
+            "nodeType": "ElementaryTypeName",
+            "src": "1869:5:132",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint8",
+              "typeString": "uint8"
+            }
+          },
+          "visibility": "private"
+        },
+        {
+          "constant": false,
+          "documentation": {
+            "id": 34280,
+            "nodeType": "StructuredDocumentation",
+            "src": "1896:19:132",
+            "text": " @dev"
+          },
+          "id": 34282,
+          "mutability": "mutable",
+          "name": "_maxSlippage",
+          "nameLocation": "1934:12:132",
+          "nodeType": "VariableDeclaration",
+          "scope": 34484,
+          "src": "1918:28:132",
+          "stateVariable": true,
+          "storageLocation": "default",
+          "typeDescriptions": {
+            "typeIdentifier": "t_uint256",
+            "typeString": "uint256"
+          },
+          "typeName": {
+            "id": 34281,
+            "name": "uint256",
+            "nodeType": "ElementaryTypeName",
+            "src": "1918:7:132",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            }
+          },
+          "visibility": "private"
+        },
+        {
+          "body": {
+            "id": 34319,
+            "nodeType": "Block",
+            "src": "2062:269:132",
+            "statements": [
+              {
+                "expression": {
+                  "arguments": [
+                    {
+                      "id": 34292,
+                      "name": "initialOwner",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 34284,
+                      "src": "2097:12:132",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    {
+                      "id": 34293,
+                      "name": "initialGovernor",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 34286,
+                      "src": "2111:15:132",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    }
+                  ],
+                  "expression": {
+                    "argumentTypes": [
+                      {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      },
+                      {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    ],
+                    "id": 34291,
+                    "name": "_initializeGovernableOwnable",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 22200,
+                    "src": "2068:28:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_address_$returns$__$",
+                      "typeString": "function (address,address)"
+                    }
+                  },
+                  "id": 34294,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": false,
+                  "kind": "functionCall",
+                  "lValueRequested": false,
+                  "nameLocations": [],
+                  "names": [],
+                  "nodeType": "FunctionCall",
+                  "src": "2068:59:132",
+                  "tryCall": false,
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_tuple$__$",
+                    "typeString": "tuple()"
+                  }
+                },
+                "id": 34295,
+                "nodeType": "ExpressionStatement",
+                "src": "2068:59:132"
+              },
+              {
+                "expression": {
+                  "arguments": [],
+                  "expression": {
+                    "argumentTypes": [],
+                    "id": 34296,
+                    "name": "_initializeStrategySettings",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 34809,
+                    "src": "2133:27:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_function_internal_nonpayable$__$returns$__$",
+                      "typeString": "function ()"
+                    }
+                  },
+                  "id": 34297,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": false,
+                  "kind": "functionCall",
+                  "lValueRequested": false,
+                  "nameLocations": [],
+                  "names": [],
+                  "nodeType": "FunctionCall",
+                  "src": "2133:29:132",
+                  "tryCall": false,
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_tuple$__$",
+                    "typeString": "tuple()"
+                  }
+                },
+                "id": 34298,
+                "nodeType": "ExpressionStatement",
+                "src": "2133:29:132"
+              },
+              {
+                "expression": {
+                  "id": 34303,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": false,
+                  "lValueRequested": false,
+                  "leftHandSide": {
+                    "id": 34299,
+                    "name": "_loanToValue",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 34273,
+                    "src": "2168:12:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "Assignment",
+                  "operator": "=",
+                  "rightHandSide": {
+                    "commonType": {
+                      "typeIdentifier": "t_rational_800000000_by_1",
+                      "typeString": "int_const 800000000"
+                    },
+                    "id": 34302,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "hexValue": "383030",
+                      "id": 34300,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "2183:3:132",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_800_by_1",
+                        "typeString": "int_const 800"
+                      },
+                      "value": "800"
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "*",
+                    "rightExpression": {
+                      "hexValue": "316536",
+                      "id": 34301,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "2189:3:132",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_1000000_by_1",
+                        "typeString": "int_const 1000000"
+                      },
+                      "value": "1e6"
+                    },
+                    "src": "2183:9:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_800000000_by_1",
+                      "typeString": "int_const 800000000"
+                    }
+                  },
+                  "src": "2168:24:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "id": 34304,
+                "nodeType": "ExpressionStatement",
+                "src": "2168:24:132"
+              },
+              {
+                "expression": {
+                  "id": 34309,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": false,
+                  "lValueRequested": false,
+                  "leftHandSide": {
+                    "id": 34305,
+                    "name": "_maxLoanToValue",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 34276,
+                    "src": "2205:15:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "Assignment",
+                  "operator": "=",
+                  "rightHandSide": {
+                    "commonType": {
+                      "typeIdentifier": "t_rational_850000000_by_1",
+                      "typeString": "int_const 850000000"
+                    },
+                    "id": 34308,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "hexValue": "383530",
+                      "id": 34306,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "2223:3:132",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_850_by_1",
+                        "typeString": "int_const 850"
+                      },
+                      "value": "850"
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "*",
+                    "rightExpression": {
+                      "hexValue": "316536",
+                      "id": 34307,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "2229:3:132",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_1000000_by_1",
+                        "typeString": "int_const 1000000"
+                      },
+                      "value": "1e6"
+                    },
+                    "src": "2223:9:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_850000000_by_1",
+                      "typeString": "int_const 850000000"
+                    }
+                  },
+                  "src": "2205:27:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "id": 34310,
+                "nodeType": "ExpressionStatement",
+                "src": "2205:27:132"
+              },
+              {
+                "expression": {
+                  "id": 34313,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": false,
+                  "lValueRequested": false,
+                  "leftHandSide": {
+                    "id": 34311,
+                    "name": "_nrLoops",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 34279,
+                    "src": "2245:8:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "nodeType": "Assignment",
+                  "operator": "=",
+                  "rightHandSide": {
+                    "hexValue": "3130",
+                    "id": 34312,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "number",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "2256:2:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_10_by_1",
+                      "typeString": "int_const 10"
+                    },
+                    "value": "10"
+                  },
+                  "src": "2245:13:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "id": 34314,
+                "nodeType": "ExpressionStatement",
+                "src": "2245:13:132"
+              },
+              {
+                "expression": {
+                  "id": 34317,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": false,
+                  "lValueRequested": false,
+                  "leftHandSide": {
+                    "id": 34315,
+                    "name": "_maxSlippage",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 34282,
+                    "src": "2264:12:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "Assignment",
+                  "operator": "=",
+                  "rightHandSide": {
+                    "hexValue": "30",
+                    "id": 34316,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "number",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "2279:1:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_0_by_1",
+                      "typeString": "int_const 0"
+                    },
+                    "value": "0"
+                  },
+                  "src": "2264:16:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "id": 34318,
+                "nodeType": "ExpressionStatement",
+                "src": "2264:16:132"
+              }
+            ]
+          },
+          "id": 34320,
+          "implemented": true,
+          "kind": "function",
+          "modifiers": [
+            {
+              "id": 34289,
+              "kind": "modifierInvocation",
+              "modifierName": {
+                "id": 34288,
+                "name": "initializer",
+                "nameLocations": [
+                  "2050:11:132"
+                ],
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 2990,
+                "src": "2050:11:132"
+              },
+              "nodeType": "ModifierInvocation",
+              "src": "2050:11:132"
+            }
+          ],
+          "name": "_initLeverageSettings",
+          "nameLocation": "1960:21:132",
+          "nodeType": "FunctionDefinition",
+          "parameters": {
+            "id": 34287,
+            "nodeType": "ParameterList",
+            "parameters": [
+              {
+                "constant": false,
+                "id": 34284,
+                "mutability": "mutable",
+                "name": "initialOwner",
+                "nameLocation": "1995:12:132",
+                "nodeType": "VariableDeclaration",
+                "scope": 34320,
+                "src": "1987:20:132",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 34283,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1987:7:132",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 34286,
+                "mutability": "mutable",
+                "name": "initialGovernor",
+                "nameLocation": "2021:15:132",
+                "nodeType": "VariableDeclaration",
+                "scope": 34320,
+                "src": "2013:23:132",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 34285,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2013:7:132",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "src": "1981:59:132"
+          },
+          "returnParameters": {
+            "id": 34290,
+            "nodeType": "ParameterList",
+            "parameters": [],
+            "src": "2062:0:132"
+          },
+          "scope": 34484,
+          "src": "1951:380:132",
+          "stateMutability": "nonpayable",
+          "virtual": false,
+          "visibility": "internal"
+        },
+        {
+          "body": {
+            "id": 34357,
+            "nodeType": "Block",
+            "src": "2826:290:132",
+            "statements": [
+              {
+                "condition": {
+                  "commonType": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "id": 34330,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": false,
+                  "lValueRequested": false,
+                  "leftExpression": {
+                    "id": 34328,
+                    "name": "maxLoanToValue",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 34323,
+                    "src": "2836:14:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "BinaryOperation",
+                  "operator": "==",
+                  "rightExpression": {
+                    "hexValue": "30",
+                    "id": 34329,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "number",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "2854:1:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_0_by_1",
+                      "typeString": "int_const 0"
+                    },
+                    "value": "0"
+                  },
+                  "src": "2836:19:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "id": 34334,
+                "nodeType": "IfStatement",
+                "src": "2832:46:132",
+                "trueBody": {
+                  "errorCall": {
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "id": 34331,
+                      "name": "InvalidValue",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 34764,
+                      "src": "2864:12:132",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_error_pure$__$returns$__$",
+                        "typeString": "function () pure"
+                      }
+                    },
+                    "id": 34332,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2864:14:132",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 34333,
+                  "nodeType": "RevertStatement",
+                  "src": "2857:21:132"
+                }
+              },
+              {
+                "condition": {
+                  "commonType": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "id": 34337,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": false,
+                  "lValueRequested": false,
+                  "leftExpression": {
+                    "id": 34335,
+                    "name": "maxLoanToValue",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 34323,
+                    "src": "2888:14:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "BinaryOperation",
+                  "operator": ">",
+                  "rightExpression": {
+                    "id": 34336,
+                    "name": "PERCENTAGE_PRECISION",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 22152,
+                    "src": "2905:20:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "src": "2888:37:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "id": 34341,
+                "nodeType": "IfStatement",
+                "src": "2884:69:132",
+                "trueBody": {
+                  "errorCall": {
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "id": 34338,
+                      "name": "InvalidPercentage",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 34766,
+                      "src": "2934:17:132",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_error_pure$__$returns$__$",
+                        "typeString": "function () pure"
+                      }
+                    },
+                    "id": 34339,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2934:19:132",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 34340,
+                  "nodeType": "RevertStatement",
+                  "src": "2927:26:132"
+                }
+              },
+              {
+                "condition": {
+                  "commonType": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "id": 34344,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": false,
+                  "lValueRequested": false,
+                  "leftExpression": {
+                    "id": 34342,
+                    "name": "maxLoanToValue",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 34323,
+                    "src": "2963:14:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "BinaryOperation",
+                  "operator": "<",
+                  "rightExpression": {
+                    "id": 34343,
+                    "name": "_loanToValue",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 34273,
+                    "src": "2980:12:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "src": "2963:29:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "id": 34348,
+                "nodeType": "IfStatement",
+                "src": "2959:65:132",
+                "trueBody": {
+                  "errorCall": {
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "id": 34345,
+                      "name": "InvalidMaxLoanToValue",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 34249,
+                      "src": "3001:21:132",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_error_pure$__$returns$__$",
+                        "typeString": "function () pure"
+                      }
+                    },
+                    "id": 34346,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "3001:23:132",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 34347,
+                  "nodeType": "RevertStatement",
+                  "src": "2994:30:132"
+                }
+              },
+              {
+                "expression": {
+                  "id": 34351,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": false,
+                  "lValueRequested": false,
+                  "leftHandSide": {
+                    "id": 34349,
+                    "name": "_maxLoanToValue",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 34276,
+                    "src": "3030:15:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "Assignment",
+                  "operator": "=",
+                  "rightHandSide": {
+                    "id": 34350,
+                    "name": "maxLoanToValue",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 34323,
+                    "src": "3048:14:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "src": "3030:32:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "id": 34352,
+                "nodeType": "ExpressionStatement",
+                "src": "3030:32:132"
+              },
+              {
+                "eventCall": {
+                  "arguments": [
+                    {
+                      "id": 34354,
+                      "name": "_maxLoanToValue",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 34276,
+                      "src": "3095:15:132",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    }
+                  ],
+                  "expression": {
+                    "argumentTypes": [
+                      {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    ],
+                    "id": 34353,
+                    "name": "MaxLoanToValueChanged",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 34256,
+                    "src": "3073:21:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$returns$__$",
+                      "typeString": "function (uint256)"
+                    }
+                  },
+                  "id": 34355,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": false,
+                  "kind": "functionCall",
+                  "lValueRequested": false,
+                  "nameLocations": [],
+                  "names": [],
+                  "nodeType": "FunctionCall",
+                  "src": "3073:38:132",
+                  "tryCall": false,
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_tuple$__$",
+                    "typeString": "tuple()"
+                  }
+                },
+                "id": 34356,
+                "nodeType": "EmitStatement",
+                "src": "3068:43:132"
+              }
+            ]
+          },
+          "documentation": {
+            "id": 34321,
+            "nodeType": "StructuredDocumentation",
+            "src": "2335:415:132",
+            "text": " @dev Sets the maximum allowed loan-to-value ratio.\n This function can only be called by the owner and is used to update the maximum allowed loan-to-value ratio.\n Emits a {MaxLoanToValueChanged} event upon successful update.\n @param maxLoanToValue The new maximum allowed loan-to-value ratio to be set.\n Requirements:\n - The caller must be the owner of the contract."
+          },
+          "functionSelector": "a6895a7d",
+          "id": 34358,
+          "implemented": true,
+          "kind": "function",
+          "modifiers": [
+            {
+              "id": 34326,
+              "kind": "modifierInvocation",
+              "modifierName": {
+                "id": 34325,
+                "name": "onlyGovernor",
+                "nameLocations": [
+                  "2813:12:132"
+                ],
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 22214,
+                "src": "2813:12:132"
+              },
+              "nodeType": "ModifierInvocation",
+              "src": "2813:12:132"
+            }
+          ],
+          "name": "setMaxLoanToValue",
+          "nameLocation": "2762:17:132",
+          "nodeType": "FunctionDefinition",
+          "parameters": {
+            "id": 34324,
+            "nodeType": "ParameterList",
+            "parameters": [
+              {
+                "constant": false,
+                "id": 34323,
+                "mutability": "mutable",
+                "name": "maxLoanToValue",
+                "nameLocation": "2788:14:132",
+                "nodeType": "VariableDeclaration",
+                "scope": 34358,
+                "src": "2780:22:132",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 34322,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2780:7:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "src": "2779:24:132"
+          },
+          "returnParameters": {
+            "id": 34327,
+            "nodeType": "ParameterList",
+            "parameters": [],
+            "src": "2826:0:132"
+          },
+          "scope": 34484,
+          "src": "2753:363:132",
+          "stateMutability": "nonpayable",
+          "virtual": false,
+          "visibility": "external"
+        },
+        {
+          "body": {
+            "id": 34366,
+            "nodeType": "Block",
+            "src": "3425:33:132",
+            "statements": [
+              {
+                "expression": {
+                  "id": 34364,
+                  "name": "_maxLoanToValue",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 34276,
+                  "src": "3438:15:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "functionReturnParameters": 34363,
+                "id": 34365,
+                "nodeType": "Return",
+                "src": "3431:22:132"
+              }
+            ]
+          },
+          "documentation": {
+            "id": 34359,
+            "nodeType": "StructuredDocumentation",
+            "src": "3119:244:132",
+            "text": " @dev Retrieves the maximum allowed loan-to-value ratio.\n This function is externally callable and returns the maximum allowed loan-to-value ratio.\n @return maxLoanToValue The maximum allowed loan-to-value ratio."
+          },
+          "functionSelector": "06f2fb11",
+          "id": 34367,
+          "implemented": true,
+          "kind": "function",
+          "modifiers": [],
+          "name": "getMaxLoanToValue",
+          "nameLocation": "3375:17:132",
+          "nodeType": "FunctionDefinition",
+          "parameters": {
+            "id": 34360,
+            "nodeType": "ParameterList",
+            "parameters": [],
+            "src": "3392:2:132"
+          },
+          "returnParameters": {
+            "id": 34363,
+            "nodeType": "ParameterList",
+            "parameters": [
+              {
+                "constant": false,
+                "id": 34362,
+                "mutability": "mutable",
+                "name": "",
+                "nameLocation": "-1:-1:-1",
+                "nodeType": "VariableDeclaration",
+                "scope": 34367,
+                "src": "3416:7:132",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 34361,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "3416:7:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "src": "3415:9:132"
+          },
+          "scope": 34484,
+          "src": "3366:92:132",
+          "stateMutability": "view",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "body": {
+            "id": 34404,
+            "nodeType": "Block",
+            "src": "4151:263:132",
+            "statements": [
+              {
+                "condition": {
+                  "commonType": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "id": 34377,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": false,
+                  "lValueRequested": false,
+                  "leftExpression": {
+                    "id": 34375,
+                    "name": "loanToValue",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 34370,
+                    "src": "4161:11:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "BinaryOperation",
+                  "operator": ">",
+                  "rightExpression": {
+                    "id": 34376,
+                    "name": "_maxLoanToValue",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 34276,
+                    "src": "4175:15:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "src": "4161:29:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "id": 34381,
+                "nodeType": "IfStatement",
+                "src": "4157:56:132",
+                "trueBody": {
+                  "errorCall": {
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "id": 34378,
+                      "name": "InvalidValue",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 34764,
+                      "src": "4199:12:132",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_error_pure$__$returns$__$",
+                        "typeString": "function () pure"
+                      }
+                    },
+                    "id": 34379,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "4199:14:132",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 34380,
+                  "nodeType": "RevertStatement",
+                  "src": "4192:21:132"
+                }
+              },
+              {
+                "condition": {
+                  "commonType": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "id": 34384,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": false,
+                  "lValueRequested": false,
+                  "leftExpression": {
+                    "id": 34382,
+                    "name": "loanToValue",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 34370,
+                    "src": "4223:11:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "BinaryOperation",
+                  "operator": ">",
+                  "rightExpression": {
+                    "id": 34383,
+                    "name": "PERCENTAGE_PRECISION",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 22152,
+                    "src": "4237:20:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "src": "4223:34:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "id": 34388,
+                "nodeType": "IfStatement",
+                "src": "4219:66:132",
+                "trueBody": {
+                  "errorCall": {
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "id": 34385,
+                      "name": "InvalidPercentage",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 34766,
+                      "src": "4266:17:132",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_error_pure$__$returns$__$",
+                        "typeString": "function () pure"
+                      }
+                    },
+                    "id": 34386,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "4266:19:132",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 34387,
+                  "nodeType": "RevertStatement",
+                  "src": "4259:26:132"
+                }
+              },
+              {
+                "condition": {
+                  "commonType": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "id": 34391,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": false,
+                  "lValueRequested": false,
+                  "leftExpression": {
+                    "id": 34389,
+                    "name": "loanToValue",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 34370,
+                    "src": "4295:11:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "BinaryOperation",
+                  "operator": "==",
+                  "rightExpression": {
+                    "hexValue": "30",
+                    "id": 34390,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "number",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "4310:1:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_0_by_1",
+                      "typeString": "int_const 0"
+                    },
+                    "value": "0"
+                  },
+                  "src": "4295:16:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "id": 34395,
+                "nodeType": "IfStatement",
+                "src": "4291:43:132",
+                "trueBody": {
+                  "errorCall": {
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "id": 34392,
+                      "name": "InvalidValue",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 34764,
+                      "src": "4320:12:132",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_error_pure$__$returns$__$",
+                        "typeString": "function () pure"
+                      }
+                    },
+                    "id": 34393,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "4320:14:132",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 34394,
+                  "nodeType": "RevertStatement",
+                  "src": "4313:21:132"
+                }
+              },
+              {
+                "expression": {
+                  "id": 34398,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": false,
+                  "lValueRequested": false,
+                  "leftHandSide": {
+                    "id": 34396,
+                    "name": "_loanToValue",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 34273,
+                    "src": "4340:12:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "Assignment",
+                  "operator": "=",
+                  "rightHandSide": {
+                    "id": 34397,
+                    "name": "loanToValue",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 34370,
+                    "src": "4355:11:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "src": "4340:26:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "id": 34399,
+                "nodeType": "ExpressionStatement",
+                "src": "4340:26:132"
+              },
+              {
+                "eventCall": {
+                  "arguments": [
+                    {
+                      "id": 34401,
+                      "name": "_loanToValue",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 34273,
+                      "src": "4396:12:132",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    }
+                  ],
+                  "expression": {
+                    "argumentTypes": [
+                      {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    ],
+                    "id": 34400,
+                    "name": "LoanToValueChanged",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 34261,
+                    "src": "4377:18:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$returns$__$",
+                      "typeString": "function (uint256)"
+                    }
+                  },
+                  "id": 34402,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": false,
+                  "kind": "functionCall",
+                  "lValueRequested": false,
+                  "nameLocations": [],
+                  "names": [],
+                  "nodeType": "FunctionCall",
+                  "src": "4377:32:132",
+                  "tryCall": false,
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_tuple$__$",
+                    "typeString": "tuple()"
+                  }
+                },
+                "id": 34403,
+                "nodeType": "EmitStatement",
+                "src": "4372:37:132"
+              }
+            ]
+          },
+          "documentation": {
+            "id": 34368,
+            "nodeType": "StructuredDocumentation",
+            "src": "3462:619:132",
+            "text": " @dev Sets the general loan-to-value ratio.\n This function can only be called by the owner and is used to update the general loan-to-value ratio.\n Emits a {LoanToValueChanged} event upon successful update.\n @param loanToValue The new general loan-to-value ratio to be set.\n Requirements:\n - The caller must be the owner of the contract.\n - The new loan-to-value ratio must be less than or equal to the maximum allowed loan-to-value ratio.\n - The new loan-to-value ratio must be a valid percentage value.\n - The new loan-to-value ratio must be greater than 0."
+          },
+          "functionSelector": "92f9c669",
+          "id": 34405,
+          "implemented": true,
+          "kind": "function",
+          "modifiers": [
+            {
+              "id": 34373,
+              "kind": "modifierInvocation",
+              "modifierName": {
+                "id": 34372,
+                "name": "onlyGovernor",
+                "nameLocations": [
+                  "4138:12:132"
+                ],
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 22214,
+                "src": "4138:12:132"
+              },
+              "nodeType": "ModifierInvocation",
+              "src": "4138:12:132"
+            }
+          ],
+          "name": "setLoanToValue",
+          "nameLocation": "4093:14:132",
+          "nodeType": "FunctionDefinition",
+          "parameters": {
+            "id": 34371,
+            "nodeType": "ParameterList",
+            "parameters": [
+              {
+                "constant": false,
+                "id": 34370,
+                "mutability": "mutable",
+                "name": "loanToValue",
+                "nameLocation": "4116:11:132",
+                "nodeType": "VariableDeclaration",
+                "scope": 34405,
+                "src": "4108:19:132",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 34369,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "4108:7:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "src": "4107:21:132"
+          },
+          "returnParameters": {
+            "id": 34374,
+            "nodeType": "ParameterList",
+            "parameters": [],
+            "src": "4151:0:132"
+          },
+          "scope": 34484,
+          "src": "4084:330:132",
+          "stateMutability": "nonpayable",
+          "virtual": false,
+          "visibility": "external"
+        },
+        {
+          "body": {
+            "id": 34413,
+            "nodeType": "Block",
+            "src": "4694:30:132",
+            "statements": [
+              {
+                "expression": {
+                  "id": 34411,
+                  "name": "_loanToValue",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 34273,
+                  "src": "4707:12:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "functionReturnParameters": 34410,
+                "id": 34412,
+                "nodeType": "Return",
+                "src": "4700:19:132"
+              }
+            ]
+          },
+          "documentation": {
+            "id": 34406,
+            "nodeType": "StructuredDocumentation",
+            "src": "4418:217:132",
+            "text": " @dev Retrieves the general loan-to-value ratio.\n This function is externally callable and returns the general loan-to-value ratio.\n @return loanToValue The general loan-to-value ratio."
+          },
+          "functionSelector": "3484971f",
+          "id": 34414,
+          "implemented": true,
+          "kind": "function",
+          "modifiers": [],
+          "name": "getLoanToValue",
+          "nameLocation": "4647:14:132",
+          "nodeType": "FunctionDefinition",
+          "parameters": {
+            "id": 34407,
+            "nodeType": "ParameterList",
+            "parameters": [],
+            "src": "4661:2:132"
+          },
+          "returnParameters": {
+            "id": 34410,
+            "nodeType": "ParameterList",
+            "parameters": [
+              {
+                "constant": false,
+                "id": 34409,
+                "mutability": "mutable",
+                "name": "",
+                "nameLocation": "-1:-1:-1",
+                "nodeType": "VariableDeclaration",
+                "scope": 34414,
+                "src": "4685:7:132",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 34408,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "4685:7:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "src": "4684:9:132"
+          },
+          "scope": 34484,
+          "src": "4638:86:132",
+          "stateMutability": "view",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "body": {
+            "id": 34422,
+            "nodeType": "Block",
+            "src": "5003:26:132",
+            "statements": [
+              {
+                "expression": {
+                  "id": 34420,
+                  "name": "_nrLoops",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 34279,
+                  "src": "5016:8:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "functionReturnParameters": 34419,
+                "id": 34421,
+                "nodeType": "Return",
+                "src": "5009:15:132"
+              }
+            ]
+          },
+          "documentation": {
+            "id": 34415,
+            "nodeType": "StructuredDocumentation",
+            "src": "4728:222:132",
+            "text": " @dev Retrieves the number of loops for our Recursive Staking Strategy\n This function is externally callable and returns the number of loops configured.\n @return nrLoops The number of loops."
+          },
+          "functionSelector": "84fe3754",
+          "id": 34423,
+          "implemented": true,
+          "kind": "function",
+          "modifiers": [],
+          "name": "getNrLoops",
+          "nameLocation": "4962:10:132",
+          "nodeType": "FunctionDefinition",
+          "parameters": {
+            "id": 34416,
+            "nodeType": "ParameterList",
+            "parameters": [],
+            "src": "4972:2:132"
+          },
+          "returnParameters": {
+            "id": 34419,
+            "nodeType": "ParameterList",
+            "parameters": [
+              {
+                "constant": false,
+                "id": 34418,
+                "mutability": "mutable",
+                "name": "",
+                "nameLocation": "-1:-1:-1",
+                "nodeType": "VariableDeclaration",
+                "scope": 34423,
+                "src": "4996:5:132",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 34417,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "4996:5:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "src": "4995:7:132"
+          },
+          "scope": 34484,
+          "src": "4953:76:132",
+          "stateMutability": "view",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "body": {
+            "id": 34446,
+            "nodeType": "Block",
+            "src": "5555:120:132",
+            "statements": [
+              {
+                "condition": {
+                  "commonType": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "id": 34433,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": false,
+                  "lValueRequested": false,
+                  "leftExpression": {
+                    "id": 34431,
+                    "name": "nrLoops",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 34426,
+                    "src": "5565:7:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "nodeType": "BinaryOperation",
+                  "operator": ">",
+                  "rightExpression": {
+                    "id": 34432,
+                    "name": "MAX_LOOPS",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 22148,
+                    "src": "5575:9:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "src": "5565:19:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "id": 34437,
+                "nodeType": "IfStatement",
+                "src": "5561:50:132",
+                "trueBody": {
+                  "errorCall": {
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "id": 34434,
+                      "name": "InvalidLoopCount",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 34251,
+                      "src": "5593:16:132",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_error_pure$__$returns$__$",
+                        "typeString": "function () pure"
+                      }
+                    },
+                    "id": 34435,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "5593:18:132",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 34436,
+                  "nodeType": "RevertStatement",
+                  "src": "5586:25:132"
+                }
+              },
+              {
+                "expression": {
+                  "id": 34440,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": false,
+                  "lValueRequested": false,
+                  "leftHandSide": {
+                    "id": 34438,
+                    "name": "_nrLoops",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 34279,
+                    "src": "5617:8:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "nodeType": "Assignment",
+                  "operator": "=",
+                  "rightHandSide": {
+                    "id": 34439,
+                    "name": "nrLoops",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 34426,
+                    "src": "5628:7:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "src": "5617:18:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "id": 34441,
+                "nodeType": "ExpressionStatement",
+                "src": "5617:18:132"
+              },
+              {
+                "eventCall": {
+                  "arguments": [
+                    {
+                      "id": 34443,
+                      "name": "_nrLoops",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 34279,
+                      "src": "5661:8:132",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint8",
+                        "typeString": "uint8"
+                      }
+                    }
+                  ],
+                  "expression": {
+                    "argumentTypes": [
+                      {
+                        "typeIdentifier": "t_uint8",
+                        "typeString": "uint8"
+                      }
+                    ],
+                    "id": 34442,
+                    "name": "NrLoopsChanged",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 34266,
+                    "src": "5646:14:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$returns$__$",
+                      "typeString": "function (uint256)"
+                    }
+                  },
+                  "id": 34444,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": false,
+                  "kind": "functionCall",
+                  "lValueRequested": false,
+                  "nameLocations": [],
+                  "names": [],
+                  "nodeType": "FunctionCall",
+                  "src": "5646:24:132",
+                  "tryCall": false,
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_tuple$__$",
+                    "typeString": "tuple()"
+                  }
+                },
+                "id": 34445,
+                "nodeType": "EmitStatement",
+                "src": "5641:29:132"
+              }
+            ]
+          },
+          "documentation": {
+            "id": 34424,
+            "nodeType": "StructuredDocumentation",
+            "src": "5033:462:132",
+            "text": " @dev Sets the number of loops for our Recursive Staking Strategy\n This function can only be called by the owner and is used to update the number of loops.\n Emits an {NrLoopsChanged} event upon successful update.\n @param nrLoops The new number of loops to be set.\n Requirements:\n - The caller must be the owner of the contract.\n - The new number of loops must be less than the maximum allowed number of loops."
+          },
+          "functionSelector": "d6297a06",
+          "id": 34447,
+          "implemented": true,
+          "kind": "function",
+          "modifiers": [
+            {
+              "id": 34429,
+              "kind": "modifierInvocation",
+              "modifierName": {
+                "id": 34428,
+                "name": "onlyGovernor",
+                "nameLocations": [
+                  "5542:12:132"
+                ],
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 22214,
+                "src": "5542:12:132"
+              },
+              "nodeType": "ModifierInvocation",
+              "src": "5542:12:132"
+            }
+          ],
+          "name": "setNrLoops",
+          "nameLocation": "5507:10:132",
+          "nodeType": "FunctionDefinition",
+          "parameters": {
+            "id": 34427,
+            "nodeType": "ParameterList",
+            "parameters": [
+              {
+                "constant": false,
+                "id": 34426,
+                "mutability": "mutable",
+                "name": "nrLoops",
+                "nameLocation": "5524:7:132",
+                "nodeType": "VariableDeclaration",
+                "scope": 34447,
+                "src": "5518:13:132",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 34425,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "5518:5:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "src": "5517:15:132"
+          },
+          "returnParameters": {
+            "id": 34430,
+            "nodeType": "ParameterList",
+            "parameters": [],
+            "src": "5555:0:132"
+          },
+          "scope": 34484,
+          "src": "5498:177:132",
+          "stateMutability": "nonpayable",
+          "virtual": false,
+          "visibility": "external"
+        },
+        {
+          "body": {
+            "id": 34454,
+            "nodeType": "Block",
+            "src": "5735:30:132",
+            "statements": [
+              {
+                "expression": {
+                  "id": 34452,
+                  "name": "_maxSlippage",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 34282,
+                  "src": "5748:12:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "functionReturnParameters": 34451,
+                "id": 34453,
+                "nodeType": "Return",
+                "src": "5741:19:132"
+              }
+            ]
+          },
+          "functionSelector": "adbfc312",
+          "id": 34455,
+          "implemented": true,
+          "kind": "function",
+          "modifiers": [],
+          "name": "getMaxSlippage",
+          "nameLocation": "5688:14:132",
+          "nodeType": "FunctionDefinition",
+          "parameters": {
+            "id": 34448,
+            "nodeType": "ParameterList",
+            "parameters": [],
+            "src": "5702:2:132"
+          },
+          "returnParameters": {
+            "id": 34451,
+            "nodeType": "ParameterList",
+            "parameters": [
+              {
+                "constant": false,
+                "id": 34450,
+                "mutability": "mutable",
+                "name": "",
+                "nameLocation": "-1:-1:-1",
+                "nodeType": "VariableDeclaration",
+                "scope": 34455,
+                "src": "5726:7:132",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 34449,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "5726:7:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "src": "5725:9:132"
+          },
+          "scope": 34484,
+          "src": "5679:86:132",
+          "stateMutability": "view",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "body": {
+            "id": 34477,
+            "nodeType": "Block",
+            "src": "5833:142:132",
+            "statements": [
+              {
+                "condition": {
+                  "commonType": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "id": 34464,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": false,
+                  "lValueRequested": false,
+                  "leftExpression": {
+                    "id": 34462,
+                    "name": "slippage",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 34457,
+                    "src": "5843:8:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "BinaryOperation",
+                  "operator": ">",
+                  "rightExpression": {
+                    "id": 34463,
+                    "name": "PERCENTAGE_PRECISION",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 22152,
+                    "src": "5854:20:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "src": "5843:31:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "id": 34468,
+                "nodeType": "IfStatement",
+                "src": "5839:63:132",
+                "trueBody": {
+                  "errorCall": {
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "id": 34465,
+                      "name": "InvalidPercentage",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 34766,
+                      "src": "5883:17:132",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_error_pure$__$returns$__$",
+                        "typeString": "function () pure"
+                      }
+                    },
+                    "id": 34466,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "5883:19:132",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 34467,
+                  "nodeType": "RevertStatement",
+                  "src": "5876:26:132"
+                }
+              },
+              {
+                "expression": {
+                  "id": 34471,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": false,
+                  "lValueRequested": false,
+                  "leftHandSide": {
+                    "id": 34469,
+                    "name": "_maxSlippage",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 34282,
+                    "src": "5908:12:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "Assignment",
+                  "operator": "=",
+                  "rightHandSide": {
+                    "id": 34470,
+                    "name": "slippage",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 34457,
+                    "src": "5923:8:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "src": "5908:23:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "id": 34472,
+                "nodeType": "ExpressionStatement",
+                "src": "5908:23:132"
+              },
+              {
+                "eventCall": {
+                  "arguments": [
+                    {
+                      "id": 34474,
+                      "name": "slippage",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 34457,
+                      "src": "5961:8:132",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    }
+                  ],
+                  "expression": {
+                    "argumentTypes": [
+                      {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    ],
+                    "id": 34473,
+                    "name": "MaxSlippageChanged",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 34270,
+                    "src": "5942:18:132",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$returns$__$",
+                      "typeString": "function (uint256)"
+                    }
+                  },
+                  "id": 34475,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": false,
+                  "kind": "functionCall",
+                  "lValueRequested": false,
+                  "nameLocations": [],
+                  "names": [],
+                  "nodeType": "FunctionCall",
+                  "src": "5942:28:132",
+                  "tryCall": false,
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_tuple$__$",
+                    "typeString": "tuple()"
+                  }
+                },
+                "id": 34476,
+                "nodeType": "EmitStatement",
+                "src": "5937:33:132"
+              }
+            ]
+          },
+          "functionSelector": "43f68a49",
+          "id": 34478,
+          "implemented": true,
+          "kind": "function",
+          "modifiers": [
+            {
+              "id": 34460,
+              "kind": "modifierInvocation",
+              "modifierName": {
+                "id": 34459,
+                "name": "onlyGovernor",
+                "nameLocations": [
+                  "5820:12:132"
+                ],
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 22214,
+                "src": "5820:12:132"
+              },
+              "nodeType": "ModifierInvocation",
+              "src": "5820:12:132"
+            }
+          ],
+          "name": "setMaxSlippage",
+          "nameLocation": "5778:14:132",
+          "nodeType": "FunctionDefinition",
+          "parameters": {
+            "id": 34458,
+            "nodeType": "ParameterList",
+            "parameters": [
+              {
+                "constant": false,
+                "id": 34457,
+                "mutability": "mutable",
+                "name": "slippage",
+                "nameLocation": "5801:8:132",
+                "nodeType": "VariableDeclaration",
+                "scope": 34478,
+                "src": "5793:16:132",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 34456,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "5793:7:132",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "src": "5792:18:132"
+          },
+          "returnParameters": {
+            "id": 34461,
+            "nodeType": "ParameterList",
+            "parameters": [],
+            "src": "5833:0:132"
+          },
+          "scope": 34484,
+          "src": "5769:206:132",
+          "stateMutability": "nonpayable",
+          "virtual": false,
+          "visibility": "external"
+        },
+        {
+          "constant": false,
+          "documentation": {
+            "id": 34479,
+            "nodeType": "StructuredDocumentation",
+            "src": "5979:167:132",
+            "text": " @dev This empty reserved space is put in place to allow future versions to add new\n settings without shifting down storage in the inheritance chain."
+          },
+          "id": 34483,
+          "mutability": "mutable",
+          "name": "__gap",
+          "nameLocation": "6169:5:132",
+          "nodeType": "VariableDeclaration",
+          "scope": 34484,
+          "src": "6149:25:132",
+          "stateVariable": true,
+          "storageLocation": "default",
+          "typeDescriptions": {
+            "typeIdentifier": "t_array$_t_uint256_$25_storage",
+            "typeString": "uint256[25]"
+          },
+          "typeName": {
+            "baseType": {
+              "id": 34480,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "6149:7:132",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "id": 34482,
+            "length": {
+              "hexValue": "3235",
+              "id": 34481,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "6157:2:132",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_25_by_1",
+                "typeString": "int_const 25"
+              },
+              "value": "25"
+            },
+            "nodeType": "ArrayTypeName",
+            "src": "6149:11:132",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_uint256_$25_storage_ptr",
+              "typeString": "uint256[25]"
+            }
+          },
+          "visibility": "private"
+        }
+      ],
+      "scope": 34485,
+      "src": "253:5924:132",
+      "usedErrors": [
+        22174,
+        22176,
+        34249,
+        34251,
+        34762,
+        34764,
+        34766,
+        34768
+      ],
+      "usedEvents": [
+        2550,
+        2934,
+        22182,
+        34256,
+        34261,
+        34266,
+        34270,
+        37746,
+        37751
+      ]
+    }
+  ],
+  "src": "37:6141:132"
+}

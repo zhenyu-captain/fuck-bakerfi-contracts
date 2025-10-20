@@ -1,0 +1,138 @@
+strict digraph {
+subgraph cluster_54210_console {
+label = "console"
+"54210_logBytes20" [label="logBytes20"]
+"54210_logBytes25" [label="logBytes25"]
+"54210_logBytes4" [label="logBytes4"]
+"54210__castToPure" [label="_castToPure"]
+"54210_logBytes21" [label="logBytes21"]
+"54210_logBytes19" [label="logBytes19"]
+"54210_logInt" [label="logInt"]
+"54210_logAddress" [label="logAddress"]
+"54210_logBytes7" [label="logBytes7"]
+"54210_logBool" [label="logBool"]
+"54210_logBytes23" [label="logBytes23"]
+"54210_logBytes32" [label="logBytes32"]
+"54210_logBytes6" [label="logBytes6"]
+"54210_logBytes" [label="logBytes"]
+"54210_logBytes5" [label="logBytes5"]
+"54210_logBytes9" [label="logBytes9"]
+"54210_logBytes10" [label="logBytes10"]
+"54210_logBytes17" [label="logBytes17"]
+"54210_logBytes24" [label="logBytes24"]
+"54210_logBytes28" [label="logBytes28"]
+"54210_log" [label="log"]
+"54210_logBytes8" [label="logBytes8"]
+"54210_logBytes2" [label="logBytes2"]
+"54210_logBytes15" [label="logBytes15"]
+"54210_logBytes22" [label="logBytes22"]
+"54210__sendLogPayloadImplementation" [label="_sendLogPayloadImplementation"]
+"54210_logUint" [label="logUint"]
+"54210_logBytes12" [label="logBytes12"]
+"54210_logBytes16" [label="logBytes16"]
+"54210_logBytes3" [label="logBytes3"]
+"54210_logString" [label="logString"]
+"54210_logBytes1" [label="logBytes1"]
+"54210_logBytes27" [label="logBytes27"]
+"54210_logBytes30" [label="logBytes30"]
+"54210_logBytes14" [label="logBytes14"]
+"54210_logBytes26" [label="logBytes26"]
+"54210_logBytes13" [label="logBytes13"]
+"54210_logBytes18" [label="logBytes18"]
+"54210_slitherConstructorConstantVariables" [label="slitherConstructorConstantVariables"]
+"54210__sendLogPayload" [label="_sendLogPayload"]
+"54210_logBytes31" [label="logBytes31"]
+"54210_logBytes29" [label="logBytes29"]
+"54210_logBytes11" [label="logBytes11"]
+"54210_logBytes4" -> "54210__sendLogPayload"
+"54210_logBytes15" -> "54210__sendLogPayload"
+"54210_logBytes6" -> "54210__sendLogPayload"
+"54210_logUint" -> "54210__sendLogPayload"
+"54210_logBytes17" -> "54210__sendLogPayload"
+"54210_logBytes26" -> "54210__sendLogPayload"
+"54210_logString" -> "54210__sendLogPayload"
+"54210_logBytes9" -> "54210__sendLogPayload"
+"54210_logInt" -> "54210__sendLogPayload"
+"54210_logBytes23" -> "54210__sendLogPayload"
+"54210_log" -> "54210__sendLogPayload"
+"54210_logBytes18" -> "54210__sendLogPayload"
+"54210_logBytes11" -> "54210__sendLogPayload"
+"54210_logBool" -> "54210__sendLogPayload"
+"54210_logBytes" -> "54210__sendLogPayload"
+"54210_logBytes16" -> "54210__sendLogPayload"
+"54210_logBytes25" -> "54210__sendLogPayload"
+"54210_logBytes27" -> "54210__sendLogPayload"
+"54210_logBytes21" -> "54210__sendLogPayload"
+"54210_logBytes31" -> "54210__sendLogPayload"
+"54210_logBytes2" -> "54210__sendLogPayload"
+"54210_logAddress" -> "54210__sendLogPayload"
+"54210_logBytes8" -> "54210__sendLogPayload"
+"54210_logBytes22" -> "54210__sendLogPayload"
+"54210_logBytes5" -> "54210__sendLogPayload"
+"54210_logBytes12" -> "54210__sendLogPayload"
+"54210_logBytes24" -> "54210__sendLogPayload"
+"54210_logBytes1" -> "54210__sendLogPayload"
+"54210_logBytes28" -> "54210__sendLogPayload"
+"54210_logBytes30" -> "54210__sendLogPayload"
+"54210_logBytes32" -> "54210__sendLogPayload"
+"54210_logBytes10" -> "54210__sendLogPayload"
+"54210_logBytes3" -> "54210__sendLogPayload"
+"54210_logBytes13" -> "54210__sendLogPayload"
+"54210_logBytes19" -> "54210__sendLogPayload"
+"54210_logBytes29" -> "54210__sendLogPayload"
+"54210__sendLogPayload" -> "54210__castToPure"
+"54210_logBytes20" -> "54210__sendLogPayload"
+"54210_logBytes14" -> "54210__sendLogPayload"
+"54210_logBytes7" -> "54210__sendLogPayload"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"gas()" 
+"pop(uint256)" 
+"abi.encodeWithSignature()" 
+"staticcall(uint256,uint256,uint256,uint256,uint256,uint256)" 
+"mload(uint256)" 
+"54210_logBytes9" -> "abi.encodeWithSignature()"
+"54210_logBytes29" -> "abi.encodeWithSignature()"
+"54210_logBytes7" -> "abi.encodeWithSignature()"
+"54210_logBytes32" -> "abi.encodeWithSignature()"
+"54210_logBytes17" -> "abi.encodeWithSignature()"
+"54210_logBytes12" -> "abi.encodeWithSignature()"
+"54210_logBytes24" -> "abi.encodeWithSignature()"
+"54210_logBytes19" -> "abi.encodeWithSignature()"
+"54210_logBytes23" -> "abi.encodeWithSignature()"
+"54210_logBytes16" -> "abi.encodeWithSignature()"
+"54210_logBytes26" -> "abi.encodeWithSignature()"
+"54210_logInt" -> "abi.encodeWithSignature()"
+"54210_logBytes10" -> "abi.encodeWithSignature()"
+"54210_logBytes30" -> "abi.encodeWithSignature()"
+"54210_log" -> "abi.encodeWithSignature()"
+"54210_logBytes31" -> "abi.encodeWithSignature()"
+"54210_logBytes25" -> "abi.encodeWithSignature()"
+"54210_logBytes8" -> "abi.encodeWithSignature()"
+"54210_logBytes1" -> "abi.encodeWithSignature()"
+"54210_logBytes14" -> "abi.encodeWithSignature()"
+"54210_logBytes22" -> "abi.encodeWithSignature()"
+"54210_logBytes4" -> "abi.encodeWithSignature()"
+"54210_logBytes28" -> "abi.encodeWithSignature()"
+"54210__sendLogPayloadImplementation" -> "pop(uint256)"
+"54210_logBytes3" -> "abi.encodeWithSignature()"
+"54210_logBytes6" -> "abi.encodeWithSignature()"
+"54210_logString" -> "abi.encodeWithSignature()"
+"54210_logBool" -> "abi.encodeWithSignature()"
+"54210_logUint" -> "abi.encodeWithSignature()"
+"54210_logBytes" -> "abi.encodeWithSignature()"
+"54210_logBytes18" -> "abi.encodeWithSignature()"
+"54210__sendLogPayloadImplementation" -> "staticcall(uint256,uint256,uint256,uint256,uint256,uint256)"
+"54210__sendLogPayloadImplementation" -> "mload(uint256)"
+"54210_logBytes15" -> "abi.encodeWithSignature()"
+"54210_logBytes2" -> "abi.encodeWithSignature()"
+"54210_logBytes13" -> "abi.encodeWithSignature()"
+"54210__sendLogPayloadImplementation" -> "gas()"
+"54210_logBytes21" -> "abi.encodeWithSignature()"
+"54210_logBytes27" -> "abi.encodeWithSignature()"
+"54210_logBytes5" -> "abi.encodeWithSignature()"
+"54210_logAddress" -> "abi.encodeWithSignature()"
+"54210_logBytes11" -> "abi.encodeWithSignature()"
+"54210_logBytes20" -> "abi.encodeWithSignature()"
+}
+}

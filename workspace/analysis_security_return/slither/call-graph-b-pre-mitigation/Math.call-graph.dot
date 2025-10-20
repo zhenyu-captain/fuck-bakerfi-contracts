@@ -1,0 +1,27 @@
+strict digraph {
+subgraph cluster_19537_Math {
+label = "Math"
+"19537_log2" [label="log2"]
+"19537_ceilDiv" [label="ceilDiv"]
+"19537_sqrt" [label="sqrt"]
+"19537_log256" [label="log256"]
+"19537_max" [label="max"]
+"19537_mulDiv" [label="mulDiv"]
+"19537_average" [label="average"]
+"19537_log10" [label="log10"]
+"19537_min" [label="min"]
+"19537_sqrt" -> "19537_sqrt"
+"19537_sqrt" -> "19537_min"
+"19537_log10" -> "19537_log10"
+"19537_log256" -> "19537_log256"
+"19537_log2" -> "19537_log2"
+"19537_mulDiv" -> "19537_mulDiv"
+"19537_sqrt" -> "19537_log2"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"require(bool,string)" 
+"mulmod(uint256,uint256,uint256)" 
+"19537_mulDiv" -> "require(bool,string)"
+"19537_mulDiv" -> "mulmod(uint256,uint256,uint256)"
+}
+}

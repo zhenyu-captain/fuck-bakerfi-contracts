@@ -1,0 +1,37 @@
+strict digraph {
+subgraph cluster_400_IMorphoStaticTyping {
+label = "IMorphoStaticTyping"
+"400_market" [label="market"]
+"400_idToMarketParams" [label="idToMarketParams"]
+"400_position" [label="position"]
+}subgraph cluster_345_IMorphoBase {
+label = "IMorphoBase"
+"345_isIrmEnabled" [label="isIrmEnabled"]
+"345_isLltvEnabled" [label="isLltvEnabled"]
+"345_flashLoan" [label="flashLoan"]
+"345_setOwner" [label="setOwner"]
+"345_feeRecipient" [label="feeRecipient"]
+"345_accrueInterest" [label="accrueInterest"]
+"345_setFee" [label="setFee"]
+"345_setAuthorization" [label="setAuthorization"]
+"345_nonce" [label="nonce"]
+"345_isAuthorized" [label="isAuthorized"]
+"345_borrow" [label="borrow"]
+"345_withdraw" [label="withdraw"]
+"345_repay" [label="repay"]
+"345_setAuthorizationWithSig" [label="setAuthorizationWithSig"]
+"345_enableLltv" [label="enableLltv"]
+"345_DOMAIN_SEPARATOR" [label="DOMAIN_SEPARATOR"]
+"345_owner" [label="owner"]
+"345_supplyCollateral" [label="supplyCollateral"]
+"345_liquidate" [label="liquidate"]
+"345_withdrawCollateral" [label="withdrawCollateral"]
+"345_enableIrm" [label="enableIrm"]
+"345_setFeeRecipient" [label="setFeeRecipient"]
+"345_supply" [label="supply"]
+"345_extSloads" [label="extSloads"]
+"345_createMarket" [label="createMarket"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+}
+}

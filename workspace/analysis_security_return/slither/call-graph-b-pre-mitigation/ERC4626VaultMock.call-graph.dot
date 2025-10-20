@@ -1,0 +1,122 @@
+strict digraph {
+subgraph cluster_15105_IERC20Metadata {
+label = "IERC20Metadata"
+"15105_symbol" [label="symbol"]
+"15105_name" [label="name"]
+"15105_decimals" [label="decimals"]
+}subgraph cluster_14052_ERC20 {
+label = "ERC20"
+"14052_totalSupply" [label="totalSupply"]
+"14052_name" [label="name"]
+"14052_symbol" [label="symbol"]
+"14052__transfer" [label="_transfer"]
+"14052__mint" [label="_mint"]
+"14052_approve" [label="approve"]
+"14052_constructor" [label="constructor"]
+"14052_increaseAllowance" [label="increaseAllowance"]
+"14052__burn" [label="_burn"]
+"14052_decreaseAllowance" [label="decreaseAllowance"]
+"14052__spendAllowance" [label="_spendAllowance"]
+"14052_balanceOf" [label="balanceOf"]
+"14052_allowance" [label="allowance"]
+"14052__approve" [label="_approve"]
+"14052_decimals" [label="decimals"]
+"14052__afterTokenTransfer" [label="_afterTokenTransfer"]
+"14052_transferFrom" [label="transferFrom"]
+"14052_transfer" [label="transfer"]
+"14052__beforeTokenTransfer" [label="_beforeTokenTransfer"]
+"14052_transferFrom" -> "14052__spendAllowance"
+"14052_transferFrom" -> "14052__msgSender"
+"14052_decreaseAllowance" -> "14052__msgSender"
+"14052_approve" -> "14052__approve"
+"14052_transferFrom" -> "14052__transfer"
+"14052_increaseAllowance" -> "14052__approve"
+"14052_increaseAllowance" -> "14052__msgSender"
+"14052__burn" -> "14052__beforeTokenTransfer"
+"14052__spendAllowance" -> "14052__approve"
+"14052__transfer" -> "14052__beforeTokenTransfer"
+"14052__transfer" -> "14052__afterTokenTransfer"
+"14052__mint" -> "14052__beforeTokenTransfer"
+"14052_transfer" -> "14052__transfer"
+"14052_decreaseAllowance" -> "14052__approve"
+"14052__spendAllowance" -> "14052_allowance"
+"14052_approve" -> "14052__msgSender"
+"14052__mint" -> "14052__afterTokenTransfer"
+"14052_decreaseAllowance" -> "14052_allowance"
+"14052_transfer" -> "14052__msgSender"
+"14052_increaseAllowance" -> "14052_allowance"
+"14052__burn" -> "14052__afterTokenTransfer"
+}subgraph cluster_14130_IERC20 {
+label = "IERC20"
+"14130_balanceOf" [label="balanceOf"]
+"14130_transferFrom" [label="transferFrom"]
+"14130_allowance" [label="allowance"]
+"14130_transfer" [label="transfer"]
+"14130_approve" [label="approve"]
+"14130_totalSupply" [label="totalSupply"]
+}subgraph cluster_12438_IERC4626 {
+label = "IERC4626"
+"12438_convertToShares" [label="convertToShares"]
+"12438_previewWithdraw" [label="previewWithdraw"]
+"12438_redeem" [label="redeem"]
+"12438_maxDeposit" [label="maxDeposit"]
+"12438_previewDeposit" [label="previewDeposit"]
+"12438_previewMint" [label="previewMint"]
+"12438_maxWithdraw" [label="maxWithdraw"]
+"12438_withdraw" [label="withdraw"]
+"12438_asset" [label="asset"]
+"12438_previewRedeem" [label="previewRedeem"]
+"12438_totalAssets" [label="totalAssets"]
+"12438_convertToAssets" [label="convertToAssets"]
+"12438_deposit" [label="deposit"]
+"12438_mint" [label="mint"]
+"12438_maxMint" [label="maxMint"]
+"12438_maxRedeem" [label="maxRedeem"]
+}subgraph cluster_42811_ERC4626VaultMock {
+label = "ERC4626VaultMock"
+"42811_maxDeposit" [label="maxDeposit"]
+"42811_maxWithdraw" [label="maxWithdraw"]
+"42811_convertToShares" [label="convertToShares"]
+"42811_deposit" [label="deposit"]
+"42811_maxMint" [label="maxMint"]
+"42811_maxRedeem" [label="maxRedeem"]
+"42811_mint" [label="mint"]
+"42811_convertToAssets" [label="convertToAssets"]
+"42811_withdraw" [label="withdraw"]
+"42811_redeem" [label="redeem"]
+"42811_previewMint" [label="previewMint"]
+"42811_previewWithdraw" [label="previewWithdraw"]
+"42811_asset" [label="asset"]
+"42811_previewRedeem" [label="previewRedeem"]
+"42811_totalAssets" [label="totalAssets"]
+"42811_previewDeposit" [label="previewDeposit"]
+"42811_constructor" [label="constructor"]
+"42811_withdraw" -> "42811__burn"
+"42811_constructor" -> "42811_constructor"
+"42811_maxWithdraw" -> "42811_balanceOf"
+"42811_redeem" -> "42811__spendAllowance"
+"42811_deposit" -> "42811__mint"
+"42811_withdraw" -> "42811__spendAllowance"
+"42811_mint" -> "42811__mint"
+"42811_maxRedeem" -> "42811_balanceOf"
+"42811_redeem" -> "42811__burn"
+}subgraph cluster_17436_Context {
+label = "Context"
+"17436__msgSender" [label="_msgSender"]
+"17436__msgData" [label="_msgData"]
+"17436__contextSuffixLength" [label="_contextSuffixLength"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"require(bool,string)" 
+"14052__mint" -> "require(bool,string)"
+"14052__approve" -> "require(bool,string)"
+"14052__spendAllowance" -> "require(bool,string)"
+"14052__transfer" -> "require(bool,string)"
+"42811_withdraw" -> "require(bool,string)"
+"42811_deposit" -> "require(bool,string)"
+"14052__burn" -> "require(bool,string)"
+"42811_redeem" -> "require(bool,string)"
+"42811_mint" -> "require(bool,string)"
+"14052_decreaseAllowance" -> "require(bool,string)"
+}
+}

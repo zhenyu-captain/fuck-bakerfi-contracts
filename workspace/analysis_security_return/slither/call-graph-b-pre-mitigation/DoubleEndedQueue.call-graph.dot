@@ -1,0 +1,28 @@
+strict digraph {
+subgraph cluster_21525_DoubleEndedQueue {
+label = "DoubleEndedQueue"
+"21525_back" [label="back"]
+"21525_at" [label="at"]
+"21525_empty" [label="empty"]
+"21525_popBack" [label="popBack"]
+"21525_pushFront" [label="pushFront"]
+"21525_pushBack" [label="pushBack"]
+"21525_length" [label="length"]
+"21525_clear" [label="clear"]
+"21525_front" [label="front"]
+"21525_popFront" [label="popFront"]
+"21525_popBack" -> "21525_empty"
+"21525_front" -> "21525_empty"
+"21525_back" -> "21525_empty"
+"21525_popFront" -> "21525_empty"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"revert OutOfBounds()" 
+"revert Empty()" 
+"21525_popBack" -> "revert Empty()"
+"21525_at" -> "revert OutOfBounds()"
+"21525_popFront" -> "revert Empty()"
+"21525_back" -> "revert Empty()"
+"21525_front" -> "revert Empty()"
+}
+}

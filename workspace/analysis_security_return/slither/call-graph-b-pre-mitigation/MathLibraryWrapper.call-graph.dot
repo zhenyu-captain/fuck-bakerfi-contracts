@@ -1,0 +1,11 @@
+strict digraph {
+subgraph cluster_42895_MathLibraryWrapper {
+label = "MathLibraryWrapper"
+"42895_mulDiv" [label="mulDiv"]
+"42895_mulDivUp" [label="mulDivUp"]
+"42895_toDecimals" [label="toDecimals"]
+"42895_mulDivDown" [label="mulDivDown"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+}
+}

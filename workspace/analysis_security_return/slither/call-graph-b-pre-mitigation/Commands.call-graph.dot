@@ -1,0 +1,16 @@
+strict digraph {
+subgraph cluster_31383_Commands {
+label = "Commands"
+"31383_pullInputParam" [label="pullInputParam"]
+"31383_pushOutputParam" [label="pushOutputParam"]
+"31383_slitherConstructorConstantVariables" [label="slitherConstructorConstantVariables"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"revert InvalidPosition(uint8)" 
+"revert InvalidMappingIndex(uint8)" 
+"31383_pushOutputParam" -> "revert InvalidMappingIndex(uint8)"
+"31383_pushOutputParam" -> "revert InvalidPosition(uint8)"
+"31383_pullInputParam" -> "revert InvalidPosition(uint8)"
+"31383_pullInputParam" -> "revert InvalidMappingIndex(uint8)"
+}
+}

@@ -1,0 +1,33 @@
+strict digraph {
+subgraph cluster_45424_CustomExRateOracle {
+label = "CustomExRateOracle"
+"45424_constructor" [label="constructor"]
+"45424_getRatio" [label="getRatio"]
+"45424_slitherConstructorConstantVariables" [label="slitherConstructorConstantVariables"]
+"45424_constructor" -> "45424_constructor"
+}subgraph cluster_37634_IOracle {
+label = "IOracle"
+"37634_getPrecision" [label="getPrecision"]
+"37634_getSafeLatestPrice" [label="getSafeLatestPrice"]
+"37634_getLatestPrice" [label="getLatestPrice"]
+}subgraph cluster_45579_ExRateOracle {
+label = "ExRateOracle"
+"45579_getSafeLatestPrice" [label="getSafeLatestPrice"]
+"45579_getRatio" [label="getRatio"]
+"45579_constructor" [label="constructor"]
+"45579_getLatestPrice" [label="getLatestPrice"]
+"45579_getPrecision" [label="getPrecision"]
+"45579__getPriceInternal" [label="_getPriceInternal"]
+"45579_getLatestPrice" -> "45579__getPriceInternal"
+"45579_getSafeLatestPrice" -> "45579__getPriceInternal"
+"45579__getPriceInternal" -> "45579_getRatio"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"abi.decode()" 
+"revert InvalidPriceFromOracle()" 
+"45424_getRatio" -> "abi.decode()"
+"45424_getRatio" -> "revert InvalidPriceFromOracle()"
+}"45579__getPriceInternal" -> "37634_getSafeLatestPrice"
+"45579__getPriceInternal" -> "37634_getLatestPrice"
+"45579_constructor" -> "37634_getPrecision"
+}

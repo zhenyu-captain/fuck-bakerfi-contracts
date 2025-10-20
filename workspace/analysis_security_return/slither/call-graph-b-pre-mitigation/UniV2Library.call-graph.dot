@@ -1,0 +1,16 @@
+strict digraph {
+subgraph cluster_40272_UniV2Library {
+label = "UniV2Library"
+"40272_swapUniV2" [label="swapUniV2"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"revert InvalidInputToken()" 
+"revert InvalidOutputToken()" 
+"revert FailedToApproveAllowance()" 
+"revert SwapFailed()" 
+"40272_swapUniV2" -> "revert FailedToApproveAllowance()"
+"40272_swapUniV2" -> "revert SwapFailed()"
+"40272_swapUniV2" -> "revert InvalidOutputToken()"
+"40272_swapUniV2" -> "revert InvalidInputToken()"
+}
+}

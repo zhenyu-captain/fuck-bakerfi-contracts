@@ -1,0 +1,13 @@
+strict digraph {
+subgraph cluster_5076_CountersUpgradeable {
+label = "CountersUpgradeable"
+"5076_current" [label="current"]
+"5076_decrement" [label="decrement"]
+"5076_reset" [label="reset"]
+"5076_increment" [label="increment"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"require(bool,string)" 
+"5076_decrement" -> "require(bool,string)"
+}
+}

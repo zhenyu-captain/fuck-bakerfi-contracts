@@ -1,0 +1,12 @@
+strict digraph {
+subgraph cluster_13070_ITransparentUpgradeableProxy {
+label = "ITransparentUpgradeableProxy"
+"13070_changeAdmin" [label="changeAdmin"]
+"13070_implementation" [label="implementation"]
+"13070_upgradeToAndCall" [label="upgradeToAndCall"]
+"13070_upgradeTo" [label="upgradeTo"]
+"13070_admin" [label="admin"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+}
+}

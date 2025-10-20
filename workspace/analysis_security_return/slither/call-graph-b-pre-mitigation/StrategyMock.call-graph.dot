@@ -1,0 +1,28 @@
+strict digraph {
+subgraph cluster_43944_StrategyMock {
+label = "StrategyMock"
+"43944_setHarvestPerCall" [label="setHarvestPerCall"]
+"43944_getPosition" [label="getPosition"]
+"43944_totalAssets" [label="totalAssets"]
+"43944_slitherConstructorVariables" [label="slitherConstructorVariables"]
+"43944_asset" [label="asset"]
+"43944_setRatio" [label="setRatio"]
+"43944_deploy" [label="deploy"]
+"43944_undeploy" [label="undeploy"]
+"43944_constructor" [label="constructor"]
+"43944_harvest" [label="harvest"]
+}subgraph cluster_37703_IStrategy {
+label = "IStrategy"
+"37703_deploy" [label="deploy"]
+"37703_totalAssets" [label="totalAssets"]
+"37703_asset" [label="asset"]
+"37703_undeploy" [label="undeploy"]
+"37703_harvest" [label="harvest"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"revert NoBalance()" 
+"balance(address)" 
+"43944_undeploy" -> "revert NoBalance()"
+"43944_undeploy" -> "balance(address)"
+}
+}

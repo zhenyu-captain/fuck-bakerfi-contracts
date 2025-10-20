@@ -1,0 +1,22 @@
+strict digraph {
+subgraph cluster_44838_WETH {
+label = "WETH"
+"44838_deposit" [label="deposit"]
+"44838_totalSupply" [label="totalSupply"]
+"44838_transferFrom" [label="transferFrom"]
+"44838_receive" [label="receive"]
+"44838_withdraw" [label="withdraw"]
+"44838_approve" [label="approve"]
+"44838_slitherConstructorConstantVariables" [label="slitherConstructorConstantVariables"]
+"44838_transfer" [label="transfer"]
+"44838_receive" -> "44838_deposit"
+"44838_transfer" -> "44838_transferFrom"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"require(bool)" 
+"balance(address)" 
+"44838_totalSupply" -> "balance(address)"
+"44838_withdraw" -> "require(bool)"
+"44838_transferFrom" -> "require(bool)"
+}
+}

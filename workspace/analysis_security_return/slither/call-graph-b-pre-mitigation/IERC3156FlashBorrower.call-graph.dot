@@ -1,0 +1,8 @@
+strict digraph {
+subgraph cluster_12232_IERC3156FlashBorrower {
+label = "IERC3156FlashBorrower"
+"12232_onFlashLoan" [label="onFlashLoan"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+}
+}

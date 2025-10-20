@@ -1,0 +1,30 @@
+strict digraph {
+subgraph cluster_30627_UseUniV2Swapper {
+label = "UseUniV2Swapper"
+"30627_v2UniRouter" [label="v2UniRouter"]
+"30627__allowRouterSpend" [label="_allowRouterSpend"]
+"30627_swap" [label="swap"]
+"30627__initUseUniV2Swapper" [label="_initUseUniV2Swapper"]
+"30627_swap" -> "30627_v2UniRouter"
+"30627__allowRouterSpend" -> "30627_v2UniRouter"
+}subgraph cluster_30659_UseUniV2SwapperMock {
+label = "UseUniV2SwapperMock"
+"30659_constructor" [label="constructor"]
+"30659_test__swap" [label="test__swap"]
+"30659_constructor" -> "30659__initUseUniV2Swapper"
+"30659_test__swap" -> "30659_swap"
+}subgraph cluster_37815_ISwapHandler {
+label = "ISwapHandler"
+"37815_swap" [label="swap"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"sload(uint256)" 
+"revert FailedToApproveAllowance()" 
+"revert InvalidV2RouterContract()" 
+"sstore(uint256,uint256)" 
+"30627_v2UniRouter" -> "sload(uint256)"
+"30627__initUseUniV2Swapper" -> "revert InvalidV2RouterContract()"
+"30627__initUseUniV2Swapper" -> "sstore(uint256,uint256)"
+"30627__allowRouterSpend" -> "revert FailedToApproveAllowance()"
+}
+}

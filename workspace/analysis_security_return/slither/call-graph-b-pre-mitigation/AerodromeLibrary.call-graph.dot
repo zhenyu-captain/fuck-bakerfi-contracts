@@ -1,0 +1,16 @@
+strict digraph {
+subgraph cluster_39308_AerodromeLibrary {
+label = "AerodromeLibrary"
+"39308_swapAerodrome" [label="swapAerodrome"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"revert InvalidInputToken()" 
+"revert SwapFailed()" 
+"abi.decode()" 
+"revert InvalidOutputToken()" 
+"39308_swapAerodrome" -> "revert SwapFailed()"
+"39308_swapAerodrome" -> "abi.decode()"
+"39308_swapAerodrome" -> "revert InvalidOutputToken()"
+"39308_swapAerodrome" -> "revert InvalidInputToken()"
+}
+}

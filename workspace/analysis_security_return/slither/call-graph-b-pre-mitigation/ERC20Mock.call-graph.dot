@@ -1,0 +1,134 @@
+strict digraph {
+subgraph cluster_15105_IERC20Metadata {
+label = "IERC20Metadata"
+"15105_symbol" [label="symbol"]
+"15105_name" [label="name"]
+"15105_decimals" [label="decimals"]
+}subgraph cluster_42083_ERC20Mock {
+label = "ERC20Mock"
+"42083_constructor" [label="constructor"]
+"42083_constructor" -> "42083_constructor"
+"42083_constructor" -> "42083__mint"
+"42083_constructor" -> "42083__transferOwnership"
+}subgraph cluster_14052_ERC20 {
+label = "ERC20"
+"14052_totalSupply" [label="totalSupply"]
+"14052_name" [label="name"]
+"14052_symbol" [label="symbol"]
+"14052__transfer" [label="_transfer"]
+"14052__mint" [label="_mint"]
+"14052_approve" [label="approve"]
+"14052_constructor" [label="constructor"]
+"14052_increaseAllowance" [label="increaseAllowance"]
+"14052__burn" [label="_burn"]
+"14052_decreaseAllowance" [label="decreaseAllowance"]
+"14052__spendAllowance" [label="_spendAllowance"]
+"14052_balanceOf" [label="balanceOf"]
+"14052_allowance" [label="allowance"]
+"14052__approve" [label="_approve"]
+"14052_decimals" [label="decimals"]
+"14052__afterTokenTransfer" [label="_afterTokenTransfer"]
+"14052_transferFrom" [label="transferFrom"]
+"14052_transfer" [label="transfer"]
+"14052__beforeTokenTransfer" [label="_beforeTokenTransfer"]
+"14052_transferFrom" -> "14052__spendAllowance"
+"14052_transferFrom" -> "14052__msgSender"
+"14052_decreaseAllowance" -> "14052__msgSender"
+"14052_approve" -> "14052__approve"
+"14052_transferFrom" -> "14052__transfer"
+"14052_increaseAllowance" -> "14052__approve"
+"14052_increaseAllowance" -> "14052__msgSender"
+"14052__burn" -> "14052__beforeTokenTransfer"
+"14052__spendAllowance" -> "14052__approve"
+"14052__transfer" -> "14052__beforeTokenTransfer"
+"14052__transfer" -> "14052__afterTokenTransfer"
+"14052__mint" -> "14052__beforeTokenTransfer"
+"14052_transfer" -> "14052__transfer"
+"14052_decreaseAllowance" -> "14052__approve"
+"14052__spendAllowance" -> "14052_allowance"
+"14052_approve" -> "14052__msgSender"
+"14052__mint" -> "14052__afterTokenTransfer"
+"14052_decreaseAllowance" -> "14052_allowance"
+"14052_transfer" -> "14052__msgSender"
+"14052_increaseAllowance" -> "14052_allowance"
+"14052__burn" -> "14052__afterTokenTransfer"
+}subgraph cluster_15141_IERC20Permit {
+label = "IERC20Permit"
+"15141_nonces" [label="nonces"]
+"15141_DOMAIN_SEPARATOR" [label="DOMAIN_SEPARATOR"]
+"15141_permit" [label="permit"]
+}subgraph cluster_14346_ERC20Permit {
+label = "ERC20Permit"
+"14346_permit" [label="permit"]
+"14346__useNonce" [label="_useNonce"]
+"14346_DOMAIN_SEPARATOR" [label="DOMAIN_SEPARATOR"]
+"14346_constructor" [label="constructor"]
+"14346_nonces" [label="nonces"]
+"14346_permit" -> "14346__hashTypedDataV4"
+"14346_DOMAIN_SEPARATOR" -> "14346__domainSeparatorV4"
+"14346_permit" -> "14346__approve"
+"14346_constructor" -> "14346_constructor"
+"14346_permit" -> "14346__useNonce"
+}subgraph cluster_18635_EIP712 {
+label = "EIP712"
+"18635_constructor" [label="constructor"]
+"18635__buildDomainSeparator" [label="_buildDomainSeparator"]
+"18635__hashTypedDataV4" [label="_hashTypedDataV4"]
+"18635__domainSeparatorV4" [label="_domainSeparatorV4"]
+"18635_eip712Domain" [label="eip712Domain"]
+"18635__domainSeparatorV4" -> "18635__buildDomainSeparator"
+"18635__hashTypedDataV4" -> "18635__domainSeparatorV4"
+"18635_constructor" -> "18635__buildDomainSeparator"
+}subgraph cluster_12463_IERC5267 {
+label = "IERC5267"
+"12463_eip712Domain" [label="eip712Domain"]
+}subgraph cluster_14130_IERC20 {
+label = "IERC20"
+"14130_balanceOf" [label="balanceOf"]
+"14130_transferFrom" [label="transferFrom"]
+"14130_allowance" [label="allowance"]
+"14130_transfer" [label="transfer"]
+"14130_approve" [label="approve"]
+"14130_totalSupply" [label="totalSupply"]
+}subgraph cluster_17436_Context {
+label = "Context"
+"17436__msgSender" [label="_msgSender"]
+"17436__msgData" [label="_msgData"]
+"17436__contextSuffixLength" [label="_contextSuffixLength"]
+}subgraph cluster_7486_Ownable {
+label = "Ownable"
+"7486_constructor" [label="constructor"]
+"7486__transferOwnership" [label="_transferOwnership"]
+"7486_renounceOwnership" [label="renounceOwnership"]
+"7486__checkOwner" [label="_checkOwner"]
+"7486_owner" [label="owner"]
+"7486_transferOwnership" [label="transferOwnership"]
+"7486__checkOwner" -> "7486_owner"
+"7486__checkOwner" -> "7486__msgSender"
+"7486_constructor" -> "7486__msgSender"
+"7486_transferOwnership" -> "7486_onlyOwner"
+"7486_renounceOwnership" -> "7486_onlyOwner"
+"7486_constructor" -> "7486__transferOwnership"
+"7486_transferOwnership" -> "7486__transferOwnership"
+"7486_renounceOwnership" -> "7486__transferOwnership"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"keccak256(bytes)" 
+"abi.encode()" 
+"require(bool,string)" 
+"14052__mint" -> "require(bool,string)"
+"14052__approve" -> "require(bool,string)"
+"14346_permit" -> "abi.encode()"
+"14052__spendAllowance" -> "require(bool,string)"
+"7486_transferOwnership" -> "require(bool,string)"
+"18635__buildDomainSeparator" -> "abi.encode()"
+"14052__transfer" -> "require(bool,string)"
+"18635__buildDomainSeparator" -> "keccak256(bytes)"
+"14052__burn" -> "require(bool,string)"
+"18635_constructor" -> "keccak256(bytes)"
+"14346_permit" -> "keccak256(bytes)"
+"14052_decreaseAllowance" -> "require(bool,string)"
+"14346_permit" -> "require(bool,string)"
+"7486__checkOwner" -> "require(bool,string)"
+}
+}

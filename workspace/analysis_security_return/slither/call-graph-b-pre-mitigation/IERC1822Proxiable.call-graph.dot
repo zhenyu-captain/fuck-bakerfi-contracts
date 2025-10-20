@@ -1,0 +1,8 @@
+strict digraph {
+subgraph cluster_12497_IERC1822Proxiable {
+label = "IERC1822Proxiable"
+"12497_proxiableUUID" [label="proxiableUUID"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+}
+}

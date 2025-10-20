@@ -1,0 +1,26 @@
+strict digraph {
+subgraph cluster_36691_IPoolAddressesProvider {
+label = "IPoolAddressesProvider"
+"36691_setPriceOracle" [label="setPriceOracle"]
+"36691_setAddressAsProxy" [label="setAddressAsProxy"]
+"36691_getPriceOracle" [label="getPriceOracle"]
+"36691_getPriceOracleSentinel" [label="getPriceOracleSentinel"]
+"36691_getPool" [label="getPool"]
+"36691_getACLAdmin" [label="getACLAdmin"]
+"36691_setAddress" [label="setAddress"]
+"36691_getACLManager" [label="getACLManager"]
+"36691_setACLManager" [label="setACLManager"]
+"36691_setPoolImpl" [label="setPoolImpl"]
+"36691_getPoolConfigurator" [label="getPoolConfigurator"]
+"36691_setACLAdmin" [label="setACLAdmin"]
+"36691_setPriceOracleSentinel" [label="setPriceOracleSentinel"]
+"36691_getPoolDataProvider" [label="getPoolDataProvider"]
+"36691_setPoolDataProvider" [label="setPoolDataProvider"]
+"36691_setMarketId" [label="setMarketId"]
+"36691_getAddress" [label="getAddress"]
+"36691_setPoolConfiguratorImpl" [label="setPoolConfiguratorImpl"]
+"36691_getMarketId" [label="getMarketId"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+}
+}

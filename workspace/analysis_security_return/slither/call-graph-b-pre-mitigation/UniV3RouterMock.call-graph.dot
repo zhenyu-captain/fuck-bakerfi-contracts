@@ -1,0 +1,28 @@
+strict digraph {
+subgraph cluster_39153_IV3SwapRouter {
+label = "IV3SwapRouter"
+"39153_exactInput" [label="exactInput"]
+"39153_exactOutputSingle" [label="exactOutputSingle"]
+"39153_exactOutput" [label="exactOutput"]
+"39153_exactInputSingle" [label="exactInputSingle"]
+}subgraph cluster_39065_IUniswapV3SwapCallback {
+label = "IUniswapV3SwapCallback"
+"39065_uniswapV3SwapCallback" [label="uniswapV3SwapCallback"]
+}subgraph cluster_44255_UniV3RouterMock {
+label = "UniV3RouterMock"
+"44255_setPrice" [label="setPrice"]
+"44255_exactInputSingle" [label="exactInputSingle"]
+"44255_slitherConstructorVariables" [label="slitherConstructorVariables"]
+"44255_exactOutputSingle" [label="exactOutputSingle"]
+"44255_uniswapV3SwapCallback" [label="uniswapV3SwapCallback"]
+"44255_getPrice" [label="getPrice"]
+"44255_exactInput" [label="exactInput"]
+"44255_constructor" [label="constructor"]
+"44255_exactOutput" [label="exactOutput"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"require(bool,string)" 
+"44255_exactInputSingle" -> "require(bool,string)"
+"44255_exactOutputSingle" -> "require(bool,string)"
+}
+}

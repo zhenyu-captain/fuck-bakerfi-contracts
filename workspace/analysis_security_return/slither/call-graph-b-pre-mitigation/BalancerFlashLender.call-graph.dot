@@ -1,0 +1,43 @@
+strict digraph {
+subgraph cluster_37456_IFlashLoanRecipient {
+label = "IFlashLoanRecipient"
+"37456_receiveFlashLoan" [label="receiveFlashLoan"]
+}subgraph cluster_27866_BalancerFlashLender {
+label = "BalancerFlashLender"
+"27866_slitherConstructorConstantVariables" [label="slitherConstructorConstantVariables"]
+"27866_receiveFlashLoan" [label="receiveFlashLoan"]
+"27866_flashLoan" [label="flashLoan"]
+"27866_flashFee" [label="flashFee"]
+"27866_maxFlashLoan" [label="maxFlashLoan"]
+"27866_constructor" [label="constructor"]
+}subgraph cluster_2726_IERC3156FlashLenderUpgradeable {
+label = "IERC3156FlashLenderUpgradeable"
+"2726_flashLoan" [label="flashLoan"]
+"2726_maxFlashLoan" [label="maxFlashLoan"]
+"2726_flashFee" [label="flashFee"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"revert InvalidAmountList()" 
+"revert InvalidTokenList()" 
+"abi.encode()" 
+"revert InvalidFlashLoadLender()" 
+"revert InvalidBorrower()" 
+"revert InvalidFeesAmount()" 
+"revert NoAllowanceToPayDebt()" 
+"revert InvalidVaultAddress()" 
+"revert BorrowerCallbackFailed()" 
+"abi.decode()" 
+"keccak256(bytes)" 
+"27866_receiveFlashLoan" -> "revert InvalidAmountList()"
+"27866_receiveFlashLoan" -> "revert InvalidFlashLoadLender()"
+"27866_receiveFlashLoan" -> "revert BorrowerCallbackFailed()"
+"27866_flashLoan" -> "revert InvalidBorrower()"
+"27866_receiveFlashLoan" -> "revert InvalidFeesAmount()"
+"27866_receiveFlashLoan" -> "revert NoAllowanceToPayDebt()"
+"27866_slitherConstructorConstantVariables" -> "keccak256(bytes)"
+"27866_receiveFlashLoan" -> "abi.decode()"
+"27866_constructor" -> "revert InvalidVaultAddress()"
+"27866_flashLoan" -> "abi.encode()"
+"27866_receiveFlashLoan" -> "revert InvalidTokenList()"
+}
+}

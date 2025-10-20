@@ -1,0 +1,12 @@
+strict digraph {
+subgraph cluster_29257_UsePermitTransfers {
+label = "UsePermitTransfers"
+"29257_pullTokensWithPermit" [label="pullTokensWithPermit"]
+}subgraph cluster_29290_UsePermitTransfersMock {
+label = "UsePermitTransfersMock"
+"29290_test__pullTokensWithPermit" [label="test__pullTokensWithPermit"]
+"29290_test__pullTokensWithPermit" -> "29290_pullTokensWithPermit"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+}
+}

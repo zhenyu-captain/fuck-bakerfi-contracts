@@ -1,0 +1,13 @@
+strict digraph {
+subgraph cluster_17836_StorageSlot {
+label = "StorageSlot"
+"17836_getBytesSlot" [label="getBytesSlot"]
+"17836_getStringSlot" [label="getStringSlot"]
+"17836_getUint256Slot" [label="getUint256Slot"]
+"17836_getAddressSlot" [label="getAddressSlot"]
+"17836_getBytes32Slot" [label="getBytes32Slot"]
+"17836_getBooleanSlot" [label="getBooleanSlot"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+}
+}

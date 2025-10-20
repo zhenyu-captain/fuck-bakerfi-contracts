@@ -1,0 +1,27 @@
+strict digraph {
+subgraph cluster_6879_MathUpgradeable {
+label = "MathUpgradeable"
+"6879_mulDiv" [label="mulDiv"]
+"6879_sqrt" [label="sqrt"]
+"6879_max" [label="max"]
+"6879_log2" [label="log2"]
+"6879_min" [label="min"]
+"6879_average" [label="average"]
+"6879_log10" [label="log10"]
+"6879_ceilDiv" [label="ceilDiv"]
+"6879_log256" [label="log256"]
+"6879_log256" -> "6879_log256"
+"6879_mulDiv" -> "6879_mulDiv"
+"6879_log2" -> "6879_log2"
+"6879_log10" -> "6879_log10"
+"6879_sqrt" -> "6879_sqrt"
+"6879_sqrt" -> "6879_min"
+"6879_sqrt" -> "6879_log2"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"require(bool,string)" 
+"mulmod(uint256,uint256,uint256)" 
+"6879_mulDiv" -> "mulmod(uint256,uint256,uint256)"
+"6879_mulDiv" -> "require(bool,string)"
+}
+}

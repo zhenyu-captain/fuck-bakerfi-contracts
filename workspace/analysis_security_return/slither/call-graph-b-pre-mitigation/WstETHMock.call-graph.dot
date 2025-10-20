@@ -1,0 +1,98 @@
+strict digraph {
+subgraph cluster_15105_IERC20Metadata {
+label = "IERC20Metadata"
+"15105_symbol" [label="symbol"]
+"15105_name" [label="name"]
+"15105_decimals" [label="decimals"]
+}subgraph cluster_14052_ERC20 {
+label = "ERC20"
+"14052_totalSupply" [label="totalSupply"]
+"14052_name" [label="name"]
+"14052_symbol" [label="symbol"]
+"14052__transfer" [label="_transfer"]
+"14052__mint" [label="_mint"]
+"14052_approve" [label="approve"]
+"14052_constructor" [label="constructor"]
+"14052_increaseAllowance" [label="increaseAllowance"]
+"14052__burn" [label="_burn"]
+"14052_decreaseAllowance" [label="decreaseAllowance"]
+"14052__spendAllowance" [label="_spendAllowance"]
+"14052_balanceOf" [label="balanceOf"]
+"14052_allowance" [label="allowance"]
+"14052__approve" [label="_approve"]
+"14052_decimals" [label="decimals"]
+"14052__afterTokenTransfer" [label="_afterTokenTransfer"]
+"14052_transferFrom" [label="transferFrom"]
+"14052_transfer" [label="transfer"]
+"14052__beforeTokenTransfer" [label="_beforeTokenTransfer"]
+"14052_transferFrom" -> "14052__spendAllowance"
+"14052_transferFrom" -> "14052__msgSender"
+"14052_decreaseAllowance" -> "14052__msgSender"
+"14052_approve" -> "14052__approve"
+"14052_transferFrom" -> "14052__transfer"
+"14052_increaseAllowance" -> "14052__approve"
+"14052_increaseAllowance" -> "14052__msgSender"
+"14052__burn" -> "14052__beforeTokenTransfer"
+"14052__spendAllowance" -> "14052__approve"
+"14052__transfer" -> "14052__beforeTokenTransfer"
+"14052__transfer" -> "14052__afterTokenTransfer"
+"14052__mint" -> "14052__beforeTokenTransfer"
+"14052_transfer" -> "14052__transfer"
+"14052_decreaseAllowance" -> "14052__approve"
+"14052__spendAllowance" -> "14052_allowance"
+"14052_approve" -> "14052__msgSender"
+"14052__mint" -> "14052__afterTokenTransfer"
+"14052_decreaseAllowance" -> "14052_allowance"
+"14052_transfer" -> "14052__msgSender"
+"14052_increaseAllowance" -> "14052_allowance"
+"14052__burn" -> "14052__afterTokenTransfer"
+}subgraph cluster_38283_IWStETH {
+label = "IWStETH"
+"38283_wrap" [label="wrap"]
+"38283_stETH" [label="stETH"]
+"38283_unwrap" [label="unwrap"]
+"38283_stEthPerToken" [label="stEthPerToken"]
+}subgraph cluster_45020_WstETHMock {
+label = "WstETHMock"
+"45020_wrap" [label="wrap"]
+"45020_constructor" [label="constructor"]
+"45020_unwrap" [label="unwrap"]
+"45020_stEthPerToken" [label="stEthPerToken"]
+"45020_slitherConstructorVariables" [label="slitherConstructorVariables"]
+"45020_receive" [label="receive"]
+"45020_stETH" [label="stETH"]
+"45020_setExchangeRate" [label="setExchangeRate"]
+"45020_unwrap" -> "45020_stEthPerToken"
+"45020_receive" -> "45020__mint"
+"45020_constructor" -> "45020_constructor"
+"45020_wrap" -> "45020_stEthPerToken"
+"45020_unwrap" -> "45020__burn"
+"45020_wrap" -> "45020__mint"
+"45020_receive" -> "45020_stEthPerToken"
+}subgraph cluster_14130_IERC20 {
+label = "IERC20"
+"14130_balanceOf" [label="balanceOf"]
+"14130_transferFrom" [label="transferFrom"]
+"14130_allowance" [label="allowance"]
+"14130_transfer" [label="transfer"]
+"14130_approve" [label="approve"]
+"14130_totalSupply" [label="totalSupply"]
+}subgraph cluster_17436_Context {
+label = "Context"
+"17436__msgSender" [label="_msgSender"]
+"17436__msgData" [label="_msgData"]
+"17436__contextSuffixLength" [label="_contextSuffixLength"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"require(bool,string)" 
+"14052__mint" -> "require(bool,string)"
+"14052__approve" -> "require(bool,string)"
+"14052__spendAllowance" -> "require(bool,string)"
+"14052__transfer" -> "require(bool,string)"
+"14052__burn" -> "require(bool,string)"
+"45020_wrap" -> "require(bool,string)"
+"14052_decreaseAllowance" -> "require(bool,string)"
+"45020_unwrap" -> "require(bool,string)"
+}"45020_wrap" -> "14130_transferFrom"
+"45020_unwrap" -> "14130_transfer"
+}

@@ -1,0 +1,183 @@
+strict digraph {
+subgraph cluster_15105_IERC20Metadata {
+label = "IERC20Metadata"
+"15105_symbol" [label="symbol"]
+"15105_name" [label="name"]
+"15105_decimals" [label="decimals"]
+}subgraph cluster_14052_ERC20 {
+label = "ERC20"
+"14052_totalSupply" [label="totalSupply"]
+"14052_name" [label="name"]
+"14052_symbol" [label="symbol"]
+"14052__transfer" [label="_transfer"]
+"14052__mint" [label="_mint"]
+"14052_approve" [label="approve"]
+"14052_constructor" [label="constructor"]
+"14052_increaseAllowance" [label="increaseAllowance"]
+"14052__burn" [label="_burn"]
+"14052_decreaseAllowance" [label="decreaseAllowance"]
+"14052__spendAllowance" [label="_spendAllowance"]
+"14052_balanceOf" [label="balanceOf"]
+"14052_allowance" [label="allowance"]
+"14052__approve" [label="_approve"]
+"14052_decimals" [label="decimals"]
+"14052__afterTokenTransfer" [label="_afterTokenTransfer"]
+"14052_transferFrom" [label="transferFrom"]
+"14052_transfer" [label="transfer"]
+"14052__beforeTokenTransfer" [label="_beforeTokenTransfer"]
+"14052_transferFrom" -> "14052__spendAllowance"
+"14052_transferFrom" -> "14052__msgSender"
+"14052_decreaseAllowance" -> "14052__msgSender"
+"14052_approve" -> "14052__approve"
+"14052_transferFrom" -> "14052__transfer"
+"14052_increaseAllowance" -> "14052__approve"
+"14052_increaseAllowance" -> "14052__msgSender"
+"14052__burn" -> "14052__beforeTokenTransfer"
+"14052__spendAllowance" -> "14052__approve"
+"14052__transfer" -> "14052__beforeTokenTransfer"
+"14052__transfer" -> "14052__afterTokenTransfer"
+"14052__mint" -> "14052__beforeTokenTransfer"
+"14052_transfer" -> "14052__transfer"
+"14052_decreaseAllowance" -> "14052__approve"
+"14052__spendAllowance" -> "14052_allowance"
+"14052_approve" -> "14052__msgSender"
+"14052__mint" -> "14052__afterTokenTransfer"
+"14052_decreaseAllowance" -> "14052_allowance"
+"14052_transfer" -> "14052__msgSender"
+"14052_increaseAllowance" -> "14052_allowance"
+"14052__burn" -> "14052__afterTokenTransfer"
+}subgraph cluster_41508_AaveV3PoolMock {
+label = "AaveV3PoolMock"
+"41508_supplyWithPermit" [label="supplyWithPermit"]
+"41508_setCollateralPerEth" [label="setCollateralPerEth"]
+"41508_mintUnbacked" [label="mintUnbacked"]
+"41508_getReserveNormalizedIncome" [label="getReserveNormalizedIncome"]
+"41508_repayWithPermit" [label="repayWithPermit"]
+"41508_getUserConfiguration" [label="getUserConfiguration"]
+"41508_rescueTokens" [label="rescueTokens"]
+"41508_setReserveInterestRateStrategyAddress" [label="setReserveInterestRateStrategyAddress"]
+"41508_BRIDGE_PROTOCOL_FEE" [label="BRIDGE_PROTOCOL_FEE"]
+"41508_initReserve" [label="initReserve"]
+"41508_flashLoan" [label="flashLoan"]
+"41508_rebalanceStableBorrowRate" [label="rebalanceStableBorrowRate"]
+"41508_supply" [label="supply"]
+"41508_dropReserve" [label="dropReserve"]
+"41508_deposit" [label="deposit"]
+"41508_FLASHLOAN_PREMIUM_TO_PROTOCOL" [label="FLASHLOAN_PREMIUM_TO_PROTOCOL"]
+"41508_getUserAccountData" [label="getUserAccountData"]
+"41508_repayWithATokens" [label="repayWithATokens"]
+"41508_getConfiguration" [label="getConfiguration"]
+"41508_repay" [label="repay"]
+"41508_setUserEMode" [label="setUserEMode"]
+"41508_getEModeCategoryData" [label="getEModeCategoryData"]
+"41508_FLASHLOAN_PREMIUM_TOTAL" [label="FLASHLOAN_PREMIUM_TOTAL"]
+"41508_flashLoanSimple" [label="flashLoanSimple"]
+"41508_constructor" [label="constructor"]
+"41508_slitherConstructorVariables" [label="slitherConstructorVariables"]
+"41508_getCollateralPerEth" [label="getCollateralPerEth"]
+"41508_ADDRESSES_PROVIDER" [label="ADDRESSES_PROVIDER"]
+"41508_swapBorrowRateMode" [label="swapBorrowRateMode"]
+"41508_MAX_STABLE_RATE_BORROW_SIZE_PERCENT" [label="MAX_STABLE_RATE_BORROW_SIZE_PERCENT"]
+"41508_borrow" [label="borrow"]
+"41508_resetIsolationModeTotalDebt" [label="resetIsolationModeTotalDebt"]
+"41508_slitherConstructorConstantVariables" [label="slitherConstructorConstantVariables"]
+"41508_MAX_NUMBER_RESERVES" [label="MAX_NUMBER_RESERVES"]
+"41508_getUserEMode" [label="getUserEMode"]
+"41508_updateBridgeProtocolFee" [label="updateBridgeProtocolFee"]
+"41508_setConfiguration" [label="setConfiguration"]
+"41508_getReserveAddressById" [label="getReserveAddressById"]
+"41508_configureEModeCategory" [label="configureEModeCategory"]
+"41508_updateFlashloanPremiums" [label="updateFlashloanPremiums"]
+"41508_mintAtokensArbitrarily" [label="mintAtokensArbitrarily"]
+"41508_setBorrowedPerEth" [label="setBorrowedPerEth"]
+"41508_backUnbacked" [label="backUnbacked"]
+"41508_withdraw" [label="withdraw"]
+"41508_getBorrowedPerEth" [label="getBorrowedPerEth"]
+"41508_mintToTreasury" [label="mintToTreasury"]
+"41508_liquidationCall" [label="liquidationCall"]
+"41508_setUserUseReserveAsCollateral" [label="setUserUseReserveAsCollateral"]
+"41508_getReserveData" [label="getReserveData"]
+"41508_finalizeTransfer" [label="finalizeTransfer"]
+"41508_getReserveNormalizedVariableDebt" [label="getReserveNormalizedVariableDebt"]
+"41508_getReservesList" [label="getReservesList"]
+"41508_constructor" -> "41508_constructor"
+"41508_repayWithATokens" -> "41508__burn"
+"41508_supply" -> "41508__mint"
+"41508_withdraw" -> "41508__burn"
+}subgraph cluster_37327_IPoolV3 {
+label = "IPoolV3"
+"37327_getReserveData" [label="getReserveData"]
+"37327_MAX_STABLE_RATE_BORROW_SIZE_PERCENT" [label="MAX_STABLE_RATE_BORROW_SIZE_PERCENT"]
+"37327_configureEModeCategory" [label="configureEModeCategory"]
+"37327_rescueTokens" [label="rescueTokens"]
+"37327_resetIsolationModeTotalDebt" [label="resetIsolationModeTotalDebt"]
+"37327_swapBorrowRateMode" [label="swapBorrowRateMode"]
+"37327_setUserEMode" [label="setUserEMode"]
+"37327_supply" [label="supply"]
+"37327_backUnbacked" [label="backUnbacked"]
+"37327_flashLoanSimple" [label="flashLoanSimple"]
+"37327_getReserveAddressById" [label="getReserveAddressById"]
+"37327_liquidationCall" [label="liquidationCall"]
+"37327_mintUnbacked" [label="mintUnbacked"]
+"37327_repayWithATokens" [label="repayWithATokens"]
+"37327_deposit" [label="deposit"]
+"37327_supplyWithPermit" [label="supplyWithPermit"]
+"37327_rebalanceStableBorrowRate" [label="rebalanceStableBorrowRate"]
+"37327_borrow" [label="borrow"]
+"37327_setConfiguration" [label="setConfiguration"]
+"37327_repay" [label="repay"]
+"37327_initReserve" [label="initReserve"]
+"37327_FLASHLOAN_PREMIUM_TO_PROTOCOL" [label="FLASHLOAN_PREMIUM_TO_PROTOCOL"]
+"37327_setUserUseReserveAsCollateral" [label="setUserUseReserveAsCollateral"]
+"37327_BRIDGE_PROTOCOL_FEE" [label="BRIDGE_PROTOCOL_FEE"]
+"37327_getUserAccountData" [label="getUserAccountData"]
+"37327_getReserveNormalizedVariableDebt" [label="getReserveNormalizedVariableDebt"]
+"37327_ADDRESSES_PROVIDER" [label="ADDRESSES_PROVIDER"]
+"37327_updateFlashloanPremiums" [label="updateFlashloanPremiums"]
+"37327_withdraw" [label="withdraw"]
+"37327_getUserEMode" [label="getUserEMode"]
+"37327_mintToTreasury" [label="mintToTreasury"]
+"37327_updateBridgeProtocolFee" [label="updateBridgeProtocolFee"]
+"37327_getConfiguration" [label="getConfiguration"]
+"37327_MAX_NUMBER_RESERVES" [label="MAX_NUMBER_RESERVES"]
+"37327_setReserveInterestRateStrategyAddress" [label="setReserveInterestRateStrategyAddress"]
+"37327_repayWithPermit" [label="repayWithPermit"]
+"37327_getReserveNormalizedIncome" [label="getReserveNormalizedIncome"]
+"37327_getReservesList" [label="getReservesList"]
+"37327_dropReserve" [label="dropReserve"]
+"37327_flashLoan" [label="flashLoan"]
+"37327_getEModeCategoryData" [label="getEModeCategoryData"]
+"37327_finalizeTransfer" [label="finalizeTransfer"]
+"37327_FLASHLOAN_PREMIUM_TOTAL" [label="FLASHLOAN_PREMIUM_TOTAL"]
+"37327_getUserConfiguration" [label="getUserConfiguration"]
+}subgraph cluster_14130_IERC20 {
+label = "IERC20"
+"14130_balanceOf" [label="balanceOf"]
+"14130_transferFrom" [label="transferFrom"]
+"14130_allowance" [label="allowance"]
+"14130_transfer" [label="transfer"]
+"14130_approve" [label="approve"]
+"14130_totalSupply" [label="totalSupply"]
+}subgraph cluster_17436_Context {
+label = "Context"
+"17436__msgSender" [label="_msgSender"]
+"17436__msgData" [label="_msgData"]
+"17436__contextSuffixLength" [label="_contextSuffixLength"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"require(bool)" 
+"require(bool,string)" 
+"14052__mint" -> "require(bool,string)"
+"14052__approve" -> "require(bool,string)"
+"14052__spendAllowance" -> "require(bool,string)"
+"41508_withdraw" -> "require(bool)"
+"14052__transfer" -> "require(bool,string)"
+"41508_supply" -> "require(bool,string)"
+"14052__burn" -> "require(bool,string)"
+"41508_borrow" -> "require(bool,string)"
+"14052_decreaseAllowance" -> "require(bool,string)"
+}"41508_withdraw" -> "14130_transfer"
+"41508_borrow" -> "14130_transfer"
+"41508_repay" -> "14130_transfer"
+"41508_supply" -> "14130_transferFrom"
+}

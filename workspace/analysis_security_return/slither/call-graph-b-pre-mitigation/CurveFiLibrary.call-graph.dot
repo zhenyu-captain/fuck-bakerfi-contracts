@@ -1,0 +1,23 @@
+strict digraph {
+subgraph cluster_39667_CurveFiLibrary {
+label = "CurveFiLibrary"
+"39667_slitherConstructorConstantVariables" [label="slitherConstructorConstantVariables"]
+"39667_swapCurveFi" [label="swapCurveFi"]
+"39667__executeCurveFiSwap" [label="_executeCurveFiSwap"]
+"39667_swapCurveFi" -> "39667__executeCurveFiSwap"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"revert SwapFailed()" 
+"revert InsufficientBalance()" 
+"revert InvalidOutputToken()" 
+"revert UnsupportedSwapType()" 
+"abi.decode()" 
+"revert InvalidInputToken()" 
+"39667_swapCurveFi" -> "revert InvalidInputToken()"
+"39667_swapCurveFi" -> "abi.decode()"
+"39667__executeCurveFiSwap" -> "revert UnsupportedSwapType()"
+"39667_swapCurveFi" -> "revert InvalidOutputToken()"
+"39667__executeCurveFiSwap" -> "revert InsufficientBalance()"
+"39667__executeCurveFiSwap" -> "revert SwapFailed()"
+}
+}

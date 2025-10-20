@@ -1,0 +1,118 @@
+strict digraph {
+subgraph cluster_30627_UseUniV2Swapper {
+label = "UseUniV2Swapper"
+"30627_v2UniRouter" [label="v2UniRouter"]
+"30627__allowRouterSpend" [label="_allowRouterSpend"]
+"30627_swap" [label="swap"]
+"30627__initUseUniV2Swapper" [label="_initUseUniV2Swapper"]
+"30627_swap" -> "30627_v2UniRouter"
+"30627__allowRouterSpend" -> "30627_v2UniRouter"
+}subgraph cluster_36005_StrategyUniV2SwapAnd {
+label = "StrategyUniV2SwapAnd"
+"36005__swap" [label="_swap"]
+"36005_constructor" [label="constructor"]
+"36005_constructor" -> "36005__allowRouterSpend"
+"36005_constructor" -> "36005_constructor"
+"36005__swap" -> "36005_swap"
+"36005_constructor" -> "36005__initUseUniV2Swapper"
+}subgraph cluster_37703_IStrategy {
+label = "IStrategy"
+"37703_deploy" [label="deploy"]
+"37703_totalAssets" [label="totalAssets"]
+"37703_asset" [label="asset"]
+"37703_undeploy" [label="undeploy"]
+"37703_harvest" [label="harvest"]
+}subgraph cluster_35912_StrategySwapAnd {
+label = "StrategySwapAnd"
+"35912_harvest" [label="harvest"]
+"35912_deploy" [label="deploy"]
+"35912__totalAssets" [label="_totalAssets"]
+"35912_undeploy" [label="undeploy"]
+"35912__convertFromUnderlying" [label="_convertFromUnderlying"]
+"35912_oracle" [label="oracle"]
+"35912_maxSlippage" [label="maxSlippage"]
+"35912__swap" [label="_swap"]
+"35912__convertToUnderlying" [label="_convertToUnderlying"]
+"35912_underlyingAsset" [label="underlyingAsset"]
+"35912_asset" [label="asset"]
+"35912_constructor" [label="constructor"]
+"35912_totalAssets" [label="totalAssets"]
+"35912_setMaxSlippage" [label="setMaxSlippage"]
+"35912_constructor" -> "35912_transferOwnership"
+"35912_deploy" -> "35912__convertFromUnderlying"
+"35912_deploy" -> "35912__convertToUnderlying"
+"35912_undeploy" -> "35912__convertFromUnderlying"
+"35912_harvest" -> "35912__totalAssets"
+"35912_undeploy" -> "35912_nonReentrant"
+"35912_deploy" -> "35912_nonReentrant"
+"35912_undeploy" -> "35912__swap"
+"35912_undeploy" -> "35912__convertToUnderlying"
+"35912_deploy" -> "35912_underlyingAsset"
+"35912_deploy" -> "35912__swap"
+"35912_undeploy" -> "35912_underlyingAsset"
+"35912_constructor" -> "35912_constructor"
+"35912_setMaxSlippage" -> "35912_onlyOwner"
+"35912_harvest" -> "35912_nonReentrant"
+"35912__totalAssets" -> "35912__convertFromUnderlying"
+"35912_totalAssets" -> "35912__totalAssets"
+}subgraph cluster_13424_ReentrancyGuard {
+label = "ReentrancyGuard"
+"13424_constructor" [label="constructor"]
+"13424__nonReentrantAfter" [label="_nonReentrantAfter"]
+"13424__nonReentrantBefore" [label="_nonReentrantBefore"]
+"13424__reentrancyGuardEntered" [label="_reentrancyGuardEntered"]
+}subgraph cluster_37815_ISwapHandler {
+label = "ISwapHandler"
+"37815_swap" [label="swap"]
+}subgraph cluster_17436_Context {
+label = "Context"
+"17436__msgSender" [label="_msgSender"]
+"17436__msgData" [label="_msgData"]
+"17436__contextSuffixLength" [label="_contextSuffixLength"]
+}subgraph cluster_7486_Ownable {
+label = "Ownable"
+"7486_constructor" [label="constructor"]
+"7486__transferOwnership" [label="_transferOwnership"]
+"7486_renounceOwnership" [label="renounceOwnership"]
+"7486__checkOwner" [label="_checkOwner"]
+"7486_owner" [label="owner"]
+"7486_transferOwnership" [label="transferOwnership"]
+"7486__checkOwner" -> "7486_owner"
+"7486__checkOwner" -> "7486__msgSender"
+"7486_constructor" -> "7486__msgSender"
+"7486_transferOwnership" -> "7486_onlyOwner"
+"7486_renounceOwnership" -> "7486_onlyOwner"
+"7486_constructor" -> "7486__transferOwnership"
+"7486_transferOwnership" -> "7486__transferOwnership"
+"7486_renounceOwnership" -> "7486__transferOwnership"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"revert InvalidAmount()" 
+"sload(uint256)" 
+"revert FailedToApproveAllowanceFor()" 
+"require(bool,string)" 
+"revert InvalidV2RouterContract()" 
+"revert SlippageExceeded()" 
+"revert InvalidConfiguration()" 
+"revert FailedToApproveAllowance()" 
+"sstore(uint256,uint256)" 
+"30627__initUseUniV2Swapper" -> "revert InvalidV2RouterContract()"
+"30627__allowRouterSpend" -> "revert FailedToApproveAllowance()"
+"30627_v2UniRouter" -> "sload(uint256)"
+"7486_transferOwnership" -> "require(bool,string)"
+"13424__nonReentrantBefore" -> "require(bool,string)"
+"35912_undeploy" -> "revert InvalidAmount()"
+"35912_deploy" -> "revert SlippageExceeded()"
+"30627__initUseUniV2Swapper" -> "sstore(uint256,uint256)"
+"35912_constructor" -> "revert FailedToApproveAllowanceFor()"
+"35912_deploy" -> "revert InvalidAmount()"
+"35912_constructor" -> "revert InvalidConfiguration()"
+"35912_undeploy" -> "revert SlippageExceeded()"
+"7486__checkOwner" -> "require(bool,string)"
+}"36005_constructor" -> "37703_asset"
+"35912_constructor" -> "37703_asset"
+"35912_undeploy" -> "37703_undeploy"
+"35912__totalAssets" -> "37703_totalAssets"
+"35912_underlyingAsset" -> "37703_asset"
+"35912_deploy" -> "37703_deploy"
+}

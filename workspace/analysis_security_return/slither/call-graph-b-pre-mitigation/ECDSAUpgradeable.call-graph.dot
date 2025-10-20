@@ -1,0 +1,37 @@
+strict digraph {
+subgraph cluster_5671_ECDSAUpgradeable {
+label = "ECDSAUpgradeable"
+"5671__throwError" [label="_throwError"]
+"5671_tryRecover" [label="tryRecover"]
+"5671_toTypedDataHash" [label="toTypedDataHash"]
+"5671_toDataWithIntendedValidatorHash" [label="toDataWithIntendedValidatorHash"]
+"5671_recover" [label="recover"]
+"5671_toEthSignedMessageHash" [label="toEthSignedMessageHash"]
+"5671_recover" -> "5671_tryRecover"
+"5671_recover" -> "5671__throwError"
+"5671_tryRecover" -> "5671_tryRecover"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"keccak256(uint256,uint256)" 
+"revert(string)" 
+"mstore(uint256,uint256)" 
+"ecrecover(bytes32,uint8,bytes32,bytes32)" 
+"abi.encodePacked()" 
+"byte(uint256,uint256)" 
+"mload(uint256)" 
+"keccak256(bytes)" 
+"5671_tryRecover" -> "mload(uint256)"
+"5671_toEthSignedMessageHash" -> "mstore(uint256,uint256)"
+"5671_toEthSignedMessageHash" -> "keccak256(bytes)"
+"5671__throwError" -> "revert(string)"
+"5671_tryRecover" -> "ecrecover(bytes32,uint8,bytes32,bytes32)"
+"5671_toTypedDataHash" -> "mstore(uint256,uint256)"
+"5671_toEthSignedMessageHash" -> "keccak256(uint256,uint256)"
+"5671_tryRecover" -> "byte(uint256,uint256)"
+"5671_toDataWithIntendedValidatorHash" -> "abi.encodePacked()"
+"5671_toTypedDataHash" -> "keccak256(uint256,uint256)"
+"5671_toDataWithIntendedValidatorHash" -> "keccak256(bytes)"
+"5671_toTypedDataHash" -> "mload(uint256)"
+"5671_toEthSignedMessageHash" -> "abi.encodePacked()"
+}
+}

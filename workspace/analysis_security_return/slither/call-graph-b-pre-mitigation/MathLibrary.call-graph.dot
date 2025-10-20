@@ -1,0 +1,19 @@
+strict digraph {
+subgraph cluster_39880_MathLibrary {
+label = "MathLibrary"
+"39880_mulDivDown" [label="mulDivDown"]
+"39880_slitherConstructorConstantVariables" [label="slitherConstructorConstantVariables"]
+"39880_toDecimals" [label="toDecimals"]
+"39880_mulDivUp" [label="mulDivUp"]
+"39880_mulDiv" [label="mulDiv"]
+"39880_mulDiv" -> "39880_mulDivUp"
+"39880_mulDiv" -> "39880_mulDivDown"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"revert OverflowDetected()" 
+"revert InvalidDivDenominator()" 
+"39880_mulDivUp" -> "revert InvalidDivDenominator()"
+"39880_mulDivDown" -> "revert InvalidDivDenominator()"
+"39880_toDecimals" -> "revert OverflowDetected()"
+}
+}

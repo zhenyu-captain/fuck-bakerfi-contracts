@@ -1,0 +1,83 @@
+{
+  "timestamp": "20251020_124916",
+  "mode": "slither-high",
+  "timeout": 66,
+  "slither_data": {
+    "detector_file": "detectors-b-pre-mitigation-all-20251020_122931.json",
+    "high_count": 12,
+    "medium_count": 33,
+    "contracts_count": 7
+  },
+  "contracts": [
+    {
+      "contract": "contracts/core/flashloan/BalancerFlashLender.sol",
+      "contract_name": "BalancerFlashLender",
+      "result_file": "BalancerFlashLender.json",
+      "analysis": {
+        "success": false,
+        "error": "Analysis timeout or failed",
+        "issues": []
+      }
+    },
+    {
+      "contract": "contracts/core/hooks/UsePermitTransfers.sol",
+      "contract_name": "UsePermitTransfers",
+      "result_file": "UsePermitTransfers.json",
+      "analysis": {
+        "error": null,
+        "issues": [],
+        "success": true
+      }
+    },
+    {
+      "contract": "contracts/core/hooks/UseTokenActions.sol",
+      "contract_name": "UseTokenActions",
+      "result_file": "UseTokenActions.json",
+      "analysis": {
+        "error": null,
+        "issues": [],
+        "success": true
+      }
+    },
+    {
+      "contract": "contracts/core/MultiStrategyVault.sol",
+      "contract_name": "MultiStrategyVault",
+      "result_file": "MultiStrategyVault.json",
+      "analysis": {
+        "success": false,
+        "error": "Analysis timeout or failed",
+        "issues": []
+      }
+    },
+    {
+      "contract": "contracts/core/Vault.sol",
+      "contract_name": "Vault",
+      "result_file": "Vault.json",
+      "analysis": {
+        "success": false,
+        "error": "Analysis timeout or failed",
+        "issues": []
+      }
+    },
+    {
+      "contract": "contracts/interfaces/balancer/IVault.sol",
+      "contract_name": "IVault",
+      "result_file": "IVault.json",
+      "analysis": {
+        "error": null,
+        "issues": [],
+        "success": true
+      }
+    },
+    {
+      "contract": "contracts/oracles/PythOracle.sol",
+      "contract_name": "PythOracle",
+      "result_file": "PythOracle.json",
+      "analysis": {
+        "success": false,
+        "error": "Analysis timeout or failed",
+        "issues": []
+      }
+    }
+  ]
+}

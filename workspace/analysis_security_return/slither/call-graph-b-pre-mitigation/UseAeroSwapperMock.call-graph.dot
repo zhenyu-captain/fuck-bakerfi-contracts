@@ -1,0 +1,28 @@
+strict digraph {
+subgraph cluster_30364_UseAeroSwapperMock {
+label = "UseAeroSwapperMock"
+"30364_test__swap" [label="test__swap"]
+"30364_test_allowRouterSpend" [label="test_allowRouterSpend"]
+"30364_constructor" [label="constructor"]
+"30364_constructor" -> "30364__initAeroSwapper"
+"30364_test_allowRouterSpend" -> "30364__allowRouterSpend"
+"30364_test__swap" -> "30364_swap"
+}subgraph cluster_30318_UseAeroSwapper {
+label = "UseAeroSwapper"
+"30318_aeroRouterA" [label="aeroRouterA"]
+"30318__allowRouterSpend" [label="_allowRouterSpend"]
+"30318_aeroRouter" [label="aeroRouter"]
+"30318__initAeroSwapper" [label="_initAeroSwapper"]
+"30318_swap" [label="swap"]
+"30318_swap" -> "30318_aeroRouter"
+}subgraph cluster_37815_ISwapHandler {
+label = "ISwapHandler"
+"37815_swap" [label="swap"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"revert InvalidAeroRouterContract()" 
+"revert FailedToApproveAllowanceForSwapRouter()" 
+"30318__allowRouterSpend" -> "revert FailedToApproveAllowanceForSwapRouter()"
+"30318__initAeroSwapper" -> "revert InvalidAeroRouterContract()"
+}
+}

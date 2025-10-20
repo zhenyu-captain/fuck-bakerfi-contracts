@@ -1,0 +1,19 @@
+strict digraph {
+subgraph cluster_39012_IQuoterV2 {
+label = "IQuoterV2"
+"39012_quoteExactOutputSingle" [label="quoteExactOutputSingle"]
+"39012_quoteExactInputSingle" [label="quoteExactInputSingle"]
+"39012_quoteExactInput" [label="quoteExactInput"]
+"39012_quoteExactOutput" [label="quoteExactOutput"]
+}subgraph cluster_43702_QuoterV2Mock {
+label = "QuoterV2Mock"
+"43702_quoteExactInputSingle" [label="quoteExactInputSingle"]
+"43702_slitherConstructorVariables" [label="slitherConstructorVariables"]
+"43702_quoteExactOutput" [label="quoteExactOutput"]
+"43702_quoteExactOutputSingle" [label="quoteExactOutputSingle"]
+"43702_setRatio" [label="setRatio"]
+"43702_quoteExactInput" [label="quoteExactInput"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+}
+}

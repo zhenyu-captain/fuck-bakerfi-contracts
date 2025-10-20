@@ -1,0 +1,27 @@
+strict digraph {
+subgraph cluster_37595_IChainlinkAggregator {
+label = "IChainlinkAggregator"
+"37595_latestAnswer" [label="latestAnswer"]
+"37595_getAnswer" [label="getAnswer"]
+"37595_latestTimestamp" [label="latestTimestamp"]
+"37595_latestRound" [label="latestRound"]
+"37595_latestRoundData" [label="latestRoundData"]
+"37595_getTimestamp" [label="getTimestamp"]
+"37595_decimals" [label="decimals"]
+}subgraph cluster_41982_ChainLinkAggregatorMock {
+label = "ChainLinkAggregatorMock"
+"41982_constructor" [label="constructor"]
+"41982_setLatestPrice" [label="setLatestPrice"]
+"41982_latestAnswer" [label="latestAnswer"]
+"41982_slitherConstructorVariables" [label="slitherConstructorVariables"]
+"41982_latestRoundData" [label="latestRoundData"]
+"41982_decimals" [label="decimals"]
+"41982_latestTimestamp" [label="latestTimestamp"]
+"41982_latestRound" [label="latestRound"]
+"41982_getTimestamp" [label="getTimestamp"]
+"41982_setDecimals" [label="setDecimals"]
+"41982_getAnswer" [label="getAnswer"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+}
+}

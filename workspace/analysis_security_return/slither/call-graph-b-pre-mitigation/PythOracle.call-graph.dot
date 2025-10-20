@@ -1,0 +1,28 @@
+strict digraph {
+subgraph cluster_37634_IOracle {
+label = "IOracle"
+"37634_getPrecision" [label="getPrecision"]
+"37634_getSafeLatestPrice" [label="getSafeLatestPrice"]
+"37634_getLatestPrice" [label="getLatestPrice"]
+}subgraph cluster_45908_PythOracle {
+label = "PythOracle"
+"45908_constructor" [label="constructor"]
+"45908__getPriceInternal" [label="_getPriceInternal"]
+"45908_getSafeLatestPrice" [label="getSafeLatestPrice"]
+"45908_getLatestPrice" [label="getLatestPrice"]
+"45908_slitherConstructorConstantVariables" [label="slitherConstructorConstantVariables"]
+"45908_getAndUpdatePrice" [label="getAndUpdatePrice"]
+"45908_getPrecision" [label="getPrecision"]
+"45908_getSafeLatestPrice" -> "45908__getPriceInternal"
+"45908_getLatestPrice" -> "45908__getPriceInternal"
+"45908_getAndUpdatePrice" -> "45908__getPriceInternal"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"revert NoEnoughFee()" 
+"revert InvalidPriceAnswer()" 
+"revert InvalidPriceUpdate()" 
+"45908__getPriceInternal" -> "revert InvalidPriceAnswer()"
+"45908_getAndUpdatePrice" -> "revert NoEnoughFee()"
+"45908_getAndUpdatePrice" -> "revert InvalidPriceUpdate()"
+}
+}

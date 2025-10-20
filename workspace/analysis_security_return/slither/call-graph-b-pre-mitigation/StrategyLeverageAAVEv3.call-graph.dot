@@ -1,0 +1,389 @@
+strict digraph {
+subgraph cluster_2688_IERC3156FlashBorrowerUpgradeable {
+label = "IERC3156FlashBorrowerUpgradeable"
+"2688_onFlashLoan" [label="onFlashLoan"]
+}subgraph cluster_33729_StrategyLeverageAAVEv3 {
+label = "StrategyLeverageAAVEv3"
+"33729_getBalances" [label="getBalances"]
+"33729__supply" [label="_supply"]
+"33729__withdraw" [label="_withdraw"]
+"33729_constructor" [label="constructor"]
+"33729__supplyAndBorrow" [label="_supplyAndBorrow"]
+"33729__repay" [label="_repay"]
+"33729_initialize" [label="initialize"]
+"33729__withdraw" -> "33729_aaveV3"
+"33729__supplyAndBorrow" -> "33729__supply"
+"33729__repay" -> "33729_aaveV3A"
+"33729_initialize" -> "33729_initializer"
+"33729__supply" -> "33729_aaveV3"
+"33729_initialize" -> "33729__initializeStrategyLeverage"
+"33729_constructor" -> "33729__disableInitializers"
+"33729_initialize" -> "33729__initUseAAVEv3"
+"33729_getBalances" -> "33729_aaveV3"
+"33729__supply" -> "33729_aaveV3A"
+"33729__supplyAndBorrow" -> "33729_aaveV3"
+"33729__repay" -> "33729_aaveV3"
+"33729_initialize" -> "33729_aaveV3"
+}subgraph cluster_28388_UseFlashLender {
+label = "UseFlashLender"
+"28388_flashLenderA" [label="flashLenderA"]
+"28388__initUseFlashLender" [label="_initUseFlashLender"]
+"28388_flashLender" [label="flashLender"]
+"28388__initUseFlashLender" -> "28388_onlyInitializing"
+}subgraph cluster_3301_ReentrancyGuardUpgradeable {
+label = "ReentrancyGuardUpgradeable"
+"3301__reentrancyGuardEntered" [label="_reentrancyGuardEntered"]
+"3301___ReentrancyGuard_init_unchained" [label="__ReentrancyGuard_init_unchained"]
+"3301__nonReentrantBefore" [label="_nonReentrantBefore"]
+"3301__nonReentrantAfter" [label="_nonReentrantAfter"]
+"3301___ReentrancyGuard_init" [label="__ReentrancyGuard_init"]
+"3301___ReentrancyGuard_init" -> "3301___ReentrancyGuard_init_unchained"
+"3301___ReentrancyGuard_init_unchained" -> "3301_onlyInitializing"
+"3301___ReentrancyGuard_init" -> "3301_onlyInitializing"
+}subgraph cluster_28327_UseAAVEv3 {
+label = "UseAAVEv3"
+"28327_aaveV3A" [label="aaveV3A"]
+"28327_aaveV3" [label="aaveV3"]
+"28327__initUseAAVEv3" [label="_initUseAAVEv3"]
+"28327__initUseAAVEv3" -> "28327_onlyInitializing"
+}subgraph cluster_31143_UseUnifiedSwapper {
+label = "UseUnifiedSwapper"
+"31143__key" [label="_key"]
+"31143_disableRoute" [label="disableRoute"]
+"31143_swap" [label="swap"]
+"31143_isRouteEnabled" [label="isRouteEnabled"]
+"31143_enableRoute" [label="enableRoute"]
+"31143_isRouteEnabled" -> "31143__key"
+"31143_swap" -> "31143__key"
+"31143_enableRoute" -> "31143__key"
+"31143_disableRoute" -> "31143_onlyGovernor"
+"31143_enableRoute" -> "31143_onlyGovernor"
+"31143_disableRoute" -> "31143__key"
+}subgraph cluster_2665_OwnableUpgradeable {
+label = "OwnableUpgradeable"
+"2665_renounceOwnership" [label="renounceOwnership"]
+"2665___Ownable_init_unchained" [label="__Ownable_init_unchained"]
+"2665_transferOwnership" [label="transferOwnership"]
+"2665_owner" [label="owner"]
+"2665__transferOwnership" [label="_transferOwnership"]
+"2665__checkOwner" [label="_checkOwner"]
+"2665___Ownable_init" [label="__Ownable_init"]
+"2665___Ownable_init" -> "2665_onlyInitializing"
+"2665__checkOwner" -> "2665_owner"
+"2665_renounceOwnership" -> "2665__transferOwnership"
+"2665___Ownable_init_unchained" -> "2665__msgSender"
+"2665___Ownable_init_unchained" -> "2665_onlyInitializing"
+"2665__checkOwner" -> "2665__msgSender"
+"2665_transferOwnership" -> "2665_onlyOwner"
+"2665___Ownable_init" -> "2665___Ownable_init_unchained"
+"2665_transferOwnership" -> "2665__transferOwnership"
+"2665_renounceOwnership" -> "2665_onlyOwner"
+"2665___Ownable_init_unchained" -> "2665__transferOwnership"
+}subgraph cluster_5002_ContextUpgradeable {
+label = "ContextUpgradeable"
+"5002___Context_init" [label="__Context_init"]
+"5002__msgSender" [label="_msgSender"]
+"5002__contextSuffixLength" [label="_contextSuffixLength"]
+"5002__msgData" [label="_msgData"]
+"5002___Context_init_unchained" [label="__Context_init_unchained"]
+"5002___Context_init" -> "5002_onlyInitializing"
+"5002___Context_init_unchained" -> "5002_onlyInitializing"
+}subgraph cluster_29131_UseLeverage {
+label = "UseLeverage"
+"29131__calculateLeverageRatio" [label="_calculateLeverageRatio"]
+"29131__calcDeltaPosition" [label="_calcDeltaPosition"]
+"29131__calculateDebtToPay" [label="_calculateDebtToPay"]
+}subgraph cluster_37738_IStrategyLeverage {
+label = "IStrategyLeverage"
+"37738_getCollateralAsset" [label="getCollateralAsset"]
+"37738_getDebAsset" [label="getDebAsset"]
+"37738_getPosition" [label="getPosition"]
+}subgraph cluster_34893_StrategySettings {
+label = "StrategySettings"
+"34893_setPriceMaxConf" [label="setPriceMaxConf"]
+"34893__initializeStrategySettings" [label="_initializeStrategySettings"]
+"34893_getPriceMaxAge" [label="getPriceMaxAge"]
+"34893_getPriceMaxConf" [label="getPriceMaxConf"]
+"34893_setPriceMaxAge" [label="setPriceMaxAge"]
+"34893__setUint256" [label="_setUint256"]
+"34893_constructor" [label="constructor"]
+"34893__getUint256" [label="_getUint256"]
+"34893_setPriceMaxConf" -> "34893_onlyGovernor"
+"34893_setPriceMaxConf" -> "34893__setUint256"
+"34893__initializeStrategySettings" -> "34893__setUint256"
+"34893_setPriceMaxAge" -> "34893_onlyGovernor"
+"34893_getPriceMaxConf" -> "34893__getUint256"
+"34893_constructor" -> "34893__disableInitializers"
+"34893__initializeStrategySettings" -> "34893_onlyInitializing"
+"34893_getPriceMaxAge" -> "34893__getUint256"
+"34893_setPriceMaxAge" -> "34893__setUint256"
+}subgraph cluster_37703_IStrategy {
+label = "IStrategy"
+"37703_deploy" [label="deploy"]
+"37703_totalAssets" [label="totalAssets"]
+"37703_asset" [label="asset"]
+"37703_undeploy" [label="undeploy"]
+"37703_harvest" [label="harvest"]
+}subgraph cluster_3088_Initializable {
+label = "Initializable"
+"3088__getInitializedVersion" [label="_getInitializedVersion"]
+"3088__isInitializing" [label="_isInitializing"]
+"3088__disableInitializers" [label="_disableInitializers"]
+}subgraph cluster_33392_StrategyLeverage {
+label = "StrategyLeverage"
+"33392_totalAssets" [label="totalAssets"]
+"33392__convertToCollateral" [label="_convertToCollateral"]
+"33392_getPosition" [label="getPosition"]
+"33392_getCollateralAsset" [label="getCollateralAsset"]
+"33392__repayAndWithdraw" [label="_repayAndWithdraw"]
+"33392__toCollateral" [label="_toCollateral"]
+"33392__undeploy" [label="_undeploy"]
+"33392__toDebt" [label="_toDebt"]
+"33392_getBalances" [label="getBalances"]
+"33392_getDebAsset" [label="getDebAsset"]
+"33392__adjustDebt" [label="_adjustDebt"]
+"33392__withdraw" [label="_withdraw"]
+"33392__supplyAndBorrow" [label="_supplyAndBorrow"]
+"33392__initializeStrategyLeverage" [label="_initializeStrategyLeverage"]
+"33392_receive" [label="receive"]
+"33392_setCollateralOracle" [label="setCollateralOracle"]
+"33392_setDebtOracle" [label="setDebtOracle"]
+"33392__convertToDebt" [label="_convertToDebt"]
+"33392__payDebt" [label="_payDebt"]
+"33392_harvest" [label="harvest"]
+"33392__getPosition" [label="_getPosition"]
+"33392_onFlashLoan" [label="onFlashLoan"]
+"33392_getCollateralOracle" [label="getCollateralOracle"]
+"33392_deploy" [label="deploy"]
+"33392__supply" [label="_supply"]
+"33392_asset" [label="asset"]
+"33392_undeploy" [label="undeploy"]
+"33392_getDebtOracle" [label="getDebtOracle"]
+"33392_renounceOwnership" [label="renounceOwnership"]
+"33392__repay" [label="_repay"]
+"33392__supplyBorrow" [label="_supplyBorrow"]
+"33392_harvest" -> "33392_getPriceMaxConf"
+"33392_deploy" -> "33392_flashLender"
+"33392__repayAndWithdraw" -> "33392__withdraw"
+"33392__payDebt" -> "33392_swap"
+"33392__undeploy" -> "33392_getPriceMaxConf"
+"33392_onFlashLoan" -> "33392__payDebt"
+"33392__payDebt" -> "33392_getMaxSlippage"
+"33392__convertToCollateral" -> "33392__toCollateral"
+"33392__convertToCollateral" -> "33392_getPriceMaxAge"
+"33392_harvest" -> "33392_getMaxLoanToValue"
+"33392__payDebt" -> "33392__withdraw"
+"33392__undeploy" -> "33392_getPriceMaxAge"
+"33392_harvest" -> "33392_onlyOwner"
+"33392_deploy" -> "33392_onlyOwner"
+"33392_harvest" -> "33392__toDebt"
+"33392__convertToDebt" -> "33392_getMaxSlippage"
+"33392__supplyBorrow" -> "33392__supplyAndBorrow"
+"33392_harvest" -> "33392_getBalances"
+"33392__supplyBorrow" -> "33392_getPriceMaxConf"
+"33392__payDebt" -> "33392_getPriceMaxAge"
+"33392__adjustDebt" -> "33392_getLoanToValue"
+"33392__undeploy" -> "33392_getBalances"
+"33392_undeploy" -> "33392_nonReentrant"
+"33392__convertToDebt" -> "33392_getPriceMaxConf"
+"33392__supplyBorrow" -> "33392__convertToCollateral"
+"33392__payDebt" -> "33392__toCollateral"
+"33392__adjustDebt" -> "33392_flashLenderA"
+"33392__undeploy" -> "33392__toCollateral"
+"33392__supplyBorrow" -> "33392_getPriceMaxAge"
+"33392__undeploy" -> "33392_flashLender"
+"33392__convertToCollateral" -> "33392_getMaxSlippage"
+"33392_setDebtOracle" -> "33392_onlyGovernor"
+"33392__convertToDebt" -> "33392_getPriceMaxAge"
+"33392_deploy" -> "33392__calculateLeverageRatio"
+"33392_undeploy" -> "33392__undeploy"
+"33392__repayAndWithdraw" -> "33392_getBalances"
+"33392__payDebt" -> "33392_getPriceMaxConf"
+"33392_deploy" -> "33392_getNrLoops"
+"33392__undeploy" -> "33392__toDebt"
+"33392_harvest" -> "33392_getPriceMaxAge"
+"33392__convertToDebt" -> "33392_swap"
+"33392_setCollateralOracle" -> "33392_onlyGovernor"
+"33392__payDebt" -> "33392__supply"
+"33392_onFlashLoan" -> "33392_flashLenderA"
+"33392_deploy" -> "33392_getLoanToValue"
+"33392__getPosition" -> "33392_getBalances"
+"33392__adjustDebt" -> "33392__calculateDebtToPay"
+"33392_getPosition" -> "33392__getPosition"
+"33392_harvest" -> "33392__adjustDebt"
+"33392__payDebt" -> "33392__repay"
+"33392_deploy" -> "33392_flashLenderA"
+"33392__convertToDebt" -> "33392__toDebt"
+"33392_totalAssets" -> "33392__toDebt"
+"33392__convertToCollateral" -> "33392_swap"
+"33392__supplyBorrow" -> "33392__toDebt"
+"33392__repayAndWithdraw" -> "33392__convertToDebt"
+"33392__convertToCollateral" -> "33392_getPriceMaxConf"
+"33392_deploy" -> "33392_nonReentrant"
+"33392__initializeStrategyLeverage" -> "33392__initLeverageSettings"
+"33392__undeploy" -> "33392__calcDeltaPosition"
+"33392__repayAndWithdraw" -> "33392__repay"
+"33392_totalAssets" -> "33392_getBalances"
+"33392__adjustDebt" -> "33392_flashLender"
+"33392_onFlashLoan" -> "33392__supplyBorrow"
+"33392__initializeStrategyLeverage" -> "33392_onlyInitializing"
+"33392__initializeStrategyLeverage" -> "33392__initUseFlashLender"
+"33392_onFlashLoan" -> "33392__repayAndWithdraw"
+"33392_harvest" -> "33392_nonReentrant"
+"33392__undeploy" -> "33392_flashLenderA"
+"33392_undeploy" -> "33392_onlyOwner"
+}subgraph cluster_37776_IStrategySettings {
+label = "IStrategySettings"
+"37776_setPriceMaxConf" [label="setPriceMaxConf"]
+"37776_setPriceMaxAge" [label="setPriceMaxAge"]
+"37776_getPriceMaxConf" [label="getPriceMaxConf"]
+"37776_getPriceMaxAge" [label="getPriceMaxAge"]
+}subgraph cluster_34484_StrategyLeverageSettings {
+label = "StrategyLeverageSettings"
+"34484_getNrLoops" [label="getNrLoops"]
+"34484_getMaxLoanToValue" [label="getMaxLoanToValue"]
+"34484_setNrLoops" [label="setNrLoops"]
+"34484_setMaxLoanToValue" [label="setMaxLoanToValue"]
+"34484_getLoanToValue" [label="getLoanToValue"]
+"34484__initLeverageSettings" [label="_initLeverageSettings"]
+"34484_getMaxSlippage" [label="getMaxSlippage"]
+"34484_setLoanToValue" [label="setLoanToValue"]
+"34484_setMaxSlippage" [label="setMaxSlippage"]
+"34484_setMaxSlippage" -> "34484_onlyGovernor"
+"34484_setMaxLoanToValue" -> "34484_onlyGovernor"
+"34484__initLeverageSettings" -> "34484__initializeGovernableOwnable"
+"34484__initLeverageSettings" -> "34484__initializeStrategySettings"
+"34484__initLeverageSettings" -> "34484_initializer"
+"34484_setNrLoops" -> "34484_onlyGovernor"
+"34484_setLoanToValue" -> "34484_onlyGovernor"
+}subgraph cluster_22262_GovernableOwnable {
+label = "GovernableOwnable"
+"22262_governor" [label="governor"]
+"22262__transferGovernorship" [label="_transferGovernorship"]
+"22262_transferGovernorship" [label="transferGovernorship"]
+"22262__initializeGovernableOwnable" [label="_initializeGovernableOwnable"]
+"22262__initializeGovernableOwnable" -> "22262__transferOwnership"
+"22262_transferGovernorship" -> "22262_onlyGovernor"
+"22262__initializeGovernableOwnable" -> "22262__transferGovernorship"
+"22262_transferGovernorship" -> "22262__transferGovernorship"
+"22262__initializeGovernableOwnable" -> "22262_initializer"
+}subgraph cluster_37815_ISwapHandler {
+label = "ISwapHandler"
+"37815_swap" [label="swap"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"revert FailedToApproveAllowanceForAAVE()" 
+"abi.encode()" 
+"revert InvalidFlashLoanAction()" 
+"revert InvalidLoanToValue()" 
+"revert InvalidOwner()" 
+"revert ETHTransferNotAllowed(address)" 
+"revert InvalidValue()" 
+"revert InvalidGovernorAddress()" 
+"revert InvalidPercentageValue()" 
+"revert InvalidDivisor()" 
+"revert RouteNotAuthorized()" 
+"revert InvalidNumberOfLoops()" 
+"revert InvalidProvider()" 
+"revert InvalidWithdrawAmount()" 
+"revert FailedToRepayDebt()" 
+"revert InvalidDeployAmount()" 
+"require(bool,string)" 
+"abi.encodePacked()" 
+"abi.decode()" 
+"sstore(uint256,uint256)" 
+"revert InvalidMaxLoanToValue()" 
+"revert InvalidCollateralToken()" 
+"revert InvalidFlashLenderContract()" 
+"revert InvalidDebtToken()" 
+"revert FailedToAuthenticateArgs()" 
+"revert CollateralLowerThanDebt()" 
+"revert InvalidCollateralOracle()" 
+"revert InvalidLoopCount()" 
+"revert InvalidTargetValue()" 
+"revert InvalidFlashLoanSender()" 
+"sload(uint256)" 
+"revert InvalidFlashLoanAsset()" 
+"revert InvalidAAVEv3Contract()" 
+"revert InvalidDebtOracle()" 
+"revert FailedToRunFlashLoan()" 
+"revert InvalidDeltaDebt()" 
+"revert RouteAlreadyAuthorized()" 
+"revert InvalidLoanInitiator()" 
+"revert InvalidPercentage()" 
+"revert NoCollateralMarginToScale()" 
+"revert InvalidAAVEEMode()" 
+"revert FailedToApproveAllowance()" 
+"keccak256(bytes)" 
+"31143_enableRoute" -> "revert RouteAlreadyAuthorized()"
+"33729__repay" -> "revert FailedToRepayDebt()"
+"33729_initialize" -> "revert InvalidAAVEEMode()"
+"2665__checkOwner" -> "require(bool,string)"
+"31143_enableRoute" -> "revert FailedToApproveAllowance()"
+"31143_swap" -> "revert InvalidProvider()"
+"33392_onFlashLoan" -> "abi.decode()"
+"33392__adjustDebt" -> "revert FailedToApproveAllowance()"
+"33392__adjustDebt" -> "abi.encodePacked()"
+"33392__initializeStrategyLeverage" -> "revert InvalidOwner()"
+"33392_onFlashLoan" -> "revert InvalidFlashLoanAsset()"
+"33392_harvest" -> "revert CollateralLowerThanDebt()"
+"29131__calculateLeverageRatio" -> "revert InvalidNumberOfLoops()"
+"33392_onFlashLoan" -> "revert InvalidFlashLoanAction()"
+"29131__calcDeltaPosition" -> "revert InvalidPercentageValue()"
+"34893__getUint256" -> "sload(uint256)"
+"33392_renounceOwnership" -> "revert InvalidOwner()"
+"34484_setMaxLoanToValue" -> "revert InvalidMaxLoanToValue()"
+"33392_deploy" -> "revert InvalidDeployAmount()"
+"33392_onFlashLoan" -> "revert FailedToAuthenticateArgs()"
+"34484_setMaxSlippage" -> "revert InvalidPercentage()"
+"33392__undeploy" -> "revert NoCollateralMarginToScale()"
+"29131__calculateDebtToPay" -> "revert InvalidDivisor()"
+"31143__key" -> "abi.encode()"
+"3301__nonReentrantBefore" -> "require(bool,string)"
+"33392__initializeStrategyLeverage" -> "revert InvalidCollateralToken()"
+"33392_receive" -> "revert ETHTransferNotAllowed(address)"
+"33392_deploy" -> "abi.encode()"
+"29131__calculateDebtToPay" -> "revert InvalidTargetValue()"
+"3088__disableInitializers" -> "require(bool,string)"
+"33392_deploy" -> "revert FailedToApproveAllowance()"
+"33392_onFlashLoan" -> "revert InvalidFlashLoanSender()"
+"34484_setMaxLoanToValue" -> "revert InvalidPercentage()"
+"33392__undeploy" -> "abi.encodePacked()"
+"34484_setMaxLoanToValue" -> "revert InvalidValue()"
+"33392_harvest" -> "revert InvalidDeltaDebt()"
+"2665_transferOwnership" -> "require(bool,string)"
+"31143__key" -> "keccak256(bytes)"
+"33392__undeploy" -> "revert FailedToRunFlashLoan()"
+"33392_deploy" -> "abi.encodePacked()"
+"28327__initUseAAVEv3" -> "revert InvalidAAVEv3Contract()"
+"34484_setNrLoops" -> "revert InvalidLoopCount()"
+"34893_setPriceMaxConf" -> "revert InvalidPercentage()"
+"22262_transferGovernorship" -> "revert InvalidGovernorAddress()"
+"33729__repay" -> "revert FailedToApproveAllowanceForAAVE()"
+"33392__undeploy" -> "keccak256(bytes)"
+"33392__adjustDebt" -> "abi.encode()"
+"33392_deploy" -> "keccak256(bytes)"
+"33729__supply" -> "revert FailedToApproveAllowanceForAAVE()"
+"33392__adjustDebt" -> "revert FailedToRunFlashLoan()"
+"31143_disableRoute" -> "revert FailedToApproveAllowance()"
+"34893__setUint256" -> "sstore(uint256,uint256)"
+"33729__withdraw" -> "revert InvalidWithdrawAmount()"
+"31143_disableRoute" -> "revert RouteNotAuthorized()"
+"34484_setLoanToValue" -> "revert InvalidPercentage()"
+"33392_deploy" -> "revert FailedToRunFlashLoan()"
+"33392__initializeStrategyLeverage" -> "revert InvalidCollateralOracle()"
+"33392__initializeStrategyLeverage" -> "revert InvalidDebtOracle()"
+"34484_setLoanToValue" -> "revert InvalidValue()"
+"33392__initializeStrategyLeverage" -> "revert InvalidDebtToken()"
+"33392_onFlashLoan" -> "abi.encodePacked()"
+"33392_onFlashLoan" -> "revert InvalidLoanInitiator()"
+"33392__adjustDebt" -> "keccak256(bytes)"
+"33392__undeploy" -> "revert FailedToApproveAllowance()"
+"29131__calculateLeverageRatio" -> "revert InvalidLoanToValue()"
+"28388__initUseFlashLender" -> "revert InvalidFlashLenderContract()"
+"33392__undeploy" -> "abi.encode()"
+"33392_onFlashLoan" -> "keccak256(bytes)"
+"31143_swap" -> "revert RouteNotAuthorized()"
+"31143_swap" -> "abi.encode()"
+}
+}

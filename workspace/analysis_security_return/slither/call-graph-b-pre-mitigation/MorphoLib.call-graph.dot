@@ -1,0 +1,26 @@
+strict digraph {
+subgraph cluster_1592_MorphoLib {
+label = "MorphoLib"
+"1592_collateral" [label="collateral"]
+"1592__array" [label="_array"]
+"1592_supplyShares" [label="supplyShares"]
+"1592_totalSupplyShares" [label="totalSupplyShares"]
+"1592_totalBorrowShares" [label="totalBorrowShares"]
+"1592_lastUpdate" [label="lastUpdate"]
+"1592_totalBorrowAssets" [label="totalBorrowAssets"]
+"1592_fee" [label="fee"]
+"1592_borrowShares" [label="borrowShares"]
+"1592_totalSupplyAssets" [label="totalSupplyAssets"]
+"1592_totalBorrowShares" -> "1592__array"
+"1592_totalSupplyAssets" -> "1592__array"
+"1592_collateral" -> "1592__array"
+"1592_lastUpdate" -> "1592__array"
+"1592_supplyShares" -> "1592__array"
+"1592_totalSupplyShares" -> "1592__array"
+"1592_fee" -> "1592__array"
+"1592_totalBorrowAssets" -> "1592__array"
+"1592_borrowShares" -> "1592__array"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+}
+}

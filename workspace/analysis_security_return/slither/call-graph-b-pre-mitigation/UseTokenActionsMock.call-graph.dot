@@ -1,0 +1,45 @@
+strict digraph {
+subgraph cluster_3088_Initializable {
+label = "Initializable"
+"3088__getInitializedVersion" [label="_getInitializedVersion"]
+"3088__isInitializing" [label="_isInitializing"]
+"3088__disableInitializers" [label="_disableInitializers"]
+}subgraph cluster_29795_UseTokenActionsMock {
+label = "UseTokenActionsMock"
+"29795_test__sweepTokens" [label="test__sweepTokens"]
+"29795_test__pushTokenFrom" [label="test__pushTokenFrom"]
+"29795_test__pushToken" [label="test__pushToken"]
+"29795_test__pullTokenFrom" [label="test__pullTokenFrom"]
+"29795_test__pullToken" [label="test__pullToken"]
+"29795_test__pullTokenFrom" -> "29795_pullTokenFrom"
+"29795_test__pushToken" -> "29795_pushToken"
+"29795_test__sweepTokens" -> "29795_sweepTokens"
+"29795_test__pushTokenFrom" -> "29795_pushTokenFrom"
+"29795_test__pullToken" -> "29795_pullToken"
+}subgraph cluster_29708_UseTokenActions {
+label = "UseTokenActions"
+"29708_pushToken" [label="pushToken"]
+"29708_pullToken" [label="pullToken"]
+"29708_sweepTokens" [label="sweepTokens"]
+"29708_pushTokenFrom" [label="pushTokenFrom"]
+"29708_pullTokenFrom" [label="pullTokenFrom"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"revert InvalidRecipient()" 
+"revert NotEnoughAllowance()" 
+"require(bool,string)" 
+"revert InvalidToken()" 
+"29708_pushTokenFrom" -> "revert NotEnoughAllowance()"
+"29708_sweepTokens" -> "revert InvalidToken()"
+"29708_pullToken" -> "revert NotEnoughAllowance()"
+"29708_pushToken" -> "revert InvalidRecipient()"
+"29708_sweepTokens" -> "revert InvalidRecipient()"
+"29708_pushTokenFrom" -> "revert InvalidToken()"
+"29708_pullTokenFrom" -> "revert NotEnoughAllowance()"
+"3088__disableInitializers" -> "require(bool,string)"
+"29708_pullToken" -> "revert InvalidToken()"
+"29708_pullTokenFrom" -> "revert InvalidToken()"
+"29708_pushTokenFrom" -> "revert InvalidRecipient()"
+"29708_pushToken" -> "revert InvalidToken()"
+}
+}

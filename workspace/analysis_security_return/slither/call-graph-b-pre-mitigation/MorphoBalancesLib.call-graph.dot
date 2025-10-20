@@ -1,0 +1,18 @@
+strict digraph {
+subgraph cluster_1220_MorphoBalancesLib {
+label = "MorphoBalancesLib"
+"1220_expectedMarketBalances" [label="expectedMarketBalances"]
+"1220_expectedBorrowAssets" [label="expectedBorrowAssets"]
+"1220_expectedSupplyAssets" [label="expectedSupplyAssets"]
+"1220_expectedTotalSupplyShares" [label="expectedTotalSupplyShares"]
+"1220_expectedTotalBorrowAssets" [label="expectedTotalBorrowAssets"]
+"1220_expectedTotalSupplyAssets" [label="expectedTotalSupplyAssets"]
+"1220_expectedBorrowAssets" -> "1220_expectedMarketBalances"
+"1220_expectedTotalSupplyAssets" -> "1220_expectedMarketBalances"
+"1220_expectedTotalSupplyShares" -> "1220_expectedMarketBalances"
+"1220_expectedSupplyAssets" -> "1220_expectedMarketBalances"
+"1220_expectedTotalBorrowAssets" -> "1220_expectedMarketBalances"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+}
+}

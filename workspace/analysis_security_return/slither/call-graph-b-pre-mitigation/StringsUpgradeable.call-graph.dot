@@ -1,0 +1,23 @@
+strict digraph {
+subgraph cluster_5305_StringsUpgradeable {
+label = "StringsUpgradeable"
+"5305_toHexString" [label="toHexString"]
+"5305_toString" [label="toString"]
+"5305_equal" [label="equal"]
+"5305_slitherConstructorConstantVariables" [label="slitherConstructorConstantVariables"]
+"5305_toHexString" -> "5305_toHexString"
+"5305_toString" -> "5305_toString"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"mstore8(uint256,uint256)" 
+"require(bool,string)" 
+"abi.encodePacked()" 
+"byte(uint256,uint256)" 
+"keccak256(bytes)" 
+"5305_toString" -> "byte(uint256,uint256)"
+"5305_equal" -> "keccak256(bytes)"
+"5305_toString" -> "mstore8(uint256,uint256)"
+"5305_toString" -> "abi.encodePacked()"
+"5305_toHexString" -> "require(bool,string)"
+}
+}

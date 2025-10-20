@@ -1,0 +1,18 @@
+strict digraph {
+subgraph cluster_40428_UniV3Library {
+label = "UniV3Library"
+"40428_swapUniV3" [label="swapUniV3"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"revert InvalidFeeTier()" 
+"revert SwapFailed()" 
+"revert InvalidOutputToken()" 
+"abi.decode()" 
+"revert InvalidInputToken()" 
+"40428_swapUniV3" -> "revert InvalidInputToken()"
+"40428_swapUniV3" -> "revert InvalidOutputToken()"
+"40428_swapUniV3" -> "abi.decode()"
+"40428_swapUniV3" -> "revert InvalidFeeTier()"
+"40428_swapUniV3" -> "revert SwapFailed()"
+}
+}

@@ -1,0 +1,20 @@
+strict digraph {
+subgraph cluster_3088_Initializable {
+label = "Initializable"
+"3088__getInitializedVersion" [label="_getInitializedVersion"]
+"3088__isInitializing" [label="_isInitializing"]
+"3088__disableInitializers" [label="_disableInitializers"]
+}subgraph cluster_29352_UseStETH {
+label = "UseStETH"
+"29352_stETHA" [label="stETHA"]
+"29352_stETH" [label="stETH"]
+"29352__initUseStETH" [label="_initUseStETH"]
+"29352__initUseStETH" -> "29352_onlyInitializing"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"revert UseStETHInvalidStETHContract()" 
+"require(bool,string)" 
+"3088__disableInitializers" -> "require(bool,string)"
+"29352__initUseStETH" -> "revert UseStETHInvalidStETHContract()"
+}
+}

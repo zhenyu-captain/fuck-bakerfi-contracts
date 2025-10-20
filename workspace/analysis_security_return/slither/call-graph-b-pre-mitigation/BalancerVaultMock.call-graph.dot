@@ -1,0 +1,34 @@
+strict digraph {
+subgraph cluster_37545_IVault {
+label = "IVault"
+"37545_swap" [label="swap"]
+"37545_querySwap" [label="querySwap"]
+"37545_getProtocolFeesCollector" [label="getProtocolFeesCollector"]
+}subgraph cluster_37470_IFlashLoans {
+label = "IFlashLoans"
+"37470_flashLoan" [label="flashLoan"]
+}subgraph cluster_41705_BalancerVaultMock {
+label = "BalancerVaultMock"
+"41705_constructor" [label="constructor"]
+"41705_querySwap" [label="querySwap"]
+"41705_flashLoan" [label="flashLoan"]
+"41705_swap" [label="swap"]
+"41705_getProtocolFeesCollector" [label="getProtocolFeesCollector"]
+"41705_getFlashLoanFeePercentage" [label="getFlashLoanFeePercentage"]
+}subgraph cluster_37478_IProtocolFeesCollector {
+label = "IProtocolFeesCollector"
+"37478_getFlashLoanFeePercentage" [label="getFlashLoanFeePercentage"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"revert InvalidAmountList()" 
+"revert NoEnoughBalance()" 
+"revert InvalidTokenList()" 
+"revert InvalidToken()" 
+"revert LoanNotPaid()" 
+"41705_flashLoan" -> "revert NoEnoughBalance()"
+"41705_flashLoan" -> "revert LoanNotPaid()"
+"41705_flashLoan" -> "revert InvalidTokenList()"
+"41705_flashLoan" -> "revert InvalidAmountList()"
+"41705_flashLoan" -> "revert InvalidToken()"
+}
+}

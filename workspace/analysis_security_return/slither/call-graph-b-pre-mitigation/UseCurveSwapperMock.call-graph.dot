@@ -1,0 +1,33 @@
+strict digraph {
+subgraph cluster_30517_UseCurveSwapperMock {
+label = "UseCurveSwapperMock"
+"30517_test__swap" [label="test__swap"]
+"30517_slitherConstructorConstantVariables" [label="slitherConstructorConstantVariables"]
+"30517_constructor" [label="constructor"]
+"30517_constructor" -> "30517__initUseCurveSwapper"
+"30517_test__swap" -> "30517_swap"
+}subgraph cluster_30486_UseCurveSwapper {
+label = "UseCurveSwapper"
+"30486__initUseCurveSwapper" [label="_initUseCurveSwapper"]
+"30486__allowRouterSpend" [label="_allowRouterSpend"]
+"30486_swap" [label="swap"]
+"30486_curveRouter" [label="curveRouter"]
+"30486_curveRouterA" [label="curveRouterA"]
+"30486_swap" -> "30486_curveRouter"
+"30486__allowRouterSpend" -> "30486_curveRouterA"
+"30486_curveRouterA" -> "30486_curveRouter"
+}subgraph cluster_37815_ISwapHandler {
+label = "ISwapHandler"
+"37815_swap" [label="swap"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"revert InvalidCurveRouterContract()" 
+"sload(uint256)" 
+"revert FailedToApproveAllowance()" 
+"sstore(uint256,uint256)" 
+"30486_curveRouter" -> "sload(uint256)"
+"30486__allowRouterSpend" -> "revert FailedToApproveAllowance()"
+"30486__initUseCurveSwapper" -> "revert InvalidCurveRouterContract()"
+"30486__initUseCurveSwapper" -> "sstore(uint256,uint256)"
+}
+}

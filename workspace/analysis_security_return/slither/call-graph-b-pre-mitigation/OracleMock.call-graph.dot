@@ -1,0 +1,21 @@
+strict digraph {
+subgraph cluster_37634_IOracle {
+label = "IOracle"
+"37634_getPrecision" [label="getPrecision"]
+"37634_getSafeLatestPrice" [label="getSafeLatestPrice"]
+"37634_getLatestPrice" [label="getLatestPrice"]
+}subgraph cluster_43020_OracleMock {
+label = "OracleMock"
+"43020_getSafeLatestPrice" [label="getSafeLatestPrice"]
+"43020_slitherConstructorVariables" [label="slitherConstructorVariables"]
+"43020_getLatestPrice" [label="getLatestPrice"]
+"43020_constructor" [label="constructor"]
+"43020_setLatestPrice" [label="setLatestPrice"]
+"43020_setDecimals" [label="setDecimals"]
+"43020_getPrecision" [label="getPrecision"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"revert PriceOutdated()" 
+"43020_getSafeLatestPrice" -> "revert PriceOutdated()"
+}
+}

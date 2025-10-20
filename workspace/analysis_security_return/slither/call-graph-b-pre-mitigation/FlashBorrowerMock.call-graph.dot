@@ -1,0 +1,38 @@
+strict digraph {
+subgraph cluster_3088_Initializable {
+label = "Initializable"
+"3088__getInitializedVersion" [label="_getInitializedVersion"]
+"3088__isInitializing" [label="_isInitializing"]
+"3088__disableInitializers" [label="_disableInitializers"]
+}subgraph cluster_42197_FlashBorrowerMock {
+label = "FlashBorrowerMock"
+"42197_flashme" [label="flashme"]
+"42197_slitherConstructorConstantVariables" [label="slitherConstructorConstantVariables"]
+"42197_onFlashLoan" [label="onFlashLoan"]
+"42197_borrowed" [label="borrowed"]
+"42197_initialize" [label="initialize"]
+"42197_flashme" -> "42197_flashLender"
+"42197_flashme" -> "42197_flashLenderA"
+"42197_initialize" -> "42197_initializer"
+"42197_initialize" -> "42197__initUseFlashLender"
+}subgraph cluster_28388_UseFlashLender {
+label = "UseFlashLender"
+"28388_flashLenderA" [label="flashLenderA"]
+"28388__initUseFlashLender" [label="_initUseFlashLender"]
+"28388_flashLender" [label="flashLender"]
+"28388__initUseFlashLender" -> "28388_onlyInitializing"
+}subgraph cluster_2688_IERC3156FlashBorrowerUpgradeable {
+label = "IERC3156FlashBorrowerUpgradeable"
+"2688_onFlashLoan" [label="onFlashLoan"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"revert InvalidFlashLenderContract()" 
+"keccak256(bytes)" 
+"require(bool)" 
+"require(bool,string)" 
+"42197_flashme" -> "require(bool)"
+"42197_slitherConstructorConstantVariables" -> "keccak256(bytes)"
+"3088__disableInitializers" -> "require(bool,string)"
+"28388__initUseFlashLender" -> "revert InvalidFlashLenderContract()"
+}
+}

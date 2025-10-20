@@ -1,0 +1,8 @@
+strict digraph {
+subgraph cluster_536_ErrorsLib {
+label = "ErrorsLib"
+"536_slitherConstructorConstantVariables" [label="slitherConstructorConstantVariables"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+}
+}

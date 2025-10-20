@@ -1,0 +1,22 @@
+strict digraph {
+subgraph cluster_14130_IERC20 {
+label = "IERC20"
+"14130_balanceOf" [label="balanceOf"]
+"14130_transferFrom" [label="transferFrom"]
+"14130_allowance" [label="allowance"]
+"14130_transfer" [label="transfer"]
+"14130_approve" [label="approve"]
+"14130_totalSupply" [label="totalSupply"]
+}subgraph cluster_38523_IWETH {
+label = "IWETH"
+"38523_allowance" [label="allowance"]
+"38523_transfer" [label="transfer"]
+"38523_withdraw" [label="withdraw"]
+"38523_transferFrom" [label="transferFrom"]
+"38523_balanceOf" [label="balanceOf"]
+"38523_deposit" [label="deposit"]
+"38523_approve" [label="approve"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+}
+}

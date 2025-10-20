@@ -1,0 +1,99 @@
+strict digraph {
+subgraph cluster_28838_UseIERC4626 {
+label = "UseIERC4626"
+"28838_convertToVaultAssets" [label="convertToVaultAssets"]
+"28838_totalVaultAssets" [label="totalVaultAssets"]
+"28838_convertToVaultShares" [label="convertToVaultShares"]
+"28838_initializeUseIERC4626" [label="initializeUseIERC4626"]
+"28838_depositVault" [label="depositVault"]
+"28838_unapproveTokenForVault" [label="unapproveTokenForVault"]
+"28838_vaultAsset" [label="vaultAsset"]
+"28838_withdrawVault" [label="withdrawVault"]
+"28838_mintVault" [label="mintVault"]
+"28838_redeemVault" [label="redeemVault"]
+"28838_isTokenApprovedForVault" [label="isTokenApprovedForVault"]
+"28838_approveTokenForVault" [label="approveTokenForVault"]
+"28838_approveTokenForVault" -> "28838_onlyOwner"
+"28838_initializeUseIERC4626" -> "28838__transferOwnership"
+"28838_initializeUseIERC4626" -> "28838_onlyInitializing"
+"28838_initializeUseIERC4626" -> "28838__transferGovernorship"
+"28838_unapproveTokenForVault" -> "28838_onlyOwner"
+}subgraph cluster_2665_OwnableUpgradeable {
+label = "OwnableUpgradeable"
+"2665_renounceOwnership" [label="renounceOwnership"]
+"2665___Ownable_init_unchained" [label="__Ownable_init_unchained"]
+"2665_transferOwnership" [label="transferOwnership"]
+"2665_owner" [label="owner"]
+"2665__transferOwnership" [label="_transferOwnership"]
+"2665__checkOwner" [label="_checkOwner"]
+"2665___Ownable_init" [label="__Ownable_init"]
+"2665___Ownable_init" -> "2665_onlyInitializing"
+"2665__checkOwner" -> "2665_owner"
+"2665_renounceOwnership" -> "2665__transferOwnership"
+"2665___Ownable_init_unchained" -> "2665__msgSender"
+"2665___Ownable_init_unchained" -> "2665_onlyInitializing"
+"2665__checkOwner" -> "2665__msgSender"
+"2665_transferOwnership" -> "2665_onlyOwner"
+"2665___Ownable_init" -> "2665___Ownable_init_unchained"
+"2665_transferOwnership" -> "2665__transferOwnership"
+"2665_renounceOwnership" -> "2665_onlyOwner"
+"2665___Ownable_init_unchained" -> "2665__transferOwnership"
+}subgraph cluster_5002_ContextUpgradeable {
+label = "ContextUpgradeable"
+"5002___Context_init" [label="__Context_init"]
+"5002__msgSender" [label="_msgSender"]
+"5002__contextSuffixLength" [label="_contextSuffixLength"]
+"5002__msgData" [label="_msgData"]
+"5002___Context_init_unchained" [label="__Context_init_unchained"]
+"5002___Context_init" -> "5002_onlyInitializing"
+"5002___Context_init_unchained" -> "5002_onlyInitializing"
+}subgraph cluster_28940_UseIERC4626Mock {
+label = "UseIERC4626Mock"
+"28940_initialize" [label="initialize"]
+"28940_test__withdrawVault" [label="test__withdrawVault"]
+"28940_test__depositVault" [label="test__depositVault"]
+"28940_test__mintVault" [label="test__mintVault"]
+"28940_test__redeemVault" [label="test__redeemVault"]
+"28940_initialize" -> "28940_initializeUseIERC4626"
+"28940_test__redeemVault" -> "28940_redeemVault"
+"28940_test__depositVault" -> "28940_depositVault"
+"28940_test__mintVault" -> "28940_mintVault"
+"28940_test__withdrawVault" -> "28940_withdrawVault"
+"28940_initialize" -> "28940_initializer"
+}subgraph cluster_3088_Initializable {
+label = "Initializable"
+"3088__getInitializedVersion" [label="_getInitializedVersion"]
+"3088__isInitializing" [label="_isInitializing"]
+"3088__disableInitializers" [label="_disableInitializers"]
+}subgraph cluster_22262_GovernableOwnable {
+label = "GovernableOwnable"
+"22262_governor" [label="governor"]
+"22262__transferGovernorship" [label="_transferGovernorship"]
+"22262_transferGovernorship" [label="transferGovernorship"]
+"22262__initializeGovernableOwnable" [label="_initializeGovernableOwnable"]
+"22262__initializeGovernableOwnable" -> "22262__transferOwnership"
+"22262_transferGovernorship" -> "22262_onlyGovernor"
+"22262__initializeGovernableOwnable" -> "22262__transferGovernorship"
+"22262_transferGovernorship" -> "22262__transferGovernorship"
+"22262__initializeGovernableOwnable" -> "22262_initializer"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"revert InvalidGovernorAddress()" 
+"revert FailedToApproveAllowanceForVault()" 
+"require(bool,string)" 
+"revert InvalidVaultAddress()" 
+"28838_mintVault" -> "revert InvalidVaultAddress()"
+"28838_unapproveTokenForVault" -> "revert FailedToApproveAllowanceForVault()"
+"2665__checkOwner" -> "require(bool,string)"
+"28838_depositVault" -> "revert InvalidVaultAddress()"
+"28838_redeemVault" -> "revert InvalidVaultAddress()"
+"3088__disableInitializers" -> "require(bool,string)"
+"28838_convertToVaultShares" -> "revert InvalidVaultAddress()"
+"22262_transferGovernorship" -> "revert InvalidGovernorAddress()"
+"28838_approveTokenForVault" -> "revert FailedToApproveAllowanceForVault()"
+"28838_totalVaultAssets" -> "revert InvalidVaultAddress()"
+"2665_transferOwnership" -> "require(bool,string)"
+"28838_convertToVaultAssets" -> "revert InvalidVaultAddress()"
+"28838_vaultAsset" -> "revert InvalidVaultAddress()"
+}
+}

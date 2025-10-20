@@ -1,0 +1,54 @@
+strict digraph {
+subgraph cluster_2015_MorphoStorageLib {
+label = "MorphoStorageLib"
+"2015_nonceSlot" [label="nonceSlot"]
+"2015_positionSupplySharesSlot" [label="positionSupplySharesSlot"]
+"2015_positionBorrowSharesAndCollateralSlot" [label="positionBorrowSharesAndCollateralSlot"]
+"2015_marketTotalBorrowAssetsAndSharesSlot" [label="marketTotalBorrowAssetsAndSharesSlot"]
+"2015_marketTotalSupplyAssetsAndSharesSlot" [label="marketTotalSupplyAssetsAndSharesSlot"]
+"2015_ownerSlot" [label="ownerSlot"]
+"2015_marketLastUpdateAndFeeSlot" [label="marketLastUpdateAndFeeSlot"]
+"2015_isIrmEnabledSlot" [label="isIrmEnabledSlot"]
+"2015_isLltvEnabledSlot" [label="isLltvEnabledSlot"]
+"2015_idToOracleSlot" [label="idToOracleSlot"]
+"2015_idToIrmSlot" [label="idToIrmSlot"]
+"2015_idToLltvSlot" [label="idToLltvSlot"]
+"2015_slitherConstructorConstantVariables" [label="slitherConstructorConstantVariables"]
+"2015_isAuthorizedSlot" [label="isAuthorizedSlot"]
+"2015_feeRecipientSlot" [label="feeRecipientSlot"]
+"2015_idToLoanTokenSlot" [label="idToLoanTokenSlot"]
+"2015_idToCollateralTokenSlot" [label="idToCollateralTokenSlot"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"abi.encode()" 
+"keccak256(bytes)" 
+"2015_marketTotalBorrowAssetsAndSharesSlot" -> "abi.encode()"
+"2015_isAuthorizedSlot" -> "abi.encode()"
+"2015_isIrmEnabledSlot" -> "keccak256(bytes)"
+"2015_marketTotalSupplyAssetsAndSharesSlot" -> "keccak256(bytes)"
+"2015_positionSupplySharesSlot" -> "keccak256(bytes)"
+"2015_nonceSlot" -> "abi.encode()"
+"2015_positionBorrowSharesAndCollateralSlot" -> "keccak256(bytes)"
+"2015_idToCollateralTokenSlot" -> "keccak256(bytes)"
+"2015_idToCollateralTokenSlot" -> "abi.encode()"
+"2015_marketLastUpdateAndFeeSlot" -> "keccak256(bytes)"
+"2015_idToLltvSlot" -> "abi.encode()"
+"2015_isLltvEnabledSlot" -> "abi.encode()"
+"2015_idToLoanTokenSlot" -> "keccak256(bytes)"
+"2015_idToOracleSlot" -> "keccak256(bytes)"
+"2015_nonceSlot" -> "keccak256(bytes)"
+"2015_marketTotalSupplyAssetsAndSharesSlot" -> "abi.encode()"
+"2015_positionBorrowSharesAndCollateralSlot" -> "abi.encode()"
+"2015_positionSupplySharesSlot" -> "abi.encode()"
+"2015_isLltvEnabledSlot" -> "keccak256(bytes)"
+"2015_isAuthorizedSlot" -> "keccak256(bytes)"
+"2015_idToLoanTokenSlot" -> "abi.encode()"
+"2015_idToOracleSlot" -> "abi.encode()"
+"2015_marketTotalBorrowAssetsAndSharesSlot" -> "keccak256(bytes)"
+"2015_idToLltvSlot" -> "keccak256(bytes)"
+"2015_marketLastUpdateAndFeeSlot" -> "abi.encode()"
+"2015_isIrmEnabledSlot" -> "abi.encode()"
+"2015_idToIrmSlot" -> "keccak256(bytes)"
+"2015_idToIrmSlot" -> "abi.encode()"
+}
+}

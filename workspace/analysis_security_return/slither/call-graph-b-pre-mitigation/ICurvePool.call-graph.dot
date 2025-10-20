@@ -1,0 +1,20 @@
+strict digraph {
+subgraph cluster_38116_ICurvePool {
+label = "ICurvePool"
+"38116_lp_token" [label="lp_token"]
+"38116_fee" [label="fee"]
+"38116_remove_liquidity_one_coin" [label="remove_liquidity_one_coin"]
+"38116_get_virtual_price" [label="get_virtual_price"]
+"38116_add_liquidity" [label="add_liquidity"]
+"38116_calc_withdraw_one_coin" [label="calc_withdraw_one_coin"]
+"38116_coins" [label="coins"]
+"38116_get_dy" [label="get_dy"]
+"38116_A_precise" [label="A_precise"]
+"38116_exchange" [label="exchange"]
+"38116_balances" [label="balances"]
+"38116_calc_token_amount" [label="calc_token_amount"]
+"38116_admin_fee" [label="admin_fee"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+}
+}

@@ -1,0 +1,10 @@
+strict digraph {
+subgraph cluster_39052_IUniswapV3Pool {
+label = "IUniswapV3Pool"
+"39052_slot0" [label="slot0"]
+"39052_flash" [label="flash"]
+"39052_fee" [label="fee"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+}
+}

@@ -1,0 +1,31 @@
+strict digraph {
+subgraph cluster_3088_Initializable {
+label = "Initializable"
+"3088__getInitializedVersion" [label="_getInitializedVersion"]
+"3088__isInitializing" [label="_isInitializing"]
+"3088__disableInitializers" [label="_disableInitializers"]
+}subgraph cluster_30205_UseWstETH {
+label = "UseWstETH"
+"30205_wstETH" [label="wstETH"]
+"30205__initUseWstETH" [label="_initUseWstETH"]
+"30205__unwrapWstETH" [label="_unwrapWstETH"]
+"30205__wrapWstETH" [label="_wrapWstETH"]
+"30205_wstETHA" [label="wstETHA"]
+"30205__unwrapWstETH" -> "30205_wstETH"
+"30205__unwrapWstETH" -> "30205_wstETHA"
+"30205__initUseWstETH" -> "30205_onlyInitializing"
+"30205__wrapWstETH" -> "30205_wstETHA"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"revert FailedToApproveStAllowance()" 
+"revert InvalidWstETHContract()" 
+"require(bool,string)" 
+"revert InvalidStETHContract()" 
+"revert FailedToApproveWstAllowance()" 
+"30205__initUseWstETH" -> "revert InvalidStETHContract()"
+"3088__disableInitializers" -> "require(bool,string)"
+"30205__unwrapWstETH" -> "revert FailedToApproveWstAllowance()"
+"30205__wrapWstETH" -> "revert FailedToApproveStAllowance()"
+"30205__initUseWstETH" -> "revert InvalidWstETHContract()"
+}
+}

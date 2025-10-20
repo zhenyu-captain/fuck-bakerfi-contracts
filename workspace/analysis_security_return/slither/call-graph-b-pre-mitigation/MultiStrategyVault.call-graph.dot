@@ -1,0 +1,500 @@
+strict digraph {
+subgraph cluster_5002_ContextUpgradeable {
+label = "ContextUpgradeable"
+"5002___Context_init" [label="__Context_init"]
+"5002__msgSender" [label="_msgSender"]
+"5002__contextSuffixLength" [label="_contextSuffixLength"]
+"5002__msgData" [label="_msgData"]
+"5002___Context_init_unchained" [label="__Context_init_unchained"]
+"5002___Context_init" -> "5002_onlyInitializing"
+"5002___Context_init_unchained" -> "5002_onlyInitializing"
+}subgraph cluster_3088_Initializable {
+label = "Initializable"
+"3088__getInitializedVersion" [label="_getInitializedVersion"]
+"3088__isInitializing" [label="_isInitializing"]
+"3088__disableInitializers" [label="_disableInitializers"]
+}subgraph cluster_3216_PausableUpgradeable {
+label = "PausableUpgradeable"
+"3216___Pausable_init_unchained" [label="__Pausable_init_unchained"]
+"3216_paused" [label="paused"]
+"3216__requireNotPaused" [label="_requireNotPaused"]
+"3216__requirePaused" [label="_requirePaused"]
+"3216__pause" [label="_pause"]
+"3216__unpause" [label="_unpause"]
+"3216___Pausable_init" [label="__Pausable_init"]
+"3216___Pausable_init" -> "3216___Pausable_init_unchained"
+"3216__pause" -> "3216__msgSender"
+"3216__unpause" -> "3216__msgSender"
+"3216___Pausable_init" -> "3216_onlyInitializing"
+"3216__unpause" -> "3216_whenPaused"
+"3216__requireNotPaused" -> "3216_paused"
+"3216__requirePaused" -> "3216_paused"
+"3216__pause" -> "3216_whenNotPaused"
+"3216___Pausable_init_unchained" -> "3216_onlyInitializing"
+}subgraph cluster_3992_IERC20Upgradeable {
+label = "IERC20Upgradeable"
+"3992_allowance" [label="allowance"]
+"3992_transfer" [label="transfer"]
+"3992_approve" [label="approve"]
+"3992_transferFrom" [label="transferFrom"]
+"3992_totalSupply" [label="totalSupply"]
+"3992_balanceOf" [label="balanceOf"]
+}subgraph cluster_2352_AccessControlUpgradeable {
+label = "AccessControlUpgradeable"
+"2352__setRoleAdmin" [label="_setRoleAdmin"]
+"2352__setupRole" [label="_setupRole"]
+"2352__grantRole" [label="_grantRole"]
+"2352_revokeRole" [label="revokeRole"]
+"2352__checkRole" [label="_checkRole"]
+"2352_supportsInterface" [label="supportsInterface"]
+"2352_getRoleAdmin" [label="getRoleAdmin"]
+"2352__revokeRole" [label="_revokeRole"]
+"2352___AccessControl_init_unchained" [label="__AccessControl_init_unchained"]
+"2352_grantRole" [label="grantRole"]
+"2352_hasRole" [label="hasRole"]
+"2352___AccessControl_init" [label="__AccessControl_init"]
+"2352_renounceRole" [label="renounceRole"]
+"2352___AccessControl_init" -> "2352_onlyInitializing"
+"2352__setRoleAdmin" -> "2352_getRoleAdmin"
+"2352_renounceRole" -> "2352__msgSender"
+"2352__grantRole" -> "2352__msgSender"
+"2352_supportsInterface" -> "2352_supportsInterface"
+"2352__checkRole" -> "2352_hasRole"
+"2352___AccessControl_init_unchained" -> "2352_onlyInitializing"
+"2352_revokeRole" -> "2352__revokeRole"
+"2352__revokeRole" -> "2352_hasRole"
+"2352_grantRole" -> "2352_onlyRole"
+"2352_renounceRole" -> "2352__revokeRole"
+"2352__setupRole" -> "2352__grantRole"
+"2352_revokeRole" -> "2352_onlyRole"
+"2352_revokeRole" -> "2352_getRoleAdmin"
+"2352_grantRole" -> "2352_getRoleAdmin"
+"2352_grantRole" -> "2352__grantRole"
+"2352__revokeRole" -> "2352__msgSender"
+"2352__checkRole" -> "2352__checkRole"
+"2352__checkRole" -> "2352__msgSender"
+"2352__grantRole" -> "2352_hasRole"
+}subgraph cluster_30004_UseWETH {
+label = "UseWETH"
+"30004_receive" [label="receive"]
+"30004_wETH" [label="wETH"]
+"30004_wETHA" [label="wETHA"]
+"30004_wrapETH" [label="wrapETH"]
+"30004_unwrapETH" [label="unwrapETH"]
+"30004__initUseWETH" [label="_initUseWETH"]
+"30004_unwrapETH" -> "30004_wETH"
+"30004_wrapETH" -> "30004_wETH"
+"30004__initUseWETH" -> "30004_onlyInitializing"
+}subgraph cluster_3914_ERC20Upgradeable {
+label = "ERC20Upgradeable"
+"3914_symbol" [label="symbol"]
+"3914_transfer" [label="transfer"]
+"3914_totalSupply" [label="totalSupply"]
+"3914_increaseAllowance" [label="increaseAllowance"]
+"3914_approve" [label="approve"]
+"3914_decreaseAllowance" [label="decreaseAllowance"]
+"3914__mint" [label="_mint"]
+"3914_decimals" [label="decimals"]
+"3914_balanceOf" [label="balanceOf"]
+"3914__beforeTokenTransfer" [label="_beforeTokenTransfer"]
+"3914___ERC20_init" [label="__ERC20_init"]
+"3914__transfer" [label="_transfer"]
+"3914__spendAllowance" [label="_spendAllowance"]
+"3914__afterTokenTransfer" [label="_afterTokenTransfer"]
+"3914_transferFrom" [label="transferFrom"]
+"3914___ERC20_init_unchained" [label="__ERC20_init_unchained"]
+"3914__burn" [label="_burn"]
+"3914__approve" [label="_approve"]
+"3914_name" [label="name"]
+"3914_allowance" [label="allowance"]
+"3914_transferFrom" -> "3914__spendAllowance"
+"3914_decreaseAllowance" -> "3914_allowance"
+"3914__transfer" -> "3914__afterTokenTransfer"
+"3914__spendAllowance" -> "3914__approve"
+"3914_transfer" -> "3914__msgSender"
+"3914__spendAllowance" -> "3914_allowance"
+"3914_decreaseAllowance" -> "3914__approve"
+"3914_transfer" -> "3914__transfer"
+"3914_transferFrom" -> "3914__transfer"
+"3914_approve" -> "3914__approve"
+"3914_increaseAllowance" -> "3914__approve"
+"3914__mint" -> "3914__beforeTokenTransfer"
+"3914___ERC20_init_unchained" -> "3914_onlyInitializing"
+"3914_increaseAllowance" -> "3914_allowance"
+"3914_decreaseAllowance" -> "3914__msgSender"
+"3914__burn" -> "3914__beforeTokenTransfer"
+"3914__mint" -> "3914__afterTokenTransfer"
+"3914__transfer" -> "3914__beforeTokenTransfer"
+"3914__burn" -> "3914__afterTokenTransfer"
+"3914___ERC20_init" -> "3914___ERC20_init_unchained"
+"3914_approve" -> "3914__msgSender"
+"3914___ERC20_init" -> "3914_onlyInitializing"
+"3914_increaseAllowance" -> "3914__msgSender"
+"3914_transferFrom" -> "3914__msgSender"
+}subgraph cluster_2894_IERC4626Upgradeable {
+label = "IERC4626Upgradeable"
+"2894_deposit" [label="deposit"]
+"2894_maxDeposit" [label="maxDeposit"]
+"2894_previewMint" [label="previewMint"]
+"2894_maxMint" [label="maxMint"]
+"2894_previewWithdraw" [label="previewWithdraw"]
+"2894_previewRedeem" [label="previewRedeem"]
+"2894_previewDeposit" [label="previewDeposit"]
+"2894_totalAssets" [label="totalAssets"]
+"2894_convertToAssets" [label="convertToAssets"]
+"2894_maxRedeem" [label="maxRedeem"]
+"2894_maxWithdraw" [label="maxWithdraw"]
+"2894_convertToShares" [label="convertToShares"]
+"2894_redeem" [label="redeem"]
+"2894_withdraw" [label="withdraw"]
+"2894_asset" [label="asset"]
+"2894_mint" [label="mint"]
+}subgraph cluster_2532_Ownable2StepUpgradeable {
+label = "Ownable2StepUpgradeable"
+"2532_transferOwnership" [label="transferOwnership"]
+"2532___Ownable2Step_init_unchained" [label="__Ownable2Step_init_unchained"]
+"2532_acceptOwnership" [label="acceptOwnership"]
+"2532_pendingOwner" [label="pendingOwner"]
+"2532__transferOwnership" [label="_transferOwnership"]
+"2532___Ownable2Step_init" [label="__Ownable2Step_init"]
+"2532___Ownable2Step_init" -> "2532_onlyInitializing"
+"2532___Ownable2Step_init_unchained" -> "2532_onlyInitializing"
+"2532_acceptOwnership" -> "2532__transferOwnership"
+"2532___Ownable2Step_init" -> "2532___Ownable_init_unchained"
+"2532_transferOwnership" -> "2532_onlyOwner"
+"2532_acceptOwnership" -> "2532_pendingOwner"
+"2532__transferOwnership" -> "2532__transferOwnership"
+"2532_transferOwnership" -> "2532_owner"
+"2532_acceptOwnership" -> "2532__msgSender"
+}subgraph cluster_3301_ReentrancyGuardUpgradeable {
+label = "ReentrancyGuardUpgradeable"
+"3301__reentrancyGuardEntered" [label="_reentrancyGuardEntered"]
+"3301___ReentrancyGuard_init_unchained" [label="__ReentrancyGuard_init_unchained"]
+"3301__nonReentrantBefore" [label="_nonReentrantBefore"]
+"3301__nonReentrantAfter" [label="_nonReentrantAfter"]
+"3301___ReentrancyGuard_init" [label="__ReentrancyGuard_init"]
+"3301___ReentrancyGuard_init" -> "3301___ReentrancyGuard_init_unchained"
+"3301___ReentrancyGuard_init_unchained" -> "3301_onlyInitializing"
+"3301___ReentrancyGuard_init" -> "3301_onlyInitializing"
+}subgraph cluster_24549_MultiStrategyVault {
+label = "MultiStrategyVault"
+"24549_slitherConstructorConstantVariables" [label="slitherConstructorConstantVariables"]
+"24549__redeemInternal" [label="_redeemInternal"]
+"24549_constructor" [label="constructor"]
+"24549_withdrawNative" [label="withdrawNative"]
+"24549_totalAssets" [label="totalAssets"]
+"24549_previewRedeem" [label="previewRedeem"]
+"24549_redeemNative" [label="redeemNative"]
+"24549_convertToAssets" [label="convertToAssets"]
+"24549_depositNative" [label="depositNative"]
+"24549_pause" [label="pause"]
+"24549_withdraw" [label="withdraw"]
+"24549_maxWithdraw" [label="maxWithdraw"]
+"24549_redeem" [label="redeem"]
+"24549_convertToShares" [label="convertToShares"]
+"24549_unpause" [label="unpause"]
+"24549_mint" [label="mint"]
+"24549_previewWithdraw" [label="previewWithdraw"]
+"24549_receive" [label="receive"]
+"24549_maxDeposit" [label="maxDeposit"]
+"24549_previewDeposit" [label="previewDeposit"]
+"24549_initialize" [label="initialize"]
+"24549_asset" [label="asset"]
+"24549__depositInternal" [label="_depositInternal"]
+"24549_maxMint" [label="maxMint"]
+"24549_previewMint" [label="previewMint"]
+"24549_rebalance" [label="rebalance"]
+"24549_deposit" [label="deposit"]
+"24549_maxRedeem" [label="maxRedeem"]
+"24549_tokenPerAsset" [label="tokenPerAsset"]
+"24549_initialize" -> "24549__transferOwnership"
+"24549_withdrawNative" -> "24549_nonReentrant"
+"24549_redeemNative" -> "24549_onlyWhiteListed"
+"24549_deposit" -> "24549_whenNotPaused"
+"24549__redeemInternal" -> "24549_allowance"
+"24549_withdrawNative" -> "24549_whenNotPaused"
+"24549_withdraw" -> "24549_onlyWhiteListed"
+"24549_rebalance" -> "24549__mint"
+"24549_initialize" -> "24549__initUseWETH"
+"24549_maxWithdraw" -> "24549_balanceOf"
+"24549__redeemInternal" -> "24549__burn"
+"24549_rebalance" -> "24549_getFeeReceiver"
+"24549_maxRedeem" -> "24549_balanceOf"
+"24549_redeem" -> "24549_whenNotPaused"
+"24549__depositInternal" -> "24549__mint"
+"24549_mint" -> "24549_whenNotPaused"
+"24549_withdraw" -> "24549_whenNotPaused"
+"24549_convertToAssets" -> "24549__totalAssets"
+"24549_depositNative" -> "24549_onlyWhiteListed"
+"24549_rebalance" -> "24549__harvestStrategies"
+"24549_withdraw" -> "24549__redeemInternal"
+"24549_receive" -> "24549_wETHA"
+"24549_redeem" -> "24549_nonReentrant"
+"24549_initialize" -> "24549__grantRole"
+"24549__depositInternal" -> "24549__totalAssets"
+"24549__redeemInternal" -> "24549__deallocateAssets"
+"24549_deposit" -> "24549_nonReentrant"
+"24549_mint" -> "24549_nonReentrant"
+"24549__redeemInternal" -> "24549_unwrapETH"
+"24549_redeemNative" -> "24549_nonReentrant"
+"24549_unpause" -> "24549__unpause"
+"24549__depositInternal" -> "24549_balanceOf"
+"24549_mint" -> "24549_onlyWhiteListed"
+"24549_pause" -> "24549_onlyRole"
+"24549_depositNative" -> "24549_wETHA"
+"24549_withdrawNative" -> "24549_onlyWhiteListed"
+"24549__redeemInternal" -> "24549_getWithdrawalFee"
+"24549_pause" -> "24549__pause"
+"24549_rebalance" -> "24549_totalSupply"
+"24549_rebalance" -> "24549_getPerformanceFee"
+"24549_initialize" -> "24549_initializer"
+"24549__depositInternal" -> "24549_getMaxDeposit"
+"24549_redeemNative" -> "24549_wETHA"
+"24549_totalAssets" -> "24549__totalAssets"
+"24549_redeemNative" -> "24549_whenNotPaused"
+"24549_unpause" -> "24549_onlyRole"
+"24549_withdrawNative" -> "24549_wETHA"
+"24549__depositInternal" -> "24549_totalSupply"
+"24549_convertToAssets" -> "24549_totalSupply"
+"24549_depositNative" -> "24549_whenNotPaused"
+"24549__depositInternal" -> "24549_tokenPerAsset"
+"24549_mint" -> "24549__depositInternal"
+"24549_deposit" -> "24549_onlyWhiteListed"
+"24549_redeemNative" -> "24549__redeemInternal"
+"24549_initialize" -> "24549__initMultiStrategy"
+"24549_withdrawNative" -> "24549__redeemInternal"
+"24549_depositNative" -> "24549_nonReentrant"
+"24549_rebalance" -> "24549__rebalanceStrategies"
+"24549__redeemInternal" -> "24549__totalAssets"
+"24549_deposit" -> "24549__depositInternal"
+"24549_redeem" -> "24549_onlyWhiteListed"
+"24549_initialize" -> "24549___ERC20_init"
+"24549_initialize" -> "24549___AccessControl_init"
+"24549_convertToShares" -> "24549__totalAssets"
+"24549__depositInternal" -> "24549__allocateAssets"
+"24549_withdraw" -> "24549_nonReentrant"
+"24549__redeemInternal" -> "24549_balanceOf"
+"24549_constructor" -> "24549__disableInitializers"
+"24549_depositNative" -> "24549__depositInternal"
+"24549_redeem" -> "24549__redeemInternal"
+"24549_rebalance" -> "24549_whenNotPaused"
+"24549_tokenPerAsset" -> "24549__totalAssets"
+"24549__redeemInternal" -> "24549_totalSupply"
+"24549_rebalance" -> "24549_nonReentrant"
+"24549_convertToShares" -> "24549_totalSupply"
+"24549_initialize" -> "24549__initializeVaultSettings"
+"24549_tokenPerAsset" -> "24549_totalSupply"
+"24549__redeemInternal" -> "24549_getFeeReceiver"
+"24549_rebalance" -> "24549__totalAssets"
+"24549__redeemInternal" -> "24549_transferFrom"
+}subgraph cluster_27495_VaultSettings {
+label = "VaultSettings"
+"27495_getPerformanceFee" [label="getPerformanceFee"]
+"27495_setFeeReceiver" [label="setFeeReceiver"]
+"27495_constructor" [label="constructor"]
+"27495_enableAccount" [label="enableAccount"]
+"27495_getWithdrawalFee" [label="getWithdrawalFee"]
+"27495_setPerformanceFee" [label="setPerformanceFee"]
+"27495_setMaxDeposit" [label="setMaxDeposit"]
+"27495_getFeeReceiver" [label="getFeeReceiver"]
+"27495_isAccountEnabled" [label="isAccountEnabled"]
+"27495_getMaxDeposit" [label="getMaxDeposit"]
+"27495__initializeVaultSettings" [label="_initializeVaultSettings"]
+"27495_setWithdrawalFee" [label="setWithdrawalFee"]
+"27495_setWithdrawalFee" -> "27495_onlyOwner"
+"27495__initializeVaultSettings" -> "27495_onlyInitializing"
+"27495_setPerformanceFee" -> "27495_onlyOwner"
+"27495_setFeeReceiver" -> "27495_onlyOwner"
+"27495_setMaxDeposit" -> "27495_onlyOwner"
+"27495_enableAccount" -> "27495_onlyOwner"
+"27495_constructor" -> "27495__disableInitializers"
+}subgraph cluster_2665_OwnableUpgradeable {
+label = "OwnableUpgradeable"
+"2665_renounceOwnership" [label="renounceOwnership"]
+"2665___Ownable_init_unchained" [label="__Ownable_init_unchained"]
+"2665_transferOwnership" [label="transferOwnership"]
+"2665_owner" [label="owner"]
+"2665__transferOwnership" [label="_transferOwnership"]
+"2665__checkOwner" [label="_checkOwner"]
+"2665___Ownable_init" [label="__Ownable_init"]
+"2665___Ownable_init" -> "2665_onlyInitializing"
+"2665__checkOwner" -> "2665_owner"
+"2665_renounceOwnership" -> "2665__transferOwnership"
+"2665___Ownable_init_unchained" -> "2665__msgSender"
+"2665___Ownable_init_unchained" -> "2665_onlyInitializing"
+"2665__checkOwner" -> "2665__msgSender"
+"2665_transferOwnership" -> "2665_onlyOwner"
+"2665___Ownable_init" -> "2665___Ownable_init_unchained"
+"2665_transferOwnership" -> "2665__transferOwnership"
+"2665_renounceOwnership" -> "2665_onlyOwner"
+"2665___Ownable_init_unchained" -> "2665__transferOwnership"
+}subgraph cluster_37867_IVault {
+label = "IVault"
+"37867_depositNative" [label="depositNative"]
+"37867_redeemNative" [label="redeemNative"]
+"37867_rebalance" [label="rebalance"]
+"37867_tokenPerAsset" [label="tokenPerAsset"]
+"37867_withdrawNative" [label="withdrawNative"]
+}subgraph cluster_4209_IERC20MetadataUpgradeable {
+label = "IERC20MetadataUpgradeable"
+"4209_symbol" [label="symbol"]
+"4209_decimals" [label="decimals"]
+"4209_name" [label="name"]
+}subgraph cluster_6001_ERC165Upgradeable {
+label = "ERC165Upgradeable"
+"6001_supportsInterface" [label="supportsInterface"]
+"6001___ERC165_init_unchained" [label="__ERC165_init_unchained"]
+"6001___ERC165_init" [label="__ERC165_init"]
+"6001___ERC165_init_unchained" -> "6001_onlyInitializing"
+"6001___ERC165_init" -> "6001_onlyInitializing"
+}subgraph cluster_23283_MultiStrategy {
+label = "MultiStrategy"
+"23283_addStrategy" [label="addStrategy"]
+"23283_totalWeight" [label="totalWeight"]
+"23283_setMaxDifference" [label="setMaxDifference"]
+"23283_weights" [label="weights"]
+"23283_setWeights" [label="setWeights"]
+"23283__deallocateAssets" [label="_deallocateAssets"]
+"23283_strategies" [label="strategies"]
+"23283__harvestStrategies" [label="_harvestStrategies"]
+"23283__rebalanceStrategies" [label="_rebalanceStrategies"]
+"23283__allocateAssets" [label="_allocateAssets"]
+"23283_removeStrategy" [label="removeStrategy"]
+"23283__totalAssets" [label="_totalAssets"]
+"23283_maxDifference" [label="maxDifference"]
+"23283__initMultiStrategy" [label="_initMultiStrategy"]
+"23283_setMaxDifference" -> "23283_onlyOwner"
+"23283_removeStrategy" -> "23283__allocateAssets"
+"23283_addStrategy" -> "23283_onlyOwner"
+"23283_setWeights" -> "23283_onlyOwner"
+"23283_removeStrategy" -> "23283_onlyOwner"
+"23283_removeStrategy" -> "23283__rebalanceStrategies"
+"23283__initMultiStrategy" -> "23283_onlyInitializing"
+"23283__rebalanceStrategies" -> "23283__totalAssets"
+}subgraph cluster_38008_IVaultSettings {
+label = "IVaultSettings"
+"38008_enableAccount" [label="enableAccount"]
+"38008_setWithdrawalFee" [label="setWithdrawalFee"]
+"38008_getWithdrawalFee" [label="getWithdrawalFee"]
+"38008_getMaxDeposit" [label="getMaxDeposit"]
+"38008_setMaxDeposit" [label="setMaxDeposit"]
+"38008_setFeeReceiver" [label="setFeeReceiver"]
+"38008_getPerformanceFee" [label="getPerformanceFee"]
+"38008_getFeeReceiver" [label="getFeeReceiver"]
+"38008_setPerformanceFee" [label="setPerformanceFee"]
+"38008_isAccountEnabled" [label="isAccountEnabled"]
+}subgraph cluster_2425_IAccessControlUpgradeable {
+label = "IAccessControlUpgradeable"
+"2425_revokeRole" [label="revokeRole"]
+"2425_grantRole" [label="grantRole"]
+"2425_renounceRole" [label="renounceRole"]
+"2425_hasRole" [label="hasRole"]
+"2425_getRoleAdmin" [label="getRoleAdmin"]
+}subgraph cluster_6013_IERC165Upgradeable {
+label = "IERC165Upgradeable"
+"6013_supportsInterface" [label="supportsInterface"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"revert InvalidStrategy()" 
+"revert WhiteListFailedToAdd()" 
+"revert(string)" 
+"revert InvalidMaxDifference(uint256)" 
+"revert WhiteListNotEnabled()" 
+"revert InvalidOwner()" 
+"revert InvalidStrategyIndex(uint256)" 
+"revert InvalidAsset()" 
+"revert ETHTransferNotAllowed(address)" 
+"revert InvalidWETHContract()" 
+"revert InvalidWeights()" 
+"revert InvalidWithdrawAmount()" 
+"revert InvalidShareBalance()" 
+"revert InvalidAssetsState()" 
+"type()" 
+"revert InvalidStrategies()" 
+"require(bool,string)" 
+"abi.encodePacked()" 
+"abi.encodeWithSignature()" 
+"revert InvalidAddress()" 
+"revert NoAssetsToWithdraw()" 
+"balance(address)" 
+"revert InsufficientWETHBalance()" 
+"revert InvalidWeightsLength()" 
+"revert WhiteListFailedToRemove()" 
+"revert InvalidReceiver()" 
+"revert InvalidAmount()" 
+"revert NoAllowance()" 
+"revert WhiteListAlreadyEnabled()" 
+"revert InvalidWETHAmount()" 
+"revert MaxDepositReached()" 
+"revert NotEnoughBalanceToWithdraw()" 
+"revert InvalidPercentage()" 
+"keccak256(bytes)" 
+"30004_unwrapETH" -> "revert InsufficientWETHBalance()"
+"24549_slitherConstructorConstantVariables" -> "keccak256(bytes)"
+"24549__redeemInternal" -> "revert NotEnoughBalanceToWithdraw()"
+"2665__checkOwner" -> "require(bool,string)"
+"24549__redeemInternal" -> "revert NoAllowance()"
+"2352_renounceRole" -> "require(bool,string)"
+"24549_initialize" -> "revert InvalidOwner()"
+"2352__checkRole" -> "revert(string)"
+"24549_depositNative" -> "revert InvalidAsset()"
+"24549__redeemInternal" -> "revert NoAssetsToWithdraw()"
+"27495_enableAccount" -> "revert WhiteListAlreadyEnabled()"
+"30004__initUseWETH" -> "revert InvalidWETHContract()"
+"30004_wrapETH" -> "balance(address)"
+"3914__mint" -> "require(bool,string)"
+"23283_addStrategy" -> "revert InvalidStrategy()"
+"6001_supportsInterface" -> "type()"
+"27495_setFeeReceiver" -> "revert InvalidAddress()"
+"3914__burn" -> "require(bool,string)"
+"24549_mint" -> "revert InvalidAmount()"
+"3914__spendAllowance" -> "require(bool,string)"
+"30004_unwrapETH" -> "revert InvalidWETHAmount()"
+"3301__nonReentrantBefore" -> "require(bool,string)"
+"24549__depositInternal" -> "revert MaxDepositReached()"
+"30004_wrapETH" -> "revert InvalidWETHAmount()"
+"3088__disableInitializers" -> "require(bool,string)"
+"2352_supportsInterface" -> "type()"
+"24549_redeemNative" -> "revert InvalidAsset()"
+"24549__depositInternal" -> "revert InvalidAssetsState()"
+"2352__checkRole" -> "abi.encodePacked()"
+"24549__redeemInternal" -> "revert InvalidReceiver()"
+"2532_acceptOwnership" -> "require(bool,string)"
+"3914__transfer" -> "require(bool,string)"
+"24549_withdrawNative" -> "revert InvalidAsset()"
+"27495_setPerformanceFee" -> "revert InvalidPercentage()"
+"2665_transferOwnership" -> "require(bool,string)"
+"23283_removeStrategy" -> "revert InvalidStrategyIndex(uint256)"
+"27495_enableAccount" -> "revert WhiteListFailedToRemove()"
+"3216__requireNotPaused" -> "require(bool,string)"
+"24549_depositNative" -> "revert InvalidAmount()"
+"24549__redeemInternal" -> "revert InvalidWithdrawAmount()"
+"23283__initMultiStrategy" -> "revert InvalidWeights()"
+"27495_enableAccount" -> "revert WhiteListFailedToAdd()"
+"27495_setWithdrawalFee" -> "revert InvalidPercentage()"
+"23283_setWeights" -> "revert InvalidWeightsLength()"
+"23283__initMultiStrategy" -> "revert InvalidStrategies()"
+"24549__depositInternal" -> "revert InvalidShareBalance()"
+"27495_enableAccount" -> "revert WhiteListNotEnabled()"
+"3216__requirePaused" -> "require(bool,string)"
+"24549_receive" -> "revert ETHTransferNotAllowed(address)"
+"3914__approve" -> "require(bool,string)"
+"24549_depositNative" -> "abi.encodeWithSignature()"
+"24549_initialize" -> "revert InvalidAsset()"
+"23283_setWeights" -> "revert InvalidWeights()"
+"24549_deposit" -> "revert InvalidAmount()"
+"24549__depositInternal" -> "revert InvalidReceiver()"
+"23283__initMultiStrategy" -> "revert InvalidWeightsLength()"
+"23283_setMaxDifference" -> "revert InvalidMaxDifference(uint256)"
+"24549__redeemInternal" -> "revert InvalidShareBalance()"
+"3914_decreaseAllowance" -> "require(bool,string)"
+}"24549_withdrawNative" -> "24549_convertToShares"
+"24549_previewMint" -> "24549_convertToAssets"
+"24549_withdraw" -> "24549_convertToShares"
+"24549_previewRedeem" -> "24549_convertToAssets"
+"24549_previewWithdraw" -> "24549_convertToShares"
+"24549_previewDeposit" -> "24549_convertToShares"
+"24549__redeemInternal" -> "3992_transfer"
+"24549_maxWithdraw" -> "24549_convertToAssets"
+"24549_mint" -> "24549_convertToAssets"
+}

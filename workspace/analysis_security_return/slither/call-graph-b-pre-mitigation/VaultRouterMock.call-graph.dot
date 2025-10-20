@@ -1,0 +1,279 @@
+strict digraph {
+subgraph cluster_22371_MultiCommand {
+label = "MultiCommand"
+"22371_execute" [label="execute"]
+"22371_dispatch" [label="dispatch"]
+"22371_execute" -> "22371_dispatch"
+}subgraph cluster_28838_UseIERC4626 {
+label = "UseIERC4626"
+"28838_convertToVaultAssets" [label="convertToVaultAssets"]
+"28838_totalVaultAssets" [label="totalVaultAssets"]
+"28838_convertToVaultShares" [label="convertToVaultShares"]
+"28838_initializeUseIERC4626" [label="initializeUseIERC4626"]
+"28838_depositVault" [label="depositVault"]
+"28838_unapproveTokenForVault" [label="unapproveTokenForVault"]
+"28838_vaultAsset" [label="vaultAsset"]
+"28838_withdrawVault" [label="withdrawVault"]
+"28838_mintVault" [label="mintVault"]
+"28838_redeemVault" [label="redeemVault"]
+"28838_isTokenApprovedForVault" [label="isTokenApprovedForVault"]
+"28838_approveTokenForVault" [label="approveTokenForVault"]
+"28838_approveTokenForVault" -> "28838_onlyOwner"
+"28838_initializeUseIERC4626" -> "28838__transferOwnership"
+"28838_initializeUseIERC4626" -> "28838_onlyInitializing"
+"28838_initializeUseIERC4626" -> "28838__transferGovernorship"
+"28838_unapproveTokenForVault" -> "28838_onlyOwner"
+}subgraph cluster_31143_UseUnifiedSwapper {
+label = "UseUnifiedSwapper"
+"31143__key" [label="_key"]
+"31143_disableRoute" [label="disableRoute"]
+"31143_swap" [label="swap"]
+"31143_isRouteEnabled" [label="isRouteEnabled"]
+"31143_enableRoute" [label="enableRoute"]
+"31143_isRouteEnabled" -> "31143__key"
+"31143_swap" -> "31143__key"
+"31143_enableRoute" -> "31143__key"
+"31143_disableRoute" -> "31143_onlyGovernor"
+"31143_enableRoute" -> "31143_onlyGovernor"
+"31143_disableRoute" -> "31143__key"
+}subgraph cluster_2665_OwnableUpgradeable {
+label = "OwnableUpgradeable"
+"2665_renounceOwnership" [label="renounceOwnership"]
+"2665___Ownable_init_unchained" [label="__Ownable_init_unchained"]
+"2665_transferOwnership" [label="transferOwnership"]
+"2665_owner" [label="owner"]
+"2665__transferOwnership" [label="_transferOwnership"]
+"2665__checkOwner" [label="_checkOwner"]
+"2665___Ownable_init" [label="__Ownable_init"]
+"2665___Ownable_init" -> "2665_onlyInitializing"
+"2665__checkOwner" -> "2665_owner"
+"2665_renounceOwnership" -> "2665__transferOwnership"
+"2665___Ownable_init_unchained" -> "2665__msgSender"
+"2665___Ownable_init_unchained" -> "2665_onlyInitializing"
+"2665__checkOwner" -> "2665__msgSender"
+"2665_transferOwnership" -> "2665_onlyOwner"
+"2665___Ownable_init" -> "2665___Ownable_init_unchained"
+"2665_transferOwnership" -> "2665__transferOwnership"
+"2665_renounceOwnership" -> "2665_onlyOwner"
+"2665___Ownable_init_unchained" -> "2665__transferOwnership"
+}subgraph cluster_5002_ContextUpgradeable {
+label = "ContextUpgradeable"
+"5002___Context_init" [label="__Context_init"]
+"5002__msgSender" [label="_msgSender"]
+"5002__contextSuffixLength" [label="_contextSuffixLength"]
+"5002__msgData" [label="_msgData"]
+"5002___Context_init_unchained" [label="__Context_init_unchained"]
+"5002___Context_init" -> "5002_onlyInitializing"
+"5002___Context_init_unchained" -> "5002_onlyInitializing"
+}subgraph cluster_29257_UsePermitTransfers {
+label = "UsePermitTransfers"
+"29257_pullTokensWithPermit" [label="pullTokensWithPermit"]
+}subgraph cluster_29708_UseTokenActions {
+label = "UseTokenActions"
+"29708_pushToken" [label="pushToken"]
+"29708_pullToken" [label="pullToken"]
+"29708_sweepTokens" [label="sweepTokens"]
+"29708_pushTokenFrom" [label="pushTokenFrom"]
+"29708_pullTokenFrom" [label="pullTokenFrom"]
+}subgraph cluster_44589_VaultRouterMock {
+label = "VaultRouterMock"
+"44589_pushToken" [label="pushToken"]
+"44589_wrapETH" [label="wrapETH"]
+"44589_mintVault" [label="mintVault"]
+"44589_redeemVault" [label="redeemVault"]
+"44589_sweepTokens" [label="sweepTokens"]
+"44589_constructor" [label="constructor"]
+"44589_depositVault" [label="depositVault"]
+"44589_unwrapETH" [label="unwrapETH"]
+"44589_swap" [label="swap"]
+"44589_pullTokenFrom" [label="pullTokenFrom"]
+"44589_withdrawVault" [label="withdrawVault"]
+"44589_pullTokensWithPermit" [label="pullTokensWithPermit"]
+"44589_pullToken" [label="pullToken"]
+"44589_pushTokenFrom" [label="pushTokenFrom"]
+}subgraph cluster_3088_Initializable {
+label = "Initializable"
+"3088__getInitializedVersion" [label="_getInitializedVersion"]
+"3088__isInitializing" [label="_isInitializing"]
+"3088__disableInitializers" [label="_disableInitializers"]
+}subgraph cluster_30004_UseWETH {
+label = "UseWETH"
+"30004_receive" [label="receive"]
+"30004_wETH" [label="wETH"]
+"30004_wETHA" [label="wETHA"]
+"30004_wrapETH" [label="wrapETH"]
+"30004_unwrapETH" [label="unwrapETH"]
+"30004__initUseWETH" [label="_initUseWETH"]
+"30004_unwrapETH" -> "30004_wETH"
+"30004_wrapETH" -> "30004_wETH"
+"30004__initUseWETH" -> "30004_onlyInitializing"
+}subgraph cluster_22262_GovernableOwnable {
+label = "GovernableOwnable"
+"22262_governor" [label="governor"]
+"22262__transferGovernorship" [label="_transferGovernorship"]
+"22262_transferGovernorship" [label="transferGovernorship"]
+"22262__initializeGovernableOwnable" [label="_initializeGovernableOwnable"]
+"22262__initializeGovernableOwnable" -> "22262__transferOwnership"
+"22262_transferGovernorship" -> "22262_onlyGovernor"
+"22262__initializeGovernableOwnable" -> "22262__transferGovernorship"
+"22262_transferGovernorship" -> "22262__transferGovernorship"
+"22262__initializeGovernableOwnable" -> "22262_initializer"
+}subgraph cluster_37815_ISwapHandler {
+label = "ISwapHandler"
+"37815_swap" [label="swap"]
+}subgraph cluster_27196_VaultRouter {
+label = "VaultRouter"
+"27196_dispatch" [label="dispatch"]
+"27196_initialize" [label="initialize"]
+"27196__handlePullToken" [label="_handlePullToken"]
+"27196__handlePushTokenFrom" [label="_handlePushTokenFrom"]
+"27196__handleVaultWithdraw" [label="_handleVaultWithdraw"]
+"27196__handleSweepTokens" [label="_handleSweepTokens"]
+"27196__handlePullTokenWithPermit" [label="_handlePullTokenWithPermit"]
+"27196__handleVaultConvertToAssets" [label="_handleVaultConvertToAssets"]
+"27196__handleWrapETH" [label="_handleWrapETH"]
+"27196__handleVaultConvertToShares" [label="_handleVaultConvertToShares"]
+"27196__handleUnwrapETH" [label="_handleUnwrapETH"]
+"27196__handleVaultMint" [label="_handleVaultMint"]
+"27196__handleVaultRedeem" [label="_handleVaultRedeem"]
+"27196_constructor" [label="constructor"]
+"27196__handleVaultDeposit" [label="_handleVaultDeposit"]
+"27196__handlePullTokenFrom" [label="_handlePullTokenFrom"]
+"27196__handlePushToken" [label="_handlePushToken"]
+"27196__handleSwap" [label="_handleSwap"]
+"27196_dispatch" -> "27196__handlePullTokenFrom"
+"27196_dispatch" -> "27196__handlePullTokenWithPermit"
+"27196__handlePullToken" -> "27196_pullToken"
+"27196__handleUnwrapETH" -> "27196_unwrapETH"
+"27196_dispatch" -> "27196__handleUnwrapETH"
+"27196_dispatch" -> "27196__handleVaultRedeem"
+"27196__handlePullTokenFrom" -> "27196_pullTokenFrom"
+"27196__handlePullTokenWithPermit" -> "27196_pullTokensWithPermit"
+"27196_initialize" -> "27196_initializer"
+"27196__handleWrapETH" -> "27196_wrapETH"
+"27196_initialize" -> "27196_initializeUseIERC4626"
+"27196__handleVaultWithdraw" -> "27196_withdrawVault"
+"27196_dispatch" -> "27196__handleWrapETH"
+"27196_dispatch" -> "27196__handleSwap"
+"27196_dispatch" -> "27196__handleVaultMint"
+"27196_dispatch" -> "27196__handlePullToken"
+"27196_dispatch" -> "27196__handleVaultDeposit"
+"27196_dispatch" -> "27196__handleVaultConvertToShares"
+"27196__handlePushToken" -> "27196_pushToken"
+"27196__handleVaultConvertToShares" -> "27196_convertToVaultShares"
+"27196_constructor" -> "27196__disableInitializers"
+"27196__handleVaultDeposit" -> "27196_depositVault"
+"27196__handleVaultConvertToAssets" -> "27196_convertToVaultAssets"
+"27196__handleVaultRedeem" -> "27196_redeemVault"
+"27196__handleVaultMint" -> "27196_mintVault"
+"27196_dispatch" -> "27196__handlePushTokenFrom"
+"27196__handlePushTokenFrom" -> "27196_pushTokenFrom"
+"27196_dispatch" -> "27196__handleVaultConvertToAssets"
+"27196_dispatch" -> "27196__handleSweepTokens"
+"27196__handleSwap" -> "27196_swap"
+"27196_initialize" -> "27196__initUseWETH"
+"27196_dispatch" -> "27196__handleVaultWithdraw"
+"27196__handleSweepTokens" -> "27196_sweepTokens"
+"27196_dispatch" -> "27196__handlePushToken"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"abi.encode()" 
+"revert InvalidVaultAddress()" 
+"revert InvalidCommand(uint256)" 
+"revert ExecutionFailed(uint256,bytes)" 
+"revert InvalidWETHContract()" 
+"revert InvalidGovernorAddress()" 
+"revert RouteNotAuthorized()" 
+"revert InvalidProvider()" 
+"abi.encodePacked()" 
+"require(bool,string)" 
+"abi.decode()" 
+"balance(address)" 
+"revert InvalidRecipient()" 
+"revert InsufficientWETHBalance()" 
+"calldataload(uint256)" 
+"revert FailedToApproveAllowanceForVault()" 
+"revert InvalidWETHAmount()" 
+"revert RouteAlreadyAuthorized()" 
+"revert NotEnoughAllowance()" 
+"revert InvalidToken()" 
+"revert FailedToApproveAllowance()" 
+"keccak256(bytes)" 
+"29708_pushTokenFrom" -> "revert NotEnoughAllowance()"
+"29708_sweepTokens" -> "revert InvalidToken()"
+"31143_enableRoute" -> "revert RouteAlreadyAuthorized()"
+"30004_unwrapETH" -> "revert InsufficientWETHBalance()"
+"44589_pushToken" -> "abi.encode()"
+"29708_pushToken" -> "revert InvalidRecipient()"
+"2665__checkOwner" -> "require(bool,string)"
+"27196__handleVaultRedeem" -> "abi.encodePacked()"
+"22371_execute" -> "revert ExecutionFailed(uint256,bytes)"
+"31143_enableRoute" -> "revert FailedToApproveAllowance()"
+"31143_swap" -> "revert InvalidProvider()"
+"44589_pullTokenFrom" -> "abi.encode()"
+"28838_convertToVaultShares" -> "revert InvalidVaultAddress()"
+"29708_pullTokenFrom" -> "revert InvalidToken()"
+"44589_redeemVault" -> "abi.encode()"
+"30004__initUseWETH" -> "revert InvalidWETHContract()"
+"30004_wrapETH" -> "balance(address)"
+"44589_pullToken" -> "abi.encode()"
+"27196__handleVaultDeposit" -> "abi.encodePacked()"
+"27196__handlePushToken" -> "calldataload(uint256)"
+"28838_unapproveTokenForVault" -> "revert FailedToApproveAllowanceForVault()"
+"27196__handleVaultConvertToShares" -> "abi.encodePacked()"
+"30004_unwrapETH" -> "revert InvalidWETHAmount()"
+"31143__key" -> "abi.encode()"
+"27196__handleVaultRedeem" -> "calldataload(uint256)"
+"44589_pushTokenFrom" -> "abi.encode()"
+"27196__handleVaultMint" -> "abi.encodePacked()"
+"30004_wrapETH" -> "revert InvalidWETHAmount()"
+"3088__disableInitializers" -> "require(bool,string)"
+"28838_depositVault" -> "revert InvalidVaultAddress()"
+"27196__handleVaultConvertToShares" -> "calldataload(uint256)"
+"28838_approveTokenForVault" -> "revert FailedToApproveAllowanceForVault()"
+"29708_pushToken" -> "revert InvalidToken()"
+"28838_totalVaultAssets" -> "revert InvalidVaultAddress()"
+"2665_transferOwnership" -> "require(bool,string)"
+"28838_vaultAsset" -> "revert InvalidVaultAddress()"
+"28838_mintVault" -> "revert InvalidVaultAddress()"
+"31143__key" -> "keccak256(bytes)"
+"27196__handleVaultDeposit" -> "calldataload(uint256)"
+"27196__handleVaultConvertToAssets" -> "abi.encodePacked()"
+"44589_wrapETH" -> "abi.encode()"
+"27196__handleSweepTokens" -> "abi.encodePacked()"
+"44589_depositVault" -> "abi.encode()"
+"27196__handleVaultWithdraw" -> "abi.encodePacked()"
+"29708_pushTokenFrom" -> "revert InvalidToken()"
+"29708_pullTokenFrom" -> "revert NotEnoughAllowance()"
+"27196__handlePullToken" -> "calldataload(uint256)"
+"22262_transferGovernorship" -> "revert InvalidGovernorAddress()"
+"27196__handlePushTokenFrom" -> "calldataload(uint256)"
+"44589_swap" -> "abi.encode()"
+"44589_sweepTokens" -> "abi.encode()"
+"44589_unwrapETH" -> "abi.encode()"
+"44589_pullTokensWithPermit" -> "abi.encode()"
+"27196__handleSwap" -> "abi.encodePacked()"
+"27196__handleUnwrapETH" -> "calldataload(uint256)"
+"27196_dispatch" -> "revert InvalidCommand(uint256)"
+"31143_swap" -> "revert RouteNotAuthorized()"
+"44589_mintVault" -> "abi.encode()"
+"27196__handleSweepTokens" -> "calldataload(uint256)"
+"27196__handleSwap" -> "abi.decode()"
+"27196__handleVaultConvertToAssets" -> "calldataload(uint256)"
+"29708_pullToken" -> "revert NotEnoughAllowance()"
+"27196__handleVaultMint" -> "calldataload(uint256)"
+"31143_disableRoute" -> "revert RouteNotAuthorized()"
+"31143_disableRoute" -> "revert FailedToApproveAllowance()"
+"27196__handlePullTokenWithPermit" -> "calldataload(uint256)"
+"29708_sweepTokens" -> "revert InvalidRecipient()"
+"27196__handlePullTokenFrom" -> "calldataload(uint256)"
+"44589_withdrawVault" -> "abi.encode()"
+"29708_pullToken" -> "revert InvalidToken()"
+"29708_pushTokenFrom" -> "revert InvalidRecipient()"
+"27196__handleVaultWithdraw" -> "calldataload(uint256)"
+"28838_convertToVaultAssets" -> "revert InvalidVaultAddress()"
+"28838_redeemVault" -> "revert InvalidVaultAddress()"
+"27196__handleWrapETH" -> "calldataload(uint256)"
+"31143_swap" -> "abi.encode()"
+}
+}

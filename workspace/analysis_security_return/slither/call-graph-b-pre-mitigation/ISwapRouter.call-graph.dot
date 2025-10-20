@@ -1,0 +1,14 @@
+strict digraph {
+subgraph cluster_37438_ISwapRouter {
+label = "ISwapRouter"
+"37438_exactOutput" [label="exactOutput"]
+"37438_exactInputSingle" [label="exactInputSingle"]
+"37438_exactInput" [label="exactInput"]
+"37438_exactOutputSingle" [label="exactOutputSingle"]
+}subgraph cluster_37342_ICLSwapCallback {
+label = "ICLSwapCallback"
+"37342_uniswapV3SwapCallback" [label="uniswapV3SwapCallback"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+}
+}

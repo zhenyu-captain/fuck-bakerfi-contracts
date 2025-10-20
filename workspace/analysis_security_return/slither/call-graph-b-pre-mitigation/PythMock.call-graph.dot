@@ -1,0 +1,50 @@
+strict digraph {
+subgraph cluster_38420_IPyth {
+label = "IPyth"
+"38420_getEmaPriceUnsafe" [label="getEmaPriceUnsafe"]
+"38420_updatePriceFeedsIfNecessary" [label="updatePriceFeedsIfNecessary"]
+"38420_getValidTimePeriod" [label="getValidTimePeriod"]
+"38420_updatePriceFeeds" [label="updatePriceFeeds"]
+"38420_getPriceUnsafe" [label="getPriceUnsafe"]
+"38420_getPrice" [label="getPrice"]
+"38420_getPriceNoOlderThan" [label="getPriceNoOlderThan"]
+"38420_getUpdateFee" [label="getUpdateFee"]
+"38420_getEmaPrice" [label="getEmaPrice"]
+"38420_parsePriceFeedUpdatesUnique" [label="parsePriceFeedUpdatesUnique"]
+"38420_getEmaPriceNoOlderThan" [label="getEmaPriceNoOlderThan"]
+"38420_parsePriceFeedUpdates" [label="parsePriceFeedUpdates"]
+}subgraph cluster_43581_PythMock {
+label = "PythMock"
+"43581_getPriceUnsafe" [label="getPriceUnsafe"]
+"43581_getUpdateFee" [label="getUpdateFee"]
+"43581_constructor" [label="constructor"]
+"43581_updatePriceFeeds" [label="updatePriceFeeds"]
+"43581_parsePriceFeedUpdatesUnique" [label="parsePriceFeedUpdatesUnique"]
+"43581_getPrice" [label="getPrice"]
+"43581_updatePriceFeedsIfNecessary" [label="updatePriceFeedsIfNecessary"]
+"43581_getEmaPriceNoOlderThan" [label="getEmaPriceNoOlderThan"]
+"43581_getEmaPriceUnsafe" [label="getEmaPriceUnsafe"]
+"43581_parsePriceFeedUpdates" [label="parsePriceFeedUpdates"]
+"43581__parseUpdatesInternal" [label="_parseUpdatesInternal"]
+"43581_slitherConstructorConstantVariables" [label="slitherConstructorConstantVariables"]
+"43581_getPriceNoOlderThan" [label="getPriceNoOlderThan"]
+"43581_getValidTimePeriod" [label="getValidTimePeriod"]
+"43581_getEmaPrice" [label="getEmaPrice"]
+"43581_parsePriceFeedUpdates" -> "43581__parseUpdatesInternal"
+"43581_updatePriceFeedsIfNecessary" -> "43581__parseUpdatesInternal"
+"43581_updatePriceFeeds" -> "43581__parseUpdatesInternal"
+"43581_parsePriceFeedUpdatesUnique" -> "43581__parseUpdatesInternal"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"abi.decode()" 
+"require(bool,string)" 
+"43581__parseUpdatesInternal" -> "require(bool,string)"
+"43581_getPriceUnsafe" -> "require(bool,string)"
+"43581_getPriceNoOlderThan" -> "require(bool,string)"
+"43581_getEmaPrice" -> "require(bool,string)"
+"43581_getEmaPriceUnsafe" -> "require(bool,string)"
+"43581_getPrice" -> "require(bool,string)"
+"43581__parseUpdatesInternal" -> "abi.decode()"
+"43581_getEmaPriceNoOlderThan" -> "require(bool,string)"
+}
+}

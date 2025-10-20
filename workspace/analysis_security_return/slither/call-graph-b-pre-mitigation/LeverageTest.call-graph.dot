@@ -1,0 +1,28 @@
+strict digraph {
+subgraph cluster_29131_UseLeverage {
+label = "UseLeverage"
+"29131__calculateLeverageRatio" [label="_calculateLeverageRatio"]
+"29131__calcDeltaPosition" [label="_calcDeltaPosition"]
+"29131__calculateDebtToPay" [label="_calculateDebtToPay"]
+}subgraph cluster_46077_LeverageTest {
+label = "LeverageTest"
+"46077_calculateDebtToPay" [label="calculateDebtToPay"]
+"46077_calculateLeverageRatio" [label="calculateLeverageRatio"]
+"46077_calcDeltaPosition" [label="calcDeltaPosition"]
+"46077_calcDeltaPosition" -> "46077__calcDeltaPosition"
+"46077_calculateDebtToPay" -> "46077__calculateDebtToPay"
+"46077_calculateLeverageRatio" -> "46077__calculateLeverageRatio"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"revert InvalidTargetValue()" 
+"revert InvalidLoanToValue()" 
+"revert InvalidPercentageValue()" 
+"revert InvalidDivisor()" 
+"revert InvalidNumberOfLoops()" 
+"29131__calculateDebtToPay" -> "revert InvalidDivisor()"
+"29131__calculateDebtToPay" -> "revert InvalidTargetValue()"
+"29131__calculateLeverageRatio" -> "revert InvalidNumberOfLoops()"
+"29131__calculateLeverageRatio" -> "revert InvalidLoanToValue()"
+"29131__calcDeltaPosition" -> "revert InvalidPercentageValue()"
+}
+}

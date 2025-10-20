@@ -1,0 +1,115 @@
+strict digraph {
+subgraph cluster_12838_ERC1967Upgrade {
+label = "ERC1967Upgrade"
+"12838__upgradeToAndCallUUPS" [label="_upgradeToAndCallUUPS"]
+"12838__getAdmin" [label="_getAdmin"]
+"12838__setBeacon" [label="_setBeacon"]
+"12838__setImplementation" [label="_setImplementation"]
+"12838__setAdmin" [label="_setAdmin"]
+"12838__upgradeToAndCall" [label="_upgradeToAndCall"]
+"12838__getImplementation" [label="_getImplementation"]
+"12838__upgradeBeaconToAndCall" [label="_upgradeBeaconToAndCall"]
+"12838__changeAdmin" [label="_changeAdmin"]
+"12838__upgradeTo" [label="_upgradeTo"]
+"12838__getBeacon" [label="_getBeacon"]
+"12838__upgradeToAndCall" -> "12838__upgradeTo"
+"12838__upgradeToAndCallUUPS" -> "12838__setImplementation"
+"12838__changeAdmin" -> "12838__getAdmin"
+"12838__upgradeBeaconToAndCall" -> "12838__setBeacon"
+"12838__upgradeTo" -> "12838__setImplementation"
+"12838__upgradeToAndCallUUPS" -> "12838__upgradeToAndCall"
+"12838__changeAdmin" -> "12838__setAdmin"
+}subgraph cluster_45932_BakerFiProxy {
+label = "BakerFiProxy"
+"45932_slitherConstructorConstantVariables" [label="slitherConstructorConstantVariables"]
+"45932_constructor" [label="constructor"]
+"45932_constructor" -> "45932_constructor"
+}subgraph cluster_13359_TransparentUpgradeableProxy {
+label = "TransparentUpgradeableProxy"
+"13359__admin" [label="_admin"]
+"13359__fallback" [label="_fallback"]
+"13359__dispatchUpgradeTo" [label="_dispatchUpgradeTo"]
+"13359__requireZeroValue" [label="_requireZeroValue"]
+"13359__dispatchChangeAdmin" [label="_dispatchChangeAdmin"]
+"13359__dispatchUpgradeToAndCall" [label="_dispatchUpgradeToAndCall"]
+"13359__dispatchAdmin" [label="_dispatchAdmin"]
+"13359__dispatchImplementation" [label="_dispatchImplementation"]
+"13359_constructor" [label="constructor"]
+"13359__dispatchUpgradeTo" -> "13359__upgradeToAndCall"
+"13359__fallback" -> "13359__getAdmin"
+"13359__fallback" -> "13359__dispatchUpgradeTo"
+"13359__dispatchChangeAdmin" -> "13359__changeAdmin"
+"13359__fallback" -> "13359__dispatchUpgradeToAndCall"
+"13359__admin" -> "13359__getAdmin"
+"13359__dispatchImplementation" -> "13359__implementation"
+"13359__fallback" -> "13359__fallback"
+"13359__dispatchAdmin" -> "13359__requireZeroValue"
+"13359__dispatchChangeAdmin" -> "13359__requireZeroValue"
+"13359__dispatchImplementation" -> "13359__requireZeroValue"
+"13359__fallback" -> "13359__dispatchImplementation"
+"13359_constructor" -> "13359__changeAdmin"
+"13359__fallback" -> "13359__dispatchChangeAdmin"
+"13359__dispatchAdmin" -> "13359__getAdmin"
+"13359__fallback" -> "13359__dispatchAdmin"
+"13359_constructor" -> "13359_constructor"
+"13359__dispatchUpgradeToAndCall" -> "13359__upgradeToAndCall"
+"13359__dispatchUpgradeTo" -> "13359__requireZeroValue"
+}subgraph cluster_12534_ERC1967Proxy {
+label = "ERC1967Proxy"
+"12534_constructor" [label="constructor"]
+"12534__implementation" [label="_implementation"]
+"12534_constructor" -> "12534__upgradeToAndCall"
+"12534__implementation" -> "12534__getImplementation"
+}subgraph cluster_12890_Proxy {
+label = "Proxy"
+"12890_fallback" [label="fallback"]
+"12890__fallback" [label="_fallback"]
+"12890_receive" [label="receive"]
+"12890__implementation" [label="_implementation"]
+"12890__delegate" [label="_delegate"]
+"12890__beforeFallback" [label="_beforeFallback"]
+"12890__fallback" -> "12890__beforeFallback"
+"12890__fallback" -> "12890__implementation"
+"12890_receive" -> "12890__fallback"
+"12890_fallback" -> "12890__fallback"
+"12890__fallback" -> "12890__delegate"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"returndatasize()" 
+"revert(uint256,uint256)" 
+"abi.encode()" 
+"gas()" 
+"returndatacopy(uint256,uint256,uint256)" 
+"revert(string)" 
+"require(bool)" 
+"require(bool,string)" 
+"return(uint256,uint256)" 
+"delegatecall(uint256,uint256,uint256,uint256,uint256,uint256)" 
+"abi.decode()" 
+"calldatasize()" 
+"mload(uint256)" 
+"calldatacopy(uint256,uint256,uint256)" 
+"12890__delegate" -> "returndatasize()"
+"12838__setBeacon" -> "require(bool,string)"
+"12838__upgradeToAndCallUUPS" -> "revert(string)"
+"12890__delegate" -> "gas()"
+"13359__dispatchUpgradeTo" -> "abi.decode()"
+"13359__fallback" -> "mload(uint256)"
+"12838__upgradeToAndCallUUPS" -> "require(bool,string)"
+"12838__setImplementation" -> "require(bool,string)"
+"13359__dispatchAdmin" -> "abi.encode()"
+"13359__fallback" -> "revert(string)"
+"13359__fallback" -> "return(uint256,uint256)"
+"13359__dispatchChangeAdmin" -> "abi.decode()"
+"12890__delegate" -> "return(uint256,uint256)"
+"12890__delegate" -> "revert(uint256,uint256)"
+"12890__delegate" -> "returndatacopy(uint256,uint256,uint256)"
+"12890__delegate" -> "calldatasize()"
+"12890__delegate" -> "calldatacopy(uint256,uint256,uint256)"
+"12890__delegate" -> "delegatecall(uint256,uint256,uint256,uint256,uint256,uint256)"
+"13359__dispatchUpgradeToAndCall" -> "abi.decode()"
+"13359__dispatchImplementation" -> "abi.encode()"
+"12838__setAdmin" -> "require(bool,string)"
+"13359__requireZeroValue" -> "require(bool)"
+}
+}

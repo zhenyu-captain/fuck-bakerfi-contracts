@@ -1,0 +1,147 @@
+strict digraph {
+subgraph cluster_18659_ERC165 {
+label = "ERC165"
+"18659_supportsInterface" [label="supportsInterface"]
+}subgraph cluster_7300_AccessControl {
+label = "AccessControl"
+"7300__grantRole" [label="_grantRole"]
+"7300__checkRole" [label="_checkRole"]
+"7300_renounceRole" [label="renounceRole"]
+"7300__setupRole" [label="_setupRole"]
+"7300__revokeRole" [label="_revokeRole"]
+"7300_hasRole" [label="hasRole"]
+"7300__setRoleAdmin" [label="_setRoleAdmin"]
+"7300_grantRole" [label="grantRole"]
+"7300_getRoleAdmin" [label="getRoleAdmin"]
+"7300_supportsInterface" [label="supportsInterface"]
+"7300_revokeRole" [label="revokeRole"]
+"7300__checkRole" -> "7300__checkRole"
+"7300_revokeRole" -> "7300__revokeRole"
+"7300__setRoleAdmin" -> "7300_getRoleAdmin"
+"7300_grantRole" -> "7300__grantRole"
+"7300__grantRole" -> "7300__msgSender"
+"7300__revokeRole" -> "7300_hasRole"
+"7300_renounceRole" -> "7300__revokeRole"
+"7300__checkRole" -> "7300_hasRole"
+"7300_revokeRole" -> "7300_getRoleAdmin"
+"7300_revokeRole" -> "7300_onlyRole"
+"7300__revokeRole" -> "7300__msgSender"
+"7300__grantRole" -> "7300_hasRole"
+"7300_grantRole" -> "7300_onlyRole"
+"7300__checkRole" -> "7300__msgSender"
+"7300_renounceRole" -> "7300__msgSender"
+"7300__setupRole" -> "7300__grantRole"
+"7300_grantRole" -> "7300_getRoleAdmin"
+"7300_supportsInterface" -> "7300_supportsInterface"
+}subgraph cluster_7373_IAccessControl {
+label = "IAccessControl"
+"7373_renounceRole" [label="renounceRole"]
+"7373_getRoleAdmin" [label="getRoleAdmin"]
+"7373_grantRole" [label="grantRole"]
+"7373_revokeRole" [label="revokeRole"]
+"7373_hasRole" [label="hasRole"]
+}subgraph cluster_15535_IERC721Receiver {
+label = "IERC721Receiver"
+"15535_onERC721Received" [label="onERC721Received"]
+}subgraph cluster_18671_IERC165 {
+label = "IERC165"
+"18671_supportsInterface" [label="supportsInterface"]
+}subgraph cluster_10353_TimelockController {
+label = "TimelockController"
+"10353_onERC721Received" [label="onERC721Received"]
+"10353__beforeCall" [label="_beforeCall"]
+"10353_constructor" [label="constructor"]
+"10353_supportsInterface" [label="supportsInterface"]
+"10353_receive" [label="receive"]
+"10353_execute" [label="execute"]
+"10353_executeBatch" [label="executeBatch"]
+"10353_cancel" [label="cancel"]
+"10353_scheduleBatch" [label="scheduleBatch"]
+"10353_schedule" [label="schedule"]
+"10353_getTimestamp" [label="getTimestamp"]
+"10353__afterCall" [label="_afterCall"]
+"10353_getMinDelay" [label="getMinDelay"]
+"10353_onERC1155BatchReceived" [label="onERC1155BatchReceived"]
+"10353__schedule" [label="_schedule"]
+"10353_hashOperation" [label="hashOperation"]
+"10353_onERC1155Received" [label="onERC1155Received"]
+"10353_updateDelay" [label="updateDelay"]
+"10353_isOperationPending" [label="isOperationPending"]
+"10353__execute" [label="_execute"]
+"10353_isOperation" [label="isOperation"]
+"10353_isOperationReady" [label="isOperationReady"]
+"10353_isOperationDone" [label="isOperationDone"]
+"10353_hashOperationBatch" [label="hashOperationBatch"]
+"10353_execute" -> "10353_hashOperation"
+"10353_schedule" -> "10353_hashOperation"
+"10353_executeBatch" -> "10353_hashOperationBatch"
+"10353_executeBatch" -> "10353__afterCall"
+"10353_isOperationDone" -> "10353_getTimestamp"
+"10353__schedule" -> "10353_isOperation"
+"10353_cancel" -> "10353_onlyRole"
+"10353_executeBatch" -> "10353__execute"
+"10353_execute" -> "10353_onlyRoleOrOpenRole"
+"10353_isOperationPending" -> "10353_getTimestamp"
+"10353_isOperationReady" -> "10353_getTimestamp"
+"10353_scheduleBatch" -> "10353__schedule"
+"10353_scheduleBatch" -> "10353_hashOperationBatch"
+"10353_executeBatch" -> "10353__beforeCall"
+"10353__afterCall" -> "10353_isOperationReady"
+"10353_isOperation" -> "10353_getTimestamp"
+"10353_supportsInterface" -> "10353_supportsInterface"
+"10353_constructor" -> "10353__setRoleAdmin"
+"10353_constructor" -> "10353__setupRole"
+"10353_scheduleBatch" -> "10353_onlyRole"
+"10353_schedule" -> "10353__schedule"
+"10353_schedule" -> "10353_onlyRole"
+"10353_cancel" -> "10353_isOperationPending"
+"10353_execute" -> "10353__execute"
+"10353__beforeCall" -> "10353_isOperationReady"
+"10353_executeBatch" -> "10353_onlyRoleOrOpenRole"
+"10353__schedule" -> "10353_getMinDelay"
+"10353__beforeCall" -> "10353_isOperationDone"
+"10353_execute" -> "10353__afterCall"
+"10353_execute" -> "10353__beforeCall"
+}subgraph cluster_13465_IERC1155Receiver {
+label = "IERC1155Receiver"
+"13465_onERC1155BatchReceived" [label="onERC1155BatchReceived"]
+"13465_onERC1155Received" [label="onERC1155Received"]
+}subgraph cluster_17436_Context {
+label = "Context"
+"17436__msgSender" [label="_msgSender"]
+"17436__msgData" [label="_msgData"]
+"17436__contextSuffixLength" [label="_contextSuffixLength"]
+}subgraph cluster_28253_Timelock {
+label = "Timelock"
+"28253_slitherConstructorConstantVariables" [label="slitherConstructorConstantVariables"]
+"28253_constructor" [label="constructor"]
+"28253_constructor" -> "28253_constructor"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"abi.encode()" 
+"revert(string)" 
+"type()" 
+"require(bool,string)" 
+"abi.encodePacked()" 
+"keccak256(bytes)" 
+"10353_hashOperation" -> "keccak256(bytes)"
+"28253_slitherConstructorConstantVariables" -> "keccak256(bytes)"
+"10353__schedule" -> "require(bool,string)"
+"10353__afterCall" -> "require(bool,string)"
+"7300__checkRole" -> "revert(string)"
+"10353_cancel" -> "require(bool,string)"
+"10353_hashOperationBatch" -> "abi.encode()"
+"7300__checkRole" -> "abi.encodePacked()"
+"10353_hashOperation" -> "abi.encode()"
+"18659_supportsInterface" -> "type()"
+"10353_hashOperationBatch" -> "keccak256(bytes)"
+"10353_updateDelay" -> "require(bool,string)"
+"7300_supportsInterface" -> "type()"
+"10353_supportsInterface" -> "type()"
+"10353__execute" -> "require(bool,string)"
+"7300_renounceRole" -> "require(bool,string)"
+"10353_scheduleBatch" -> "require(bool,string)"
+"10353_executeBatch" -> "require(bool,string)"
+"10353__beforeCall" -> "require(bool,string)"
+}
+}

@@ -1,0 +1,41 @@
+strict digraph {
+subgraph cluster_3088_Initializable {
+label = "Initializable"
+"3088__getInitializedVersion" [label="_getInitializedVersion"]
+"3088__isInitializing" [label="_isInitializing"]
+"3088__disableInitializers" [label="_disableInitializers"]
+}subgraph cluster_30040_UseWETHMock {
+label = "UseWETHMock"
+"30040_initialize" [label="initialize"]
+"30040_test__unwrapETH" [label="test__unwrapETH"]
+"30040_test__wrapETH" [label="test__wrapETH"]
+"30040_initialize" -> "30040_initializer"
+"30040_test__wrapETH" -> "30040_wrapETH"
+"30040_initialize" -> "30040__initUseWETH"
+"30040_test__unwrapETH" -> "30040_unwrapETH"
+}subgraph cluster_30004_UseWETH {
+label = "UseWETH"
+"30004_receive" [label="receive"]
+"30004_wETH" [label="wETH"]
+"30004_wETHA" [label="wETHA"]
+"30004_wrapETH" [label="wrapETH"]
+"30004_unwrapETH" [label="unwrapETH"]
+"30004__initUseWETH" [label="_initUseWETH"]
+"30004_unwrapETH" -> "30004_wETH"
+"30004_wrapETH" -> "30004_wETH"
+"30004__initUseWETH" -> "30004_onlyInitializing"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"revert InsufficientWETHBalance()" 
+"revert InvalidWETHAmount()" 
+"require(bool,string)" 
+"revert InvalidWETHContract()" 
+"balance(address)" 
+"30004_unwrapETH" -> "revert InsufficientWETHBalance()"
+"30004_wrapETH" -> "balance(address)"
+"30004_unwrapETH" -> "revert InvalidWETHAmount()"
+"30004_wrapETH" -> "revert InvalidWETHAmount()"
+"3088__disableInitializers" -> "require(bool,string)"
+"30004__initUseWETH" -> "revert InvalidWETHContract()"
+}
+}

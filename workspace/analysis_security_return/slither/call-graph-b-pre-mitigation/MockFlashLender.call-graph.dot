@@ -1,0 +1,26 @@
+strict digraph {
+subgraph cluster_42394_MockFlashLender {
+label = "MockFlashLender"
+"42394_flashLoan" [label="flashLoan"]
+"42394_maxFlashLoan" [label="maxFlashLoan"]
+"42394_slitherConstructorConstantVariables" [label="slitherConstructorConstantVariables"]
+"42394_constructor" [label="constructor"]
+"42394_getFlashLoanFee" [label="getFlashLoanFee"]
+"42394_flashFee" [label="flashFee"]
+"42394_setFlashLoanFee" [label="setFlashLoanFee"]
+"42394_slitherConstructorVariables" [label="slitherConstructorVariables"]
+}subgraph cluster_12270_IERC3156FlashLender {
+label = "IERC3156FlashLender"
+"12270_maxFlashLoan" [label="maxFlashLoan"]
+"12270_flashFee" [label="flashFee"]
+"12270_flashLoan" [label="flashLoan"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"keccak256(bytes)" 
+"require(bool)" 
+"require(bool,string)" 
+"42394_slitherConstructorConstantVariables" -> "keccak256(bytes)"
+"42394_flashLoan" -> "require(bool,string)"
+"42394_flashLoan" -> "require(bool)"
+}
+}

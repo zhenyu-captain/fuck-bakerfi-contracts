@@ -1,0 +1,17 @@
+strict digraph {
+subgraph cluster_707_MathLib {
+label = "MathLib"
+"707_wMulDown" [label="wMulDown"]
+"707_wDivUp" [label="wDivUp"]
+"707_wTaylorCompounded" [label="wTaylorCompounded"]
+"707_mulDivUp" [label="mulDivUp"]
+"707_wDivDown" [label="wDivDown"]
+"707_mulDivDown" [label="mulDivDown"]
+"707_wTaylorCompounded" -> "707_mulDivDown"
+"707_wMulDown" -> "707_mulDivDown"
+"707_wDivUp" -> "707_mulDivUp"
+"707_wDivDown" -> "707_mulDivDown"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+}
+}

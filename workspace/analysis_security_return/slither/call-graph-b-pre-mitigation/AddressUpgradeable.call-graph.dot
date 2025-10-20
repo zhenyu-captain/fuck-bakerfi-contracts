@@ -1,0 +1,41 @@
+strict digraph {
+subgraph cluster_4951_AddressUpgradeable {
+label = "AddressUpgradeable"
+"4951_functionStaticCall" [label="functionStaticCall"]
+"4951_functionDelegateCall" [label="functionDelegateCall"]
+"4951_sendValue" [label="sendValue"]
+"4951__revert" [label="_revert"]
+"4951_verifyCallResult" [label="verifyCallResult"]
+"4951_functionCall" [label="functionCall"]
+"4951_functionCallWithValue" [label="functionCallWithValue"]
+"4951_isContract" [label="isContract"]
+"4951_verifyCallResultFromTarget" [label="verifyCallResultFromTarget"]
+"4951_functionStaticCall" -> "4951_verifyCallResultFromTarget"
+"4951_functionStaticCall" -> "4951_functionStaticCall"
+"4951_functionDelegateCall" -> "4951_functionDelegateCall"
+"4951_verifyCallResultFromTarget" -> "4951__revert"
+"4951_verifyCallResult" -> "4951__revert"
+"4951_functionCallWithValue" -> "4951_functionCallWithValue"
+"4951_verifyCallResultFromTarget" -> "4951_isContract"
+"4951_functionDelegateCall" -> "4951_verifyCallResultFromTarget"
+"4951_functionCall" -> "4951_functionCallWithValue"
+"4951_functionCallWithValue" -> "4951_verifyCallResultFromTarget"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"revert(uint256,uint256)" 
+"revert(string)" 
+"code(address)" 
+"require(bool,string)" 
+"mload(uint256)" 
+"balance(address)" 
+"4951__revert" -> "revert(string)"
+"4951_functionCallWithValue" -> "require(bool,string)"
+"4951_sendValue" -> "balance(address)"
+"4951_isContract" -> "code(address)"
+"4951_sendValue" -> "require(bool,string)"
+"4951__revert" -> "revert(uint256,uint256)"
+"4951_functionCallWithValue" -> "balance(address)"
+"4951_verifyCallResultFromTarget" -> "require(bool,string)"
+"4951__revert" -> "mload(uint256)"
+}
+}

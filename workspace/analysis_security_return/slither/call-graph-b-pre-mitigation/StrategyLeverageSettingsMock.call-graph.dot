@@ -1,0 +1,120 @@
+strict digraph {
+subgraph cluster_2665_OwnableUpgradeable {
+label = "OwnableUpgradeable"
+"2665_renounceOwnership" [label="renounceOwnership"]
+"2665___Ownable_init_unchained" [label="__Ownable_init_unchained"]
+"2665_transferOwnership" [label="transferOwnership"]
+"2665_owner" [label="owner"]
+"2665__transferOwnership" [label="_transferOwnership"]
+"2665__checkOwner" [label="_checkOwner"]
+"2665___Ownable_init" [label="__Ownable_init"]
+"2665___Ownable_init" -> "2665_onlyInitializing"
+"2665__checkOwner" -> "2665_owner"
+"2665_renounceOwnership" -> "2665__transferOwnership"
+"2665___Ownable_init_unchained" -> "2665__msgSender"
+"2665___Ownable_init_unchained" -> "2665_onlyInitializing"
+"2665__checkOwner" -> "2665__msgSender"
+"2665_transferOwnership" -> "2665_onlyOwner"
+"2665___Ownable_init" -> "2665___Ownable_init_unchained"
+"2665_transferOwnership" -> "2665__transferOwnership"
+"2665_renounceOwnership" -> "2665_onlyOwner"
+"2665___Ownable_init_unchained" -> "2665__transferOwnership"
+}subgraph cluster_5002_ContextUpgradeable {
+label = "ContextUpgradeable"
+"5002___Context_init" [label="__Context_init"]
+"5002__msgSender" [label="_msgSender"]
+"5002__contextSuffixLength" [label="_contextSuffixLength"]
+"5002__msgData" [label="_msgData"]
+"5002___Context_init_unchained" [label="__Context_init_unchained"]
+"5002___Context_init" -> "5002_onlyInitializing"
+"5002___Context_init_unchained" -> "5002_onlyInitializing"
+}subgraph cluster_34893_StrategySettings {
+label = "StrategySettings"
+"34893_setPriceMaxConf" [label="setPriceMaxConf"]
+"34893__initializeStrategySettings" [label="_initializeStrategySettings"]
+"34893_getPriceMaxAge" [label="getPriceMaxAge"]
+"34893_getPriceMaxConf" [label="getPriceMaxConf"]
+"34893_setPriceMaxAge" [label="setPriceMaxAge"]
+"34893__setUint256" [label="_setUint256"]
+"34893_constructor" [label="constructor"]
+"34893__getUint256" [label="_getUint256"]
+"34893_setPriceMaxConf" -> "34893_onlyGovernor"
+"34893_setPriceMaxConf" -> "34893__setUint256"
+"34893__initializeStrategySettings" -> "34893__setUint256"
+"34893_setPriceMaxAge" -> "34893_onlyGovernor"
+"34893_getPriceMaxConf" -> "34893__getUint256"
+"34893_constructor" -> "34893__disableInitializers"
+"34893__initializeStrategySettings" -> "34893_onlyInitializing"
+"34893_getPriceMaxAge" -> "34893__getUint256"
+"34893_setPriceMaxAge" -> "34893__setUint256"
+}subgraph cluster_37776_IStrategySettings {
+label = "IStrategySettings"
+"37776_setPriceMaxConf" [label="setPriceMaxConf"]
+"37776_setPriceMaxAge" [label="setPriceMaxAge"]
+"37776_getPriceMaxConf" [label="getPriceMaxConf"]
+"37776_getPriceMaxAge" [label="getPriceMaxAge"]
+}subgraph cluster_3088_Initializable {
+label = "Initializable"
+"3088__getInitializedVersion" [label="_getInitializedVersion"]
+"3088__isInitializing" [label="_isInitializing"]
+"3088__disableInitializers" [label="_disableInitializers"]
+}subgraph cluster_43728_StrategyLeverageSettingsMock {
+label = "StrategyLeverageSettingsMock"
+"43728_initialize" [label="initialize"]
+"43728_initialize" -> "43728_initializer"
+"43728_initialize" -> "43728__initLeverageSettings"
+}subgraph cluster_34484_StrategyLeverageSettings {
+label = "StrategyLeverageSettings"
+"34484_getNrLoops" [label="getNrLoops"]
+"34484_getMaxLoanToValue" [label="getMaxLoanToValue"]
+"34484_setNrLoops" [label="setNrLoops"]
+"34484_setMaxLoanToValue" [label="setMaxLoanToValue"]
+"34484_getLoanToValue" [label="getLoanToValue"]
+"34484__initLeverageSettings" [label="_initLeverageSettings"]
+"34484_getMaxSlippage" [label="getMaxSlippage"]
+"34484_setLoanToValue" [label="setLoanToValue"]
+"34484_setMaxSlippage" [label="setMaxSlippage"]
+"34484_setMaxSlippage" -> "34484_onlyGovernor"
+"34484_setNrLoops" -> "34484_onlyGovernor"
+"34484_setMaxLoanToValue" -> "34484_onlyGovernor"
+"34484__initLeverageSettings" -> "34484__initializeStrategySettings"
+"34484__initLeverageSettings" -> "34484__initializeGovernableOwnable"
+"34484__initLeverageSettings" -> "34484_initializer"
+"34484_setLoanToValue" -> "34484_onlyGovernor"
+}subgraph cluster_22262_GovernableOwnable {
+label = "GovernableOwnable"
+"22262_governor" [label="governor"]
+"22262__transferGovernorship" [label="_transferGovernorship"]
+"22262_transferGovernorship" [label="transferGovernorship"]
+"22262__initializeGovernableOwnable" [label="_initializeGovernableOwnable"]
+"22262__initializeGovernableOwnable" -> "22262__transferOwnership"
+"22262_transferGovernorship" -> "22262_onlyGovernor"
+"22262__initializeGovernableOwnable" -> "22262__transferGovernorship"
+"22262_transferGovernorship" -> "22262__transferGovernorship"
+"22262__initializeGovernableOwnable" -> "22262_initializer"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"sload(uint256)" 
+"revert InvalidMaxLoanToValue()" 
+"require(bool,string)" 
+"revert InvalidValue()" 
+"revert InvalidLoopCount()" 
+"revert InvalidPercentage()" 
+"revert InvalidGovernorAddress()" 
+"sstore(uint256,uint256)" 
+"34484_setMaxLoanToValue" -> "revert InvalidMaxLoanToValue()"
+"34484_setMaxSlippage" -> "revert InvalidPercentage()"
+"34893__setUint256" -> "sstore(uint256,uint256)"
+"34484_setLoanToValue" -> "revert InvalidPercentage()"
+"34484_setMaxLoanToValue" -> "revert InvalidPercentage()"
+"2665__checkOwner" -> "require(bool,string)"
+"34484_setMaxLoanToValue" -> "revert InvalidValue()"
+"3088__disableInitializers" -> "require(bool,string)"
+"34484_setNrLoops" -> "revert InvalidLoopCount()"
+"34893_setPriceMaxConf" -> "revert InvalidPercentage()"
+"34484_setLoanToValue" -> "revert InvalidValue()"
+"22262_transferGovernorship" -> "revert InvalidGovernorAddress()"
+"2665_transferOwnership" -> "require(bool,string)"
+"34893__getUint256" -> "sload(uint256)"
+}
+}

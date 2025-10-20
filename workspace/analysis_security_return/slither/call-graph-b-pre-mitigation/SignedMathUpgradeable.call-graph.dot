@@ -1,0 +1,11 @@
+strict digraph {
+subgraph cluster_6984_SignedMathUpgradeable {
+label = "SignedMathUpgradeable"
+"6984_min" [label="min"]
+"6984_average" [label="average"]
+"6984_abs" [label="abs"]
+"6984_max" [label="max"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+}
+}

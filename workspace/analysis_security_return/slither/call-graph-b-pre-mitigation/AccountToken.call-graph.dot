@@ -1,0 +1,110 @@
+strict digraph {
+subgraph cluster_7486_Ownable {
+label = "Ownable"
+"7486_constructor" [label="constructor"]
+"7486__transferOwnership" [label="_transferOwnership"]
+"7486_renounceOwnership" [label="renounceOwnership"]
+"7486__checkOwner" [label="_checkOwner"]
+"7486_owner" [label="owner"]
+"7486_transferOwnership" [label="transferOwnership"]
+"7486__checkOwner" -> "7486_owner"
+"7486__checkOwner" -> "7486__msgSender"
+"7486_constructor" -> "7486__msgSender"
+"7486_transferOwnership" -> "7486_onlyOwner"
+"7486_renounceOwnership" -> "7486_onlyOwner"
+"7486_constructor" -> "7486__transferOwnership"
+"7486_transferOwnership" -> "7486__transferOwnership"
+"7486_renounceOwnership" -> "7486__transferOwnership"
+}subgraph cluster_15105_IERC20Metadata {
+label = "IERC20Metadata"
+"15105_symbol" [label="symbol"]
+"15105_name" [label="name"]
+"15105_decimals" [label="decimals"]
+}subgraph cluster_14052_ERC20 {
+label = "ERC20"
+"14052_totalSupply" [label="totalSupply"]
+"14052_name" [label="name"]
+"14052_symbol" [label="symbol"]
+"14052__transfer" [label="_transfer"]
+"14052__mint" [label="_mint"]
+"14052_approve" [label="approve"]
+"14052_constructor" [label="constructor"]
+"14052_increaseAllowance" [label="increaseAllowance"]
+"14052__burn" [label="_burn"]
+"14052_decreaseAllowance" [label="decreaseAllowance"]
+"14052__spendAllowance" [label="_spendAllowance"]
+"14052_balanceOf" [label="balanceOf"]
+"14052_allowance" [label="allowance"]
+"14052__approve" [label="_approve"]
+"14052_decimals" [label="decimals"]
+"14052__afterTokenTransfer" [label="_afterTokenTransfer"]
+"14052_transferFrom" [label="transferFrom"]
+"14052_transfer" [label="transfer"]
+"14052__beforeTokenTransfer" [label="_beforeTokenTransfer"]
+"14052_transferFrom" -> "14052__spendAllowance"
+"14052_transferFrom" -> "14052__msgSender"
+"14052_decreaseAllowance" -> "14052__msgSender"
+"14052_approve" -> "14052__approve"
+"14052_transferFrom" -> "14052__transfer"
+"14052_increaseAllowance" -> "14052__approve"
+"14052_increaseAllowance" -> "14052__msgSender"
+"14052__burn" -> "14052__beforeTokenTransfer"
+"14052__spendAllowance" -> "14052__approve"
+"14052__transfer" -> "14052__beforeTokenTransfer"
+"14052__transfer" -> "14052__afterTokenTransfer"
+"14052__mint" -> "14052__beforeTokenTransfer"
+"14052_transfer" -> "14052__transfer"
+"14052_decreaseAllowance" -> "14052__approve"
+"14052__spendAllowance" -> "14052_allowance"
+"14052_approve" -> "14052__msgSender"
+"14052__mint" -> "14052__afterTokenTransfer"
+"14052_decreaseAllowance" -> "14052_allowance"
+"14052_transfer" -> "14052__msgSender"
+"14052_increaseAllowance" -> "14052_allowance"
+"14052__burn" -> "14052__afterTokenTransfer"
+}subgraph cluster_14130_IERC20 {
+label = "IERC20"
+"14130_balanceOf" [label="balanceOf"]
+"14130_transferFrom" [label="transferFrom"]
+"14130_allowance" [label="allowance"]
+"14130_transfer" [label="transfer"]
+"14130_approve" [label="approve"]
+"14130_totalSupply" [label="totalSupply"]
+}subgraph cluster_40499_AccountToken {
+label = "AccountToken"
+"40499_burn" [label="burn"]
+"40499_constructor" [label="constructor"]
+"40499_mint" [label="mint"]
+"40499_mint" -> "40499__mint"
+"40499_constructor" -> "40499_constructor"
+"40499_constructor" -> "40499__transferOwnership"
+"40499_burn" -> "40499__burn"
+"40499_mint" -> "40499_onlyOwner"
+"40499_burn" -> "40499_onlyOwner"
+}subgraph cluster_17436_Context {
+label = "Context"
+"17436__msgSender" [label="_msgSender"]
+"17436__msgData" [label="_msgData"]
+"17436__contextSuffixLength" [label="_contextSuffixLength"]
+}subgraph cluster_14174_ERC20Burnable {
+label = "ERC20Burnable"
+"14174_burnFrom" [label="burnFrom"]
+"14174_burn" [label="burn"]
+"14174_burn" -> "14174__burn"
+"14174_burn" -> "14174__msgSender"
+"14174_burnFrom" -> "14174__spendAllowance"
+"14174_burnFrom" -> "14174__burn"
+"14174_burnFrom" -> "14174__msgSender"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"require(bool,string)" 
+"14052__mint" -> "require(bool,string)"
+"14052__approve" -> "require(bool,string)"
+"14052__spendAllowance" -> "require(bool,string)"
+"7486_transferOwnership" -> "require(bool,string)"
+"14052__transfer" -> "require(bool,string)"
+"14052__burn" -> "require(bool,string)"
+"14052_decreaseAllowance" -> "require(bool,string)"
+"7486__checkOwner" -> "require(bool,string)"
+}
+}

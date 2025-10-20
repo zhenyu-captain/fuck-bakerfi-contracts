@@ -1,0 +1,20 @@
+strict digraph {
+subgraph cluster_3088_Initializable {
+label = "Initializable"
+"3088__getInitializedVersion" [label="_getInitializedVersion"]
+"3088__isInitializing" [label="_isInitializing"]
+"3088__disableInitializers" [label="_disableInitializers"]
+}subgraph cluster_28458_UseIERC20 {
+label = "UseIERC20"
+"28458__initUseIERC20" [label="_initUseIERC20"]
+"28458_ierc20A" [label="ierc20A"]
+"28458_ierc20" [label="ierc20"]
+"28458__initUseIERC20" -> "28458_onlyInitializing"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"require(bool,string)" 
+"revert InvalidIERC20Contract()" 
+"28458__initUseIERC20" -> "revert InvalidIERC20Contract()"
+"3088__disableInitializers" -> "require(bool,string)"
+}
+}
