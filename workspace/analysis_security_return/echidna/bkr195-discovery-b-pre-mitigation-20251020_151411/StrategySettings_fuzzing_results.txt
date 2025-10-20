@@ -1,0 +1,50 @@
+[2025-10-20 15:14:18.51] Compiling ./StrategySettings_BKR195Test.sol... Done! (0.271372023s)
+Analyzing contract: /home/mi/fuck-bakerfi-contracts/b-pre-mitigation/StrategySettings_BKR195Test.sol:StrategySettings_BKR195Test
+[2025-10-20 15:14:18.79] Running slither on ./StrategySettings_BKR195Test.sol... Done! (0.245486519s)
+[2025-10-20 15:14:19.05] [Worker 0] New coverage: 1935 instr, 1 contracts, 1 seqs in corpus
+[2025-10-20 15:14:19.05] [Worker 3] New coverage: 2355 instr, 1 contracts, 2 seqs in corpus
+[2025-10-20 15:14:19.05] [Worker 2] New coverage: 2355 instr, 1 contracts, 3 seqs in corpus
+[2025-10-20 15:14:19.05] [Worker 1] New coverage: 2380 instr, 1 contracts, 4 seqs in corpus
+[2025-10-20 15:14:19.05] [Worker 3] New coverage: 2380 instr, 1 contracts, 5 seqs in corpus
+[2025-10-20 15:14:19.05] [Worker 2] New coverage: 2744 instr, 1 contracts, 6 seqs in corpus
+[2025-10-20 15:14:19.05] [Worker 0] New coverage: 2853 instr, 1 contracts, 7 seqs in corpus
+[2025-10-20 15:14:19.05] [Worker 2] New coverage: 2927 instr, 1 contracts, 8 seqs in corpus
+[2025-10-20 15:14:19.06] [Worker 3] New coverage: 3041 instr, 1 contracts, 9 seqs in corpus
+[2025-10-20 15:14:19.06] [Worker 2] New coverage: 3041 instr, 1 contracts, 10 seqs in corpus
+[2025-10-20 15:14:19.06] [Worker 0] Test limit reached. Stopping.
+[2025-10-20 15:14:19.06] [Worker 1] New coverage: 3100 instr, 1 contracts, 11 seqs in corpus
+[2025-10-20 15:14:19.06] [Worker 3] Test limit reached. Stopping.
+[2025-10-20 15:14:19.06] [Worker 2] New coverage: 3100 instr, 1 contracts, 12 seqs in corpus
+[2025-10-20 15:14:19.06] [Worker 2] Test limit reached. Stopping.
+[2025-10-20 15:14:19.06] [Worker 1] Test limit reached. Stopping.
+[2025-10-20 15:14:19.06] [status] tests: 0/23, fuzzing: 118/100, values: [], cov: 3100, corpus: 12
+totalSupply(): passing
+failureCount(): passing
+testMathOperations(uint256,uint256): passing
+testStateConsistency(): passing
+paused(): passing
+performanceFee(): passing
+testBKR195Scenario(uint256): passing
+owner(): passing
+undeployVulnerable(uint256): passing
+testCount(): passing
+deploy(uint256): passing
+strategy(): passing
+deployedAmount(): passing
+testStateTransitionIntegrity(): passing
+testContractState(): passing
+balance(): passing
+undeployFixed(uint256): passing
+testAccessControl(): passing
+testUndeployConsistency(uint256): passing
+testDeployConsistency(uint256): passing
+testPerformanceFeeConsistency(): passing
+testBoundaryConditions(uint256): passing
+AssertionFailed(..): passing
+
+
+Unique instructions: 3100
+Unique codehashes: 1
+Corpus size: 12
+Seed: 1175684230546991127
+

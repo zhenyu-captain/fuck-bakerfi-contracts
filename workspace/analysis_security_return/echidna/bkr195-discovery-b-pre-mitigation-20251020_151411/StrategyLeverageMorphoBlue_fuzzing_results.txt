@@ -1,0 +1,52 @@
+[2025-10-20 15:14:17.93] Compiling ./StrategyLeverageMorphoBlue_BKR195Test.sol... Done! (0.266035016s)
+Analyzing contract: /home/mi/fuck-bakerfi-contracts/b-pre-mitigation/StrategyLeverageMorphoBlue_BKR195Test.sol:StrategyLeverageMorphoBlue_BKR195Test
+[2025-10-20 15:14:18.20] Running slither on ./StrategyLeverageMorphoBlue_BKR195Test.sol... Done! (0.248783294s)
+[2025-10-20 15:14:18.46] [Worker 3] New coverage: 1833 instr, 1 contracts, 1 seqs in corpus
+[2025-10-20 15:14:18.46] [Worker 1] New coverage: 1903 instr, 1 contracts, 2 seqs in corpus
+[2025-10-20 15:14:18.46] [Worker 0] New coverage: 1903 instr, 1 contracts, 3 seqs in corpus
+[2025-10-20 15:14:18.47] [Worker 1] New coverage: 2251 instr, 1 contracts, 4 seqs in corpus
+[2025-10-20 15:14:18.47] [Worker 3] New coverage: 2257 instr, 1 contracts, 5 seqs in corpus
+[2025-10-20 15:14:18.47] [Worker 2] New coverage: 2257 instr, 1 contracts, 6 seqs in corpus
+[2025-10-20 15:14:18.47] [Worker 1] New coverage: 2374 instr, 1 contracts, 7 seqs in corpus
+[2025-10-20 15:14:18.47] [Worker 2] New coverage: 2549 instr, 1 contracts, 8 seqs in corpus
+[2025-10-20 15:14:18.47] [Worker 3] New coverage: 2549 instr, 1 contracts, 9 seqs in corpus
+[2025-10-20 15:14:18.47] [Worker 1] New coverage: 2903 instr, 1 contracts, 10 seqs in corpus
+[2025-10-20 15:14:18.47] [Worker 2] New coverage: 3001 instr, 1 contracts, 11 seqs in corpus
+[2025-10-20 15:14:18.47] [Worker 0] New coverage: 3001 instr, 1 contracts, 12 seqs in corpus
+[2025-10-20 15:14:18.48] [Worker 1] Test limit reached. Stopping.
+[2025-10-20 15:14:18.48] [Worker 3] Test limit reached. Stopping.
+[2025-10-20 15:14:18.48] [Worker 0] New coverage: 3295 instr, 1 contracts, 13 seqs in corpus
+[2025-10-20 15:14:18.48] [Worker 0] Test limit reached. Stopping.
+[2025-10-20 15:14:18.48] [Worker 2] New coverage: 3295 instr, 1 contracts, 14 seqs in corpus
+[2025-10-20 15:14:18.48] [Worker 2] Test limit reached. Stopping.
+[2025-10-20 15:14:18.48] [status] tests: 0/23, fuzzing: 119/100, values: [], cov: 3295, corpus: 14
+totalSupply(): passing
+failureCount(): passing
+testMathOperations(uint256,uint256): passing
+testStateConsistency(): passing
+paused(): passing
+performanceFee(): passing
+testBKR195Scenario(uint256): passing
+owner(): passing
+undeployVulnerable(uint256): passing
+testCount(): passing
+deploy(uint256): passing
+strategy(): passing
+deployedAmount(): passing
+testStateTransitionIntegrity(): passing
+testContractState(): passing
+balance(): passing
+undeployFixed(uint256): passing
+testAccessControl(): passing
+testUndeployConsistency(uint256): passing
+testDeployConsistency(uint256): passing
+testPerformanceFeeConsistency(): passing
+testBoundaryConditions(uint256): passing
+AssertionFailed(..): passing
+
+
+Unique instructions: 3295
+Unique codehashes: 1
+Corpus size: 14
+Seed: 8689107726001402948
+

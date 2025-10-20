@@ -1,0 +1,78 @@
+[2025-10-20 15:13:04.33] Compiling ./MultiStrategy_BKR195Test.sol... Done! (0.258198822s)
+Analyzing contract: /home/mi/fuck-bakerfi-contracts/b-pre-mitigation/MultiStrategy_BKR195Test.sol:MultiStrategy_BKR195Test
+[2025-10-20 15:13:04.60] Running slither on ./MultiStrategy_BKR195Test.sol... Done! (0.256501337s)
+[2025-10-20 15:13:04.86] [Worker 2] New coverage: 2158 instr, 1 contracts, 1 seqs in corpus
+[2025-10-20 15:13:04.86] [Worker 1] New coverage: 2158 instr, 1 contracts, 2 seqs in corpus
+[2025-10-20 15:13:04.86] [Worker 0] New coverage: 2158 instr, 1 contracts, 3 seqs in corpus
+[2025-10-20 15:13:04.86] [Worker 3] New coverage: 2194 instr, 1 contracts, 4 seqs in corpus
+[2025-10-20 15:13:04.87] [Worker 3] New coverage: 2312 instr, 1 contracts, 5 seqs in corpus
+[2025-10-20 15:13:04.87] [Worker 0] New coverage: 2450 instr, 1 contracts, 6 seqs in corpus
+[2025-10-20 15:13:04.87] [Worker 1] Test testDeployConsistency(uint256) falsified!
+  Call sequence:
+MultiStrategy_BKR195Test.testBKR195Scenario(1524785992) from: 0x0000000000000000000000000000000000030000 Time delay: 554465 seconds Block delay: 53562
+MultiStrategy_BKR195Test.undeployVulnerable(33080833861006344088778390001309797369393230069228870351053516030660890474587) from: 0x0000000000000000000000000000000000030000 Time delay: 525476 seconds Block delay: 23275
+MultiStrategy_BKR195Test.paused() from: 0x0000000000000000000000000000000000020000 Time delay: 448799 seconds Block delay: 47075
+MultiStrategy_BKR195Test.strategy() from: 0x0000000000000000000000000000000000020000 Time delay: 254414 seconds Block delay: 59983
+MultiStrategy_BKR195Test.testDeployConsistency(4370001) from: 0x0000000000000000000000000000000000030000 Time delay: 512439 seconds Block delay: 255
+
+[2025-10-20 15:13:04.87] [Worker 1] New coverage: 2578 instr, 1 contracts, 7 seqs in corpus
+[2025-10-20 15:13:04.87] [Worker 2] New coverage: 2899 instr, 1 contracts, 8 seqs in corpus
+[2025-10-20 15:13:04.87] [Worker 3] New coverage: 2899 instr, 1 contracts, 9 seqs in corpus
+[2025-10-20 15:13:04.87] [Worker 3] New coverage: 3215 instr, 1 contracts, 10 seqs in corpus
+[2025-10-20 15:13:04.87] [Worker 2] Test testUndeployConsistency(uint256) falsified!
+  Call sequence:
+MultiStrategy_BKR195Test.testBKR195Scenario(1524785992) from: 0x0000000000000000000000000000000000030000 Time delay: 554465 seconds Block delay: 53562
+MultiStrategy_BKR195Test.undeployVulnerable(33080833861006344088778390001309797369393230069228870351053516030660890474587) from: 0x0000000000000000000000000000000000030000 Time delay: 525476 seconds Block delay: 23275
+MultiStrategy_BKR195Test.paused() from: 0x0000000000000000000000000000000000020000 Time delay: 448799 seconds Block delay: 47075
+MultiStrategy_BKR195Test.strategy() from: 0x0000000000000000000000000000000000020000 Time delay: 254414 seconds Block delay: 59983
+MultiStrategy_BKR195Test.testUndeployConsistency(5) from: 0x0000000000000000000000000000000000030000
+
+[2025-10-20 15:13:04.87] [Worker 2] New coverage: 3335 instr, 1 contracts, 11 seqs in corpus
+[2025-10-20 15:13:04.87] [Worker 3] Test limit reached. Stopping.
+[2025-10-20 15:13:04.87] [Worker 0] New coverage: 3337 instr, 1 contracts, 12 seqs in corpus
+[2025-10-20 15:13:04.87] [Worker 0] Test limit reached. Stopping.
+[2025-10-20 15:13:07.37] [Worker 2] Test limit reached. Stopping.
+[2025-10-20 15:13:07.44] [Worker 1] Test limit reached. Stopping.
+[2025-10-20 15:13:07.44] [status] tests: 2/23, fuzzing: 120/100, values: [], cov: 3337, corpus: 12
+totalSupply(): passing
+failureCount(): passing
+testMathOperations(uint256,uint256): passing
+testStateConsistency(): passing
+paused(): passing
+performanceFee(): passing
+testBKR195Scenario(uint256): passing
+owner(): passing
+undeployVulnerable(uint256): passing
+testCount(): passing
+deploy(uint256): passing
+strategy(): passing
+deployedAmount(): passing
+testStateTransitionIntegrity(): passing
+testContractState(): passing
+balance(): passing
+undeployFixed(uint256): passing
+testAccessControl(): passing
+testUndeployConsistency(uint256): failed!💥  
+  Call sequence:
+    MultiStrategy_BKR195Test.testBKR195Scenario(1)
+    MultiStrategy_BKR195Test.testUndeployConsistency(1)
+
+Traces: 
+
+testDeployConsistency(uint256): failed!💥  
+  Call sequence:
+    MultiStrategy_BKR195Test.testBKR195Scenario(1)
+    MultiStrategy_BKR195Test.testDeployConsistency(1)
+
+Traces: 
+
+testPerformanceFeeConsistency(): passing
+testBoundaryConditions(uint256): passing
+AssertionFailed(..): passing
+
+
+Unique instructions: 3337
+Unique codehashes: 1
+Corpus size: 12
+Seed: 210436628883904579
+
