@@ -15,6 +15,13 @@ source ./workspace/codeproject/2-activate-env.sh b-pre-mitigation
 ./workspace/analysis_security_tools/slither/extract-ast.sh b-pre-mitigation
 ./workspace/analysis_security_tools/slither/extract-call-graph.sh b-pre-mitigation
 ./workspace/analysis_security_tools/slither/extract-contract-summary.sh b-pre-mitigation
+./workspace/analysis_security_tools/slither/extract-data-dependency.sh b-pre-mitigation core
+./workspace/analysis_security_tools/slither/extract-data-dependency.sh b-pre-mitigation interfaces
+./workspace/analysis_security_tools/slither/extract-detectors.sh b-pre-mitigation
+./workspace/analysis_security_tools/slither/extract-function-summary.sh b-pre-mitigation
+./workspace/analysis_security_tools/slither/extract-slithir.sh b-pre-mitigation 
+
+
 
 
 # 目标
