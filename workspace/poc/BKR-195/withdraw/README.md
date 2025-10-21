@@ -22,6 +22,6 @@
 node attack_exploit.js --attack all
 
 ## 回归测试
-node regression_test_simple.js --version b-pre-mitigation
-node regression_test_simple.js --version b-post-mitigation
-node regression_test_simple.js --version latest
+- node regression_test_simple.js --version b-pre-mitigation
+- node regression_test_simple.js --version b-post-mitigation
+- node regression_test_simple.js --version latest
