@@ -1,5 +1,6 @@
 # BKR-195 _withdraw 函数漏洞POC
-前置的pipline管道是slither/mythril/echidna，底层发现机制是prompt考虑了slither的结果 + 具体的合约目标文件，决定生成的模糊测试内容。尤其不能生成通用范围测试，而是具体合约文件+具体静态分析结果创建的模糊测试。这是仍然没有被修复的漏洞，保持在最新版本中。
+* 新发现的仍然没有被修复的漏洞，除了b-pre-mitigation，在latest版本中也还存在没被修复。
+* 前置的pipline管道是slither/mythril/echidna，底层发现机制是prompt考虑了slither的结果 + 具体的合约目标文件，决定生成的模糊测试内容。尤其不能生成通用范围测试，而是具体合约文件+具体静态分析结果创建的模糊测试。
 
 
 ## 漏洞描述
