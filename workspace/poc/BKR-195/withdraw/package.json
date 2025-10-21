@@ -1,0 +1,50 @@
+{
+  "name": "bkr195-withdraw-poc",
+  "version": "1.0.0",
+  "description": "BKR-195 _withdraw 函数状态不一致漏洞POC",
+  "main": "bkr195_withdraw_poc.js",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "test": "npx hardhat test",
+    "test:poc": "node bkr195_withdraw_poc.js",
+    "test:b-pre": "node bkr195_withdraw_poc.js --version b-pre-mitigation",
+    "test:b-post": "node bkr195_withdraw_poc.js --version b-post-mitigation",
+    "test:latest": "node bkr195_withdraw_poc.js --version latest",
+    "test:all": "npm run test:b-pre && npm run test:b-post && npm run test:latest"
+  },
+  "keywords": [
+    "bakerfi",
+    "bkr195",
+    "withdraw",
+    "vulnerability",
+    "poc",
+    "solidity",
+    "defi",
+    "hardhat"
+  ],
+  "author": "AI Assistant",
+  "license": "MIT",
+  "dependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "hardhat": "^2.19.0"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
+    "@nomicfoundation/hardhat-ethers": "^3.0.0",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.0",
+    "@typechain/ethers-v6": "^0.4.0",
+    "@typechain/hardhat": "^8.0.0",
+    "@types/chai": "^4.2.0",
+    "@types/mocha": ">=9.1.0",
+    "chai": "^4.2.0",
+    "ethers": "^6.4.0",
+    "hardhat-gas-reporter": "^1.0.8",
+    "solidity-coverage": "^0.8.1",
+    "typechain": "^8.3.0",
+    "typescript": ">=4.5.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

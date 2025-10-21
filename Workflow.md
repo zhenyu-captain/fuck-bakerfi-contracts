@@ -30,4 +30,7 @@ source ./workspace/codeproject/2-activate-env.sh b-pre-mitigation
 ./workspace/analysis_security_tools/echidna/extract-fuzzing.sh b-pre-mitigation core
 
 
-
+# 测试
+source ./workspace/codeproject/2-activate-env.sh b-pre-mitigation
+cd /home/mi/fuck-bakerfi-contracts/workspace/poc/BKR-195 && node bkr195_withdraw_poc.js --version b-pre-mitigation
+cd /home/mi/fuck-bakerfi-contracts/workspace/poc/BKR-195 && node bkr195_withdraw_poc.js --version latest
